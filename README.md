@@ -11,7 +11,8 @@ Mostly, we work with Ruby, but also have some stuff on Scala and Clojure. Even i
 ### Available challenges
 
 #### Development
-[Client from the Bahamas](/1-development/client-from-the-bahamas.md) </br>
+[Client from the Bahamas](/1-development/client-from-the-bahamas.md)
+
 [List Posts by Ratings](/1-development/list_posts_by_rating.md)
 
 
