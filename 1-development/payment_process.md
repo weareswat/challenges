@@ -2,7 +2,7 @@
 
 Hi there! This challenge contains the description of a problem that has come up while working at InvoiceXpress.
 
-This is the last phase our recruiting process. To do this, we would like to challenge you to collaborate with us on solving a problem that we've encountered before.
+This is the last phase of our recruiting process. To do this, we would like to challenge you to collaborate with us on solving a problem that we've encountered before.
 
 This is not an exam, so there are no right or wrong solutions. It’s just a way for us to work together solving a problem. This way, you also get an idea of the type of things we do at InvoiceXpress.
 
@@ -11,11 +11,11 @@ With this challenge we want to see your working style, how you solve problems an
 ###Next Steps
 
 1. Read the problem.
-2. Visit our website (invoicexpress.com) and create an account.
+2. Visit our website (https://www.invoicexpress.com) and create an account.
 3. You can use the HipChat channel to discuss the problem at hand or for asking questions.
 4. Solve the problem any way you like, but do the best you can. This means you can use any tools.
 5. After you finished we want a demo, at our office, with your process and solution. You can use any resources existing in our office (printer/ tv/ flipchart, etc).
-6. The challenge should be delivered until April 4th. You have one week to work in your solution.
+6. The challenge should be delivered until **April 4th**.
 7. Have fun!
 
 ###The Problem
