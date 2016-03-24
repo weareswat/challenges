@@ -1,5 +1,5 @@
 # Challenges
-Code challenges for developers and designers
+Code challenges for developers and designers.
 
 We believe recruitment is the most critical part of an organization. People should experience some time working together before deciding on making it permanent.
 This repo contains code challenges we'd like to see solved by people interested in working with us.
