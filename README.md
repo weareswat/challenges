@@ -1,11 +1,11 @@
 # Challenges
-Code challenges for developers
+Code challenges for developers and designers
 
 We believe recruitment is the most critical part of an organization. People should experience some time working together before deciding on making it permanent.
 This repo contains code challenges we'd like to see solved by people interested in working with us.
 
 We tend not to place job ads, as we prefer references and proactive candidates. With this in mind, feel free to take a challenge and let us know you're working on it.
-Mostly, we work with Ruby, but also have some stuff on Scala and Clojure. Even if you don't have experience in these technologies, as long as you are willing to learn them and want to build great stuff for the web, we can probably be a good fit.
+Mostly, we work with Ruby, but also have some stuff on Clojure and Node.js. Even if you don't have experience in these technologies, as long as you are willing to learn them and want to build great stuff for the web, we can probably be a good fit.
 
 
 ### Available challenges
@@ -14,6 +14,9 @@ Mostly, we work with Ruby, but also have some stuff on Scala and Clojure. Even i
 [Client from the Bahamas](/1-development/client-from-the-bahamas.md)
 
 [List Posts by Ratings](/1-development/list_posts_by_rating.md)
+
+#### UI/UX
+[Payment Process](/2-design/payment_process.md)
 
 
 ### How we work ##
@@ -30,7 +33,7 @@ Mostly, we work with Ruby, but also have some stuff on Scala and Clojure. Even i
 
 * **Deployments** - we use capistrano. Nothing, and we mean nothing, gets deployed without passing the 2 above items.
 
-* **HipChat** - we mostly communicate asynchronously between the development team and with other teams. This is our chat tool. Abuse it.
+* **Slack** - we mostly communicate asynchronously between the development team and with other teams. This is our chat tool. Abuse it.
 
 * **Asana and Trello** - we use Asana for discussing features we'd like to see in InvoiceXpress. This includes people from other teams joining the discussions. Once we decide what to build on a sprint, we create the sprint backlog items in Trello and stay focused there until end of sprint.
 
