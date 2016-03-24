@@ -16,7 +16,7 @@ Mostly, we work with Ruby, but also have some stuff on Clojure and Node.js. Even
 [List Posts by Ratings](/1-development/list_posts_by_rating.md)
 
 #### UI/UX
-[Payment Process](/2-design/payment_process.md)
+[Payment Process](/1-development/payment_process.md)
 
 
 ### How we work ##
