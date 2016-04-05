@@ -6,7 +6,7 @@ This is the last phase of our recruiting process. To do this, we would like to c
 
 This is not an exam, so there are no right or wrong solutions. It’s just a way for us to work together solving a problem. This way, you also get an idea of the type of things we do at InvoiceXpress.
 
-With this challenge we want to see your working style, how you solve problems and how you communicate. We also expect you to understand how we work as a team and the types of problems we usually have to deal with.
+With this challenge we'd like to see your working style, how you solve problems and how you communicate. We also expect you to understand how we work as a team and the types of problems we usually have to deal with.
 
 ###Next Steps
 
@@ -14,9 +14,7 @@ With this challenge we want to see your working style, how you solve problems an
 2. Visit our website (https://www.invoicexpress.com) and create an account.
 3. You can use the HipChat channel to discuss the problem at hand or for asking questions.
 4. Solve the problem any way you like, but do the best you can. This means you can use any tools.
-5. After you finished we want a demo, at our office, with your process and solution. You can use any resources existing in our office (printer/ tv/ flipchart, etc).
-6. The challenge should be delivered until **April 4th**.
-7. Have fun!
+5. Have fun!
 
 ###The Problem
 InvoiceXpress has free trial accounts for users to experiment our app and see how simple it is.
@@ -25,7 +23,7 @@ After 30 days users need to choose:
 * The best plan to fit their need: (small / medium / big)
 * Payment duration: (monthly / annually / bi-annually)
 * Payment Type: ( MB (Multibanco) / Paypal / Credit card / Bank account transfer)
- 
+
 For this challenge we want you to work on the interface for better usability and scalability for each payment type, from the beginning of the buying process till the conclusion of it.
 
 User Stories:
