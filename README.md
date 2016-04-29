@@ -11,12 +11,12 @@ Mostly, we work with Ruby, but also have some stuff on Clojure and Node.js. Even
 ### Available challenges
 
 #### Development
-[Client from the Bahamas](/1-development/client-from-the-bahamas.md)
-
-[List Posts by Ratings](/1-development/list_posts_by_rating.md)
+* [User Changes](/1-development/user-changes.md)
+* [Client from the Bahamas](/1-development/client-from-the-bahamas.md)
+* [List Posts by Ratings](/1-development/list_posts_by_rating.md)
 
 #### UI/UX
-[Payment Process](/2-ux/payment_process.md)
+* [Payment Process](/2-ux/payment_process.md)
 
 
 ### How we work ##
