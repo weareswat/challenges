@@ -46,3 +46,4 @@ the changes based on a start/end date filter.
 
 * Please implement the diff algorithm without extra libraries
 * Please use some sort of database
+* Please create a Pull Request with your changes, starting after project bootstrap
