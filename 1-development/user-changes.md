@@ -43,3 +43,6 @@ If we filter for March, we should get only one change:
 
 Create two endpoints, one to register the changes, and another to list
 the changes based on a start/end date filter.
+
+* Please implement the diff algorithm without extra libraries
+* Please use some sort of database
