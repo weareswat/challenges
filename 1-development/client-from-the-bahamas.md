@@ -23,6 +23,6 @@ We'd like to see a working web app, with the requested endpoints (Store Client, 
 
 Please mock external service calls instead of calling the actual services. This includes InvoiceXpress API (if you decide to use it) and the bahamas.gov site.
 
-We'd like to see how communication happens between us. Please use github and/or the provided HipChat room (ask us for one) for questions. 
+We'd like to see how communication happens between us. Please use GitHub.
 
 Tech stack: please use Ruby / Rails.
