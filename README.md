@@ -33,6 +33,6 @@ Mostly, we work with Ruby and Clojure, but also have some stuff in Node.js. Even
 
 * **Slack** - we mostly communicate asynchronously between the development team and with other teams. This is our chat tool. Abuse it.
 
-* **Trello** - once we decide what to build on a sprint, we create the sprint backlog items in Trello and stay focused there until the end of the sprint.
+* **Pivotal Tracker** - our products' backlog is managed in Pivotal Tracker. Once we estimate all known user-stories, the sprint backlog is automatically built. Each team member will select a user-story to work from that sprint backlog and will update the needed tasks' status. This way we keep focused until the end of the sprint.
 
 * **Support tasks** - We are paranoid about providing top notch support to our customers. We have a dedicated customer support team working full-time communicating with clients. Our development team works very closely with the customer support team delivering happiness to our clients.
