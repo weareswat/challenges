@@ -1,0 +1,10 @@
+.InvoicesTable {
+  font-weight: normal;
+  width: inherit;
+  text-align: inherit;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  
+  /* Display as row */
+  display: inline-flex;
+}
