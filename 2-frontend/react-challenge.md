@@ -3,11 +3,11 @@
 We want you to solve a problem that we had at invoicexpress.
 
 
-## The problem
+## 1 The problem
 
 We want to display a **list** of **invoices**, and be able to **filter** and **paginate** that list.
 
-### Information displayed on the list
+### 1.2 Information displayed on the list
 
 Each **invoice** has the following information:
 
@@ -18,7 +18,7 @@ Each **invoice** has the following information:
 * Date
 * Total without VAT
 
-### Filtering capabilities
+### 1.3 Filtering capabilities
 
 We want the user to be able to filter by any of the invoice fields.
 That means filter by:
@@ -30,25 +30,29 @@ That means filter by:
 * Date
 * Total without VAT
 
-### Pagination
+### 1.4 Pagination
 
-* Assume we only show **10 documents** for each batch
+* Assume we only show **7 documents** for each batch
 
-## Implementation
+## 2 Implementation
 
 * Use the `documents.json` file as the information source of your data
   * Ideally this information would come from our API, but for now just paste this JSON somewhere in your code and fake an API call
   * Don't like our `documents.json` format? You're free to change the JSON specification as you see fit
 * You're free to design and display the information as you see fit (toggle, dropdown, sliders, etc)
 
-## How to submit your solution:
+## 3 What we value
 
-* Either create a repo, or give us your github user so we can add you to this repo
-  * If you're dded to this repo, create another branch, another folder, and work there
-* Submit your solution by creating a Pull Request(PR)
+* Code organization
+* Tests
+* Good documentation
+
+## 4 How to submit your solution:
+
+* Create a public repository
+  * Create a PR where we can see the code and comment
   * Use a branching structure that makes it easier for us to review your work
-  * You can create as many PR as you like
-
+* Deploy your solution to github pages
 
 Best of luck!
 Any question don't hesitate to contact us!
