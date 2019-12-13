@@ -1,0 +1,100 @@
+{
+  "documents": [
+    {
+      "status": "Final",
+      "type": "Invoice",
+      "number": "2019/11",
+      "client_name": "Elon Tusk",
+      "date": "2019-02-31",
+      "total_w_vat": 123.42
+    },
+    {
+      "status": "Draft",
+      "type": "Invoice-Receipt",
+      "number": "Draft",
+      "client_name": "Elon Tusk",
+      "date": "2019-02-01",
+      "total_w_vat": 13.11
+    },
+    {
+      "status": "Final",
+      "type": "Invoice",
+      "number": "2019/12",
+      "client_name": "Elon Tusk",
+      "date": "2019-02-31",
+      "total_w_vat": 123.42
+    },
+    {
+      "status": "Final",
+      "type": "Invoice",
+      "number": "2019/13",
+      "client_name": "Elon Tusk",
+      "date": "2019-02-31",
+      "total_w_vat": 123.42
+    },
+    {
+      "status": "Cancelled",
+      "type": "Invoice",
+      "number": "2019/14",
+      "client_name": "Elon Tusk",
+      "date": "2019-02-21",
+      "total_w_vat": 50.00
+    },
+    {
+      "status": "Paid",
+      "type": "Invoice-Receipt",
+      "number": "2019/15",
+      "client_name": "Elon Tusk",
+      "date": "2019-03-01",
+      "total_w_vat": 1223.42
+    },
+    {
+      "status": "Final",
+      "type": "Receipt",
+      "number": "2019/16",
+      "client_name": "Rick Sanchez",
+      "date": "2019-03-21",
+      "total_w_vat": 4234.33
+    },
+    {
+      "status": "Final",
+      "type": "Invoice",
+      "number": "2019/17",
+      "client_name": "Elon Tusk",
+      "date": "2019-02-31",
+      "total_w_vat": 123.42
+    },
+    {
+      "status": "Paid",
+      "type": "Invoice",
+      "number": "2019/18",
+      "client_name": "Morty Smith",
+      "date": "2019-03-31",
+      "total_w_vat": 1223.42
+    },
+    {
+      "status": "Final",
+      "type": "Invoice-Receipt",
+      "number": "2019/19",
+      "client_name": "Elon Tusk",
+      "date": "2019-02-31",
+      "total_w_vat": 123.42
+    },
+    {
+      "status": "Final",
+      "type": "Invoice",
+      "number": "2019/20",
+      "client_name": "Elon Tusk",
+      "date": "2019-02-31",
+      "total_w_vat": 123.42
+    },
+    {
+      "status": "Cancelled",
+      "type": "Invoice-Receipt",
+      "number": "2019/21",
+      "client_name": "Rick Sanchez",
+      "date": "2019-02-31",
+      "total_w_vat": 23.42
+    }
+  ]
+}
