@@ -10,13 +10,13 @@ Mostly, we work with Ruby and Clojure, but also have some stuff in Node.js. Even
 
 ### Available challenges
 
-#### Development
+#### Backend Development
 * [User Changes](/1-development/user-changes.md)
 * [Client from the Bahamas](/1-development/client-from-the-bahamas.md)
 * [List Posts by Ratings](/1-development/list_posts_by_rating.md)
 
-#### UI/UX
-* [Payment Process](/2-ux/payment_process.md)
+#### Frontend Development
+* [React Challenge](/2-frontend/react-challenge.md)
 
 
 ### How we work ##
