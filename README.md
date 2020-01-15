@@ -17,6 +17,7 @@ Mostly, we work with Ruby and Clojure, but also have some stuff in Node.js. Even
 
 #### Frontend Development
 * [React Challenge](/2-frontend/react-challenge.md)
+* [Design Implementation Challenge](/3-design-frontend/design-frontend-challenge.md)
 
 
 ### How we work ##
