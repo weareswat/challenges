@@ -5,7 +5,7 @@ We want you to explore how can we interact with live previews.
 
 ## 1 The problem
 
-We want to create an interaction transition between screens and be able to live update the Country and NIF (step 1), as well as the invoice logo (step 2) represented by a green circle in the right side illustration.
+We want to create an interaction transition between screens and be able to live update the Country and NIF (step 1), as well as the invoice "logo" color (step 2) represented by a green circle in the right side illustration.
 
 ## 2 Implementation
 
