@@ -1,0 +1,31 @@
+version: '3'
+services:
+  rupeal-challenge:
+    build: .
+    command: npm run debug
+    ports:
+      - '8080:8080'
+      - '5399:5399'
+    environment:
+      NODE_ENV: development
+      DB_PASSWORD: supersecret
+      DB_USER: rupeal
+      DB_NAME: rupeal_challenge
+      DB_HOST: rupeal-challenge-db
+    restart: always
+    volumes:
+      - .:/app/
+    depends_on:
+      - rupeal-challenge-db
+    links:
+      - rupeal-challenge-db
+
+  rupeal-challenge-db:
+    image: postgres:alpine
+    restart: always
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_PASSWORD: supersecret
+      POSTGRES_USER: rupeal
+      POSTGRES_DB: rupeal_challenge

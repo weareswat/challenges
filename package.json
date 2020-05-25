@@ -1,0 +1,44 @@
+{
+  "name": "rupeal-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc -w",
+    "clean": "rm -rf build node_modules",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "debug": "ts-node-dev --transpileOnly --inspect=0.0.0.0:5399 -- src/index.ts --no-graceful-shutdown"
+  },
+  "author": "ngpbento@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "@types/hapi__joi": "16",
+    "@types/jest": "^25.2.3",
+    "@types/node": "^14.0.5",
+    "@types/rewire": "^2.5.28",
+    "@types/uuid": "^8.0.0",
+    "jest": "^26.0.1",
+    "jest-express": "^1.12.0",
+    "rewire": "^5.0.0",
+    "ts-jest": "^26.0.0",
+    "ts-node": "^8.10.1",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.9.3"
+  },
+  "dependencies": {
+    "@hapi/joi": "16",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-joi-validation": "^4.0.3",
+    "joi": "^14.3.1",
+    "knex": "^0.21.1",
+    "pg": "^8.2.1",
+    "uuid": "^8.1.0"
+  }
+}
