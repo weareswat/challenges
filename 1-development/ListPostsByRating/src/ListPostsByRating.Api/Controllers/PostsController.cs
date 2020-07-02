@@ -1,4 +1,5 @@
 ﻿using Api.DTOs;
+using Api.Exceptions;
 using Api.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -6,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace Api.Controllers
 {
-    [Route("[controller]")]
     [ApiController]
     public class PostsController : ControllerBase
     {
@@ -17,22 +17,39 @@ namespace Api.Controllers
             _postService = postService ?? throw new System.ArgumentNullException(nameof(postService));
         }
 
-        [HttpGet]
+        [HttpGet("posts")]
         public async Task<IEnumerable<PostDto>> Get()
         {
             return await _postService.GetAllPostsAsync();
         }
 
         [HttpPut("upvote/{postId}")]
-        public async Task<PostDto> Upvote(int id)
+        public async Task<IActionResult> Upvote(int postId)
         {
-            return await _postService.UpVotePostAsync(id);
+            try
+            {
+                var result = await _postService.UpVotePostAsync(postId);
+                return base.Ok(result);
+            }
+            catch (PostNotFoundException)
+            {
+
+                return base.NotFound();
+            }
         }
 
         [HttpPut("downvote/{postId}")]
-        public async Task<PostDto> Downvote(int id)
+        public async Task<IActionResult> Downvote(int postId)
         {
-            return await _postService.UpVotePostAsync(id);
+            try
+            {
+                var result = await _postService.UpVotePostAsync(postId);
+                return base.Ok(result);
+            }
+            catch (PostNotFoundException)
+            {
+                return base.NotFound();
+            }
         }
     }
 }

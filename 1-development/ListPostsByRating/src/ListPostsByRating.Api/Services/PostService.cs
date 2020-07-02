@@ -37,8 +37,11 @@ namespace Api.Services
 
         public async Task<IEnumerable<PostDto>> GetAllPostsAsync()
         {
-            var results = await _postsRepository.GetAllAsync().ConfigureAwait(false);
-            return results.Select(post => post.ToPostDto());
+            var results = await _postsRepository.GetAllAsync()
+                .ConfigureAwait(false);
+            var orderedPosts = results.OrderByDescending(post => post.Ratio)
+                .ThenByDescending(post => post.DiffVotes);
+            return orderedPosts.Select(post => post.ToPostDto());
         }
 
         public async Task<PostDto> UpVotePostAsync(int id)
