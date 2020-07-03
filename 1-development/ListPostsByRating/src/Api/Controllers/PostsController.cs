@@ -1,8 +1,6 @@
-﻿using Api.DTOs;
-using Api.Exceptions;
+﻿using Api.Exceptions;
 using Api.Services;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Api.Controllers
@@ -18,9 +16,10 @@ namespace Api.Controllers
         }
 
         [HttpGet("posts")]
-        public async Task<IEnumerable<PostDto>> Get()
+        public async Task<IActionResult> Get()
         {
-            return await _postService.GetAllPostsAsync();
+            var result = await _postService.GetAllPostsAsync();
+            return base.Ok(result);
         }
 
         [HttpPut("upvote/{postId}")]
