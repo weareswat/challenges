@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "src\ListPostsByRating.Api\Api.csproj", "{5ED069D8-AD41-414C-81EC-D52BFC4FA258}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.UnitTests", "src\ListPostsByRating.Api.UnitTests\Api.UnitTests\Api.UnitTests.csproj", "{E50E0939-8BF5-4F58-A0AF-56BE1DEF34B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.UnitTests", "src\ListPostsByRating.Api.UnitTests\Api.UnitTests\Api.UnitTests.csproj", "{E50E0939-8BF5-4F58-A0AF-56BE1DEF34B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.IntegrationTests", "src\ListPostsByRating.Api.IntegrationTests\Api.IntegrationTests\Api.IntegrationTests.csproj", "{9C39EF21-E368-4755-A5D9-0BA41B191A56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{E50E0939-8BF5-4F58-A0AF-56BE1DEF34B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E50E0939-8BF5-4F58-A0AF-56BE1DEF34B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E50E0939-8BF5-4F58-A0AF-56BE1DEF34B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C39EF21-E368-4755-A5D9-0BA41B191A56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C39EF21-E368-4755-A5D9-0BA41B191A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C39EF21-E368-4755-A5D9-0BA41B191A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C39EF21-E368-4755-A5D9-0BA41B191A56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -15,18 +15,7 @@ namespace Api.Data
 
     public class PostsRepository : IPostsRepository
     {
-        private static readonly List<Post> _posts = new List<Post>();
-
-        static PostsRepository()
-        {
-            // Seed in memory database with 3 posts
-            _posts.AddRange(new Post[]
-            {
-                new Post { Id = 1 },
-                new Post { Id = 2 },
-                new Post { Id = 3 }
-            });
-        }
+        private readonly List<Post> _posts = new List<Post>();
 
         public async Task<IEnumerable<Post>> GetAllAsync()
         {
@@ -41,6 +30,11 @@ namespace Api.Data
                 return await Task.FromResult(postFound);
             }
             throw new PostNotFoundException();
+        }
+
+        public void Seed(IEnumerable<Post> posts)
+        {
+            _posts.AddRange(posts);
         }
 
         public async Task<Post> UpdateAsync(Post updated)

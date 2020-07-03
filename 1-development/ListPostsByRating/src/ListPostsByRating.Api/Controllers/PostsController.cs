@@ -43,7 +43,7 @@ namespace Api.Controllers
         {
             try
             {
-                var result = await _postService.UpVotePostAsync(postId);
+                var result = await _postService.DownVotePostAsync(postId);
                 return base.Ok(result);
             }
             catch (PostNotFoundException)
