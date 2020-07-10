@@ -6,7 +6,8 @@
       "number": "2019/11",
       "client_name": "Elon Tusk",
       "date": "2019-02-31",
-      "total_w_vat": 123.42
+      "total_w_vat": 123.42,
+      "id": 1
     },
     {
       "status": "Draft",
@@ -14,7 +15,8 @@
       "number": "Draft",
       "client_name": "Rick Sanchez",
       "date": "2019-02-01",
-      "total_w_vat": 13.11
+      "total_w_vat": 13.11,
+      "id": 2
     },
     {
       "status": "Final",
@@ -22,7 +24,8 @@
       "number": "2019/12",
       "client_name": "Rick Sanchez",
       "date": "2019-02-31",
-      "total_w_vat": 123.42
+      "total_w_vat": 123.42,
+      "id": 3
     },
     {
       "status": "Final",
@@ -30,7 +33,8 @@
       "number": "2019/13",
       "client_name": "Jerry Smith",
       "date": "2019-02-31",
-      "total_w_vat": 123.42
+      "total_w_vat": 123.42,
+      "id": 4
     },
     {
       "status": "Cancelled",
@@ -38,7 +42,8 @@
       "number": "2019/14",
       "client_name": "Elon Tusk",
       "date": "2019-02-21",
-      "total_w_vat": 54.01
+      "total_w_vat": 54.01,
+      "id": 5
     },
     {
       "status": "Paid",
@@ -46,7 +51,8 @@
       "number": "2019/15",
       "client_name": "Elon Tusk",
       "date": "2019-03-01",
-      "total_w_vat": 1223.42
+      "total_w_vat": 1223.42,
+      "id": 6
     },
     {
       "status": "Final",
@@ -54,7 +60,8 @@
       "number": "2019/16",
       "client_name": "Rick Sanchez",
       "date": "2019-03-21",
-      "total_w_vat": 4234.33
+      "total_w_vat": 4234.33,
+      "id": 7
     },
     {
       "status": "Final",
@@ -62,7 +69,8 @@
       "number": "2019/17",
       "client_name": "Elon Tusk",
       "date": "2019-02-31",
-      "total_w_vat": 3264.42
+      "total_w_vat": 3264.42,
+      "id": 8
     },
     {
       "status": "Paid",
@@ -70,7 +78,8 @@
       "number": "2019/18",
       "client_name": "Morty Smith",
       "date": "2019-03-31",
-      "total_w_vat": 1223.42
+      "total_w_vat": 1223.42,
+      "id": 9
     },
     {
       "status": "Final",
@@ -78,7 +87,8 @@
       "number": "2019/19",
       "client_name": "Morty Smith",
       "date": "2019-02-31",
-      "total_w_vat": 3456.42
+      "total_w_vat": 3456.42,
+      "id": 10
     },
     {
       "status": "Final",
@@ -86,7 +96,8 @@
       "number": "2019/20",
       "client_name": "Morty Smith",
       "date": "2019-02-31",
-      "total_w_vat": 2355.42
+      "total_w_vat": 2355.42,
+      "id": 11
     },
     {
       "status": "Cancelled",
@@ -94,7 +105,8 @@
       "number": "2019/21",
       "client_name": "Rick Sanchez",
       "date": "2019-02-31",
-      "total_w_vat": 23.42
+      "total_w_vat": 23.42,
+      "id": 12
     },
     {
       "status": "Final",
@@ -102,7 +114,8 @@
       "number": "2019/22",
       "client_name": "Elon Tusk",
       "date": "2019-02-31",
-      "total_w_vat": 13.42
+      "total_w_vat": 13.42,
+      "id": 13
     },
     {
       "status": "Final",
@@ -110,7 +123,8 @@
       "number": "2016/23",
       "client_name": "Morty Smith",
       "date": "2016-02-31",
-      "total_w_vat": 1523.42
+      "total_w_vat": 1523.42,
+      "id": 14
     },
     {
       "status": "Final",
@@ -118,7 +132,8 @@
       "number": "2019/23",
       "client_name": "Jerry Smith",
       "date": "2019-02-31",
-      "total_w_vat": 6342.42
+      "total_w_vat": 6342.42,
+      "id": 15
     },
     {
       "status": "Final",
@@ -126,7 +141,8 @@
       "number": "2017/11",
       "client_name": "Jerry Smith",
       "date": "2017-02-31",
-      "total_w_vat": 32.21
+      "total_w_vat": 32.21,
+      "id": 16
     },
     {
       "status": "Final",
@@ -134,7 +150,8 @@
       "number": "2016/24",
       "client_name": "Morty Smith",
       "date": "2016-02-31",
-      "total_w_vat": 3255.42
+      "total_w_vat": 3255.42,
+      "id": 17
     },
     {
       "status": "Final",
@@ -142,7 +159,8 @@
       "number": "2019/24",
       "client_name": "Morty Smith",
       "date": "2019-02-31",
-      "total_w_vat": 734.32
+      "total_w_vat": 734.32,
+      "id": 18
     },
     {
       "status": "Final",
@@ -150,7 +168,8 @@
       "number": "2019/25",
       "client_name": "Jerry Smith",
       "date": "2019-02-31",
-      "total_w_vat": 467.42
+      "total_w_vat": 467.42,
+      "id": 19
     },
     {
       "status": "Final",
@@ -158,7 +177,8 @@
       "number": "2016/25",
       "client_name": "Morty Smith",
       "date": "2016-02-31",
-      "total_w_vat": 23.12
+      "total_w_vat": 23.12,
+      "id": 20
     },
     {
       "status": "Final",
@@ -166,7 +186,8 @@
       "number": "2019/26",
       "client_name": "Morty Smith",
       "date": "2019-02-31",
-      "total_w_vat": 23.42
+      "total_w_vat": 23.42,
+      "id": 21
     },
     {
       "status": "Cancelled",
@@ -174,7 +195,8 @@
       "number": "2016/26",
       "client_name": "Morty Smith",
       "date": "2016-03-10",
-      "total_w_vat": 3.42
+      "total_w_vat": 3.42,
+      "id": 22
     }
   ]
 }

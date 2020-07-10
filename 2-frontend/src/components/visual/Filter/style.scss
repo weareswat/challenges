@@ -1,0 +1,15 @@
+.filter-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.filter-select {
+  flex: 1 1 0;
+}
+
+.filter-input {
+  flex: 1 1 0;
+  margin-left: 10px;
+  padding-left: 10px;
+}

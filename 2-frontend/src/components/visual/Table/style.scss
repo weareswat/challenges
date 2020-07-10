@@ -1,0 +1,41 @@
+$background-color: #DDEFEF;
+$border-color: #DDEEEE;
+
+%cell {
+  background-color: $background-color;
+  border: solid 1px $border-color;
+  padding: 10px;
+  text-align: center;
+  text-shadow: 1px 1px 1px #fff;
+  display: table-cell;
+}
+
+.table {
+  width: 100%;
+  border: 1px solid $border-color;
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: table;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.tr {
+  background-color: $background-color;
+  border: 1px solid $border-color;
+  color: #336B6B;
+  padding: 10px;
+  display: table-row; 
+}
+
+.td-title {
+  @extend %cell;
+  color: #333333;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.td {
+  @extend %cell;
+  color: #336B6B;
+}

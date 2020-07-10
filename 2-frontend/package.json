@@ -1,0 +1,68 @@
+{
+  "homepage": "http://jrpf94.github.io/challenges",
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "InvoiceXpress react challenge",
+  "main": "index.js",
+  "jest": {
+    "testRegex": "(/tests.*|\\.(test))\\.(js|jsx)$",
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "setupFiles": [
+      "./src/setupTests.js"
+    ],
+    "setupFilesAfterEnv": [
+      "./src/setupTestsAfterEnv.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(scss)$": "<rootDir>/src/mocks/styleMock.js"
+    }
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "start": "webpack-dev-server --mode development --open --hot --port 3000",
+    "build": "webpack --mode production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "keywords": [
+    "react",
+    "invoicexpress",
+    "challenge"
+  ],
+  "author": "jrpf94",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^26.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^3.6.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "gh-pages": "^3.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "jest": "^26.1.0",
+    "jest-react-hooks-shallow": "^1.4.1",
+    "sass-loader": "^9.0.1",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "node-sass": "^4.14.1",
+    "prop-types": "^15.7.2",
+    "ramda": "^0.27.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-select": "^3.1.0"
+  }
+}

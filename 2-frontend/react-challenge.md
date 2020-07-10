@@ -56,3 +56,17 @@ That means filter by:
 
 Best of luck!
 Any question don't hesitate to contact us!
+
+## 5 About the solution
+Install node modules
+`$ npm install`
+
+To run the solution
+`$ npm start`
+The web app will be available in localhost:3000
+
+The solution is also available in https://jrpf94.github.io/challenges/. If it gives you 404 Not Found, please try to add `/index.html` to the end of the url. While deploying to github pages, I found that sometimes it was not available in the default URL.
+
+To run the unit tests
+`$ npm test`
+
