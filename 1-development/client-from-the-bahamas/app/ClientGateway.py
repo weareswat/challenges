@@ -15,6 +15,16 @@ def register(invoice_id):
     for key in NEEDED_ARGS:
         if key not in request.args:
             return "Missing or invalid argument. Please check if all parameters are correct", 400
+    cl_email = request.args['email']
+    cl_fiscal = request.args['fiscal_id']
+    cl_name = request.args['name']
+
+    client = Client.query.filter(Client.email == cl_email).first()
+    if client is None:
+        client = Client(fiscal_id=cl_fiscal, email=cl_email, name=cl_name)
+        db.session.add(client)
+        db.session.commit()
+    print(client)
     return request.args, 200
 
 
