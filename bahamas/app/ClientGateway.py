@@ -20,13 +20,19 @@ def register(invoice):
     cl_fiscal = request.args['fiscal_id']
     cl_name = request.args['name']
 
-    response = "Something Happened"
-    if valid_name(cl_name) and valid_email(cl_email) \
-            and valid_fiscal_id(cl_fiscal) and valid_invoice(invoice):
+    response = None
+    if valid_name(cl_name) and valid_email(cl_email) and valid_fiscal_id(cl_fiscal) and valid_invoice(invoice):
         client = Client.query.filter(Client.email == cl_email).first()
         if client is None:
             client = Client(fiscal_id=cl_fiscal, email=cl_email, name=cl_name)
             db.session.add(client)
+            r = requests.get("http://127.0.0.1:8000/mockup-bahamas?invoice={}&fiscal_id={}&name={}&email={}".format(invoice, cl_fiscal, cl_name, cl_email))
+            db.session.commit()
+            return Response(
+                r.text,
+                status=r.status_code,
+                content_type=r.headers['content-type']
+            )
         else:
             client.name, client.fiscal_id = cl_name, cl_fiscal
         invoice_q = Invoice.query.filter(Invoice.invoice_id == invoice).first()
@@ -63,6 +69,10 @@ def retrieve(invoice_id):
             return client_info, 200
     return "No invoices with that id", 404
 
+
+@app.route('/mockup-bahamas')
+def mochup_bahamas():
+    return request.args, 200
 
 def valid_invoice(id):
     regex = '^[0-9]*$'
