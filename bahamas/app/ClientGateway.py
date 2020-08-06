@@ -1,31 +1,41 @@
-import os
 import re
 
-from app import app
+from bahamas.app import app
 from flask import request
 
-from app import db
-from app.models import Client, Invoice
+from bahamas.app import db
+from bahamas.app.models import Client, Invoice
 
 NEEDED_ARGS = ['email', 'fiscal_id', 'name']
 
 
-@app.route('/store-bahamas-client/<invoice_id>')
-def register(invoice_id):
+@app.route('/store-bahamas-client/<invoice>')
+def register(invoice):
     for key in NEEDED_ARGS:
         if key not in request.args:
             return "Missing or invalid argument. Please check if all parameters are correct", 400
+
     cl_email = request.args['email']
     cl_fiscal = request.args['fiscal_id']
     cl_name = request.args['name']
 
-    client = Client.query.filter(Client.email == cl_email).first()
-    if client is None:
-        client = Client(fiscal_id=cl_fiscal, email=cl_email, name=cl_name)
-        db.session.add(client)
+    if valid_name(cl_name) and valid_email(cl_email) and valid_fiscal_id(cl_fiscal):
+        client = Client.query.filter(Client.email == cl_email).first()
+        if client is None:
+            client = Client(fiscal_id=cl_fiscal, email=cl_email, name=cl_name)
+            db.session.add(client)
+
+        invoice_q = Invoice.query.filter(Invoice.invoice_id == invoice).first()
+        if invoice_q is not None:
+            return "The provided invoice already has a second user", 200
+        else:
+            invoice = Invoice(invoice_id=invoice, rel_sec_client=client)
+            db.session.add(invoice)
+        print(client)
         db.session.commit()
-    print(client)
-    return request.args, 200
+        return request.args, 200
+    else:
+        return "Please check your parameters and try again", 400
 
 
 @app.route('/retrieve-bahamas-client/<invoice_id>')

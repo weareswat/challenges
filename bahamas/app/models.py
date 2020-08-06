@@ -1,4 +1,4 @@
-from app import db
+from bahamas.app import db
 
 
 class Client(db.Model):
@@ -6,7 +6,7 @@ class Client(db.Model):
     fiscal_id = db.Column(db.String(20), unique=True)
     email = db.Column(db.String(120), unique=True)
     name = db.Column(db.String(64))
-    invoices = db.relationship('Invoice', backref='sec_client', lazy='dynamic')
+    invoices = db.relationship('Invoice', backref='rel_sec_client', lazy='dynamic')
 
     def __repr__(self):
         return '<User {}>'.format(self.email)

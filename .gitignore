@@ -127,6 +127,6 @@ dmypy.json
 # Pycharm
 .idea/
 
-1-development/client-from-the-bahamas/flask
-1-development/client-from-the-bahamas/app.db
-1-development/client-from-the-bahamas/migrations
+bahamas/flask
+bahamas/app.db
+migrations

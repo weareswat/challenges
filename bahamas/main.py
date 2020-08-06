@@ -1,4 +1,4 @@
-from app import app
+from bahamas.app import app
 
 if __name__ == '__main__':
     from argparse import ArgumentParser
