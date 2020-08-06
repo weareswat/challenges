@@ -26,3 +26,5 @@ You should be doing the solution on a specific branch. Once you have something t
 
 - Clean code, we want you to show us the best code you can do
 - If you are familiar with TDD, BDD or any testing process, please show us your skills
+
+Tech stack: please use preferably Ruby / Rails or JAVA, but if you are more versatile in a different tech stack, you may use one of your choice.
