@@ -1,11 +1,10 @@
-import re
-
 from bahamas.app import app
 from flask import request, Response
 import requests
 
 from bahamas.app import db
 from bahamas.app.models import Client, Invoice
+from bahamas.app.validations import *
 
 NEEDED_ARGS = ['email', 'fiscal_id', 'name']
 
@@ -21,13 +20,12 @@ def register(invoice):
     cl_name = request.args['name']
 
     response = None
-    if valid_name(cl_name) and valid_email(cl_email) and valid_fiscal_id(cl_fiscal) and valid_invoice(invoice):
+    if name_is_valid(cl_name) and email_is_valid(cl_email) and fiscal_id_is_valid(cl_fiscal) and invoice_is_valid(invoice):
         client = Client.query.filter(Client.email == cl_email).first()
         if client is None:
             client = Client(fiscal_id=cl_fiscal, email=cl_email, name=cl_name)
             db.session.add(client)
             r = requests.get("http://127.0.0.1:8000/mockup-bahamas?invoice={}&fiscal_id={}&name={}&email={}".format(invoice, cl_fiscal, cl_name, cl_email))
-            db.session.commit()
             return Response(
                 r.text,
                 status=r.status_code,
@@ -57,7 +55,7 @@ def register(invoice):
 
 @app.route('/retrieve-bahamas-client/<invoice_id>')
 def retrieve(invoice_id):
-    if valid_invoice(invoice_id):
+    if invoice_is_valid(invoice_id):
         invoice_q = Invoice.query.filter(Invoice.invoice_id == invoice_id).first()
         if invoice_q is not None:
             client = invoice_q.rel_sec_client
@@ -74,40 +72,4 @@ def retrieve(invoice_id):
 def mochup_bahamas():
     return request.args, 200
 
-def valid_invoice(id):
-    regex = '^[0-9]*$'
-    if re.search(regex, id):
-        return True
-    else:
-        return False
 
-
-def valid_name(name):
-    regex = '^[_A-zÀ-ú0-9]*((-|\s)*[_A-zÀ-ú0-9])*$'
-    if re.search(regex, name):
-        return True
-    else:
-        return False
-
-
-def valid_email(email):
-    regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w+$'
-    if re.search(regex, email):
-        return True
-    else:
-        return False
-
-
-def valid_fiscal_id(fiscal_id):
-    regex = '^((AT)?U[0-9]{8}|(BE)?0[0-9]{9}|(BG)?[0-9]{9,10}|(CY)?[0-9]{8}L|\
-        (CZ)?[0-9]{8,10}|(DE)?[0-9]{9}|(DK)?[0-9]{8}|(EE)?[0-9]{9}|\
-        (EL|GR)?[0-9]{9}|(ES)?[0-9A-Z][0-9]{7}[0-9A-Z]|(FI)?[0-9]{8}|\
-        (FR)?[0-9A-Z]{2}[0-9]{9}|(GB)?([0-9]{9}([0-9]{3})?|[A-Z]{2}[0-9]{3})|\
-        (HU)?[0-9]{8}|(IE)?[0-9]S[0-9]{5}L|(IT)?[0-9]{11}|\
-        (LT)?([0-9]{9}|[0-9]{12})|(LU)?[0-9]{8}|(LV)?[0-9]{11}|(MT)?[0-9]{8}|\
-        (NL)?[0-9]{9}B[0-9]{2}|(PL)?[0-9]{10}|(PT)?[0-9]{9}|(RO)?[0-9]{2,10}|\
-        (SE)?[0-9]{12}|(SI)?[0-9]{8}|(SK)?[0-9]{10})$'
-    if re.search(regex, fiscal_id):
-        return True
-    else:
-        return False
