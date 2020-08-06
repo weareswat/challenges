@@ -1,6 +1,6 @@
 import unittest
 from unittest import TestCase
-from app import ClientGateway
+from bahamas.app import ClientGateway
 
 
 class Test(TestCase):
@@ -31,3 +31,7 @@ class Test(TestCase):
         self.assertTrue(ClientGateway.valid_name("Jose"))
         self.assertFalse(ClientGateway.valid_name("asd$"))
         self.assertFalse(ClientGateway.valid_name("ola!"))
+
+    def test_valid_invoice(self):
+        self.assertTrue(ClientGateway.valid_invoice("12345"))
+        self.assertFalse(ClientGateway.valid_invoice("asd$123"))
