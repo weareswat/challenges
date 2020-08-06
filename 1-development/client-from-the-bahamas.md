@@ -25,4 +25,4 @@ Please mock external service calls instead of calling the actual services. This 
 
 We'd like to see how communication happens between us. Please use GitHub.
 
-Tech stack: please use Ruby / Rails.
+Tech stack: please use preferably Ruby / Rails or JAVA, but if you are more versatile in a different tech stack, you may use one of your choice.
