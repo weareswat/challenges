@@ -1,7 +1,8 @@
 import re
 
 from bahamas.app import app
-from flask import request
+from flask import request, Response
+import requests
 
 from bahamas.app import db
 from bahamas.app.models import Client, Invoice
@@ -13,13 +14,13 @@ NEEDED_ARGS = ['email', 'fiscal_id', 'name']
 def register(invoice):
     for key in NEEDED_ARGS:
         if key not in request.args:
-            return "Missing or invalid argument. Please check if all parameters are correct", 400
+            return "Missing or invalid argument. Please check if all parameters are correct", 404
 
     cl_email = request.args['email']
     cl_fiscal = request.args['fiscal_id']
     cl_name = request.args['name']
 
-    response = ""
+    response = "Something Happened"
     if valid_name(cl_name) and valid_email(cl_email) \
             and valid_fiscal_id(cl_fiscal) and valid_invoice(invoice):
         client = Client.query.filter(Client.email == cl_email).first()
@@ -45,13 +46,22 @@ def register(invoice):
         db.session.commit()
         return response, 200
     else:
-        return "Please check your parameters and try again", 400
+        return "Please check your parameters and try again", 404
 
 
 @app.route('/retrieve-bahamas-client/<invoice_id>')
 def retrieve(invoice_id):
-    print(app.config['SQLALCHEMY_DATABASE_URI'])
-    return invoice_id, 200
+    if valid_invoice(invoice_id):
+        invoice_q = Invoice.query.filter(Invoice.invoice_id == invoice_id).first()
+        if invoice_q is not None:
+            client = invoice_q.rel_sec_client
+            client_info = {
+                'email': client.email,
+                'name': client.name,
+                'fiscal_id': client.fiscal_id
+            }
+            return client_info, 200
+    return "No invoices with that id", 404
 
 
 def valid_invoice(id):
