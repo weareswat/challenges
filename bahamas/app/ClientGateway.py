@@ -24,14 +24,19 @@ def register(invoice):
         if client is None:
             client = Client(fiscal_id=cl_fiscal, email=cl_email, name=cl_name)
             db.session.add(client)
-
+        else:
+            client.name, client.fiscal_id = cl_name, cl_fiscal
         invoice_q = Invoice.query.filter(Invoice.invoice_id == invoice).first()
         if invoice_q is not None:
-            return "The provided invoice already has a second user", 200
-        else:
-            invoice = Invoice(invoice_id=invoice, rel_sec_client=client)
-            db.session.add(invoice)
-        print(client)
+            if invoice_q.sec_client is not None:
+                if invoice_q.rel_sec_client != client:
+                    return "The provided invoice already has a second user", 200
+            else:
+                invoice_q.rel_sec_client = client
+        # LOGIC FOR INSERTING A NEW INVOICE
+        # else:
+        #     invoice = Invoice(invoice_id=invoice, rel_sec_client=client)
+        #     db.session.add(invoice)
         db.session.commit()
         return request.args, 200
     else:
