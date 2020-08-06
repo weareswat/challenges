@@ -47,3 +47,6 @@ the changes based on a start/end date filter.
 * Please implement the diff algorithm without extra libraries
 * Please use some sort of database
 * Please create a Pull Request with your changes, starting after project bootstrap
+
+
+Tech stack: please use preferably Ruby / Rails or JAVA, but if you are more versatile in a different tech stack, you may use one of your choice.
