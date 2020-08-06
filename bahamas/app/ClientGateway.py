@@ -19,6 +19,7 @@ def register(invoice):
     cl_fiscal = request.args['fiscal_id']
     cl_name = request.args['name']
 
+    response = ""
     if valid_name(cl_name) and valid_email(cl_email) and valid_fiscal_id(cl_fiscal):
         client = Client.query.filter(Client.email == cl_email).first()
         if client is None:
@@ -33,12 +34,15 @@ def register(invoice):
                     return "The provided invoice already has a second user", 200
             else:
                 invoice_q.rel_sec_client = client
+            response = "The client info as been updated"
+        else:
+            response = "No invoices with that id"
         # LOGIC FOR INSERTING A NEW INVOICE
         # else:
         #     invoice = Invoice(invoice_id=invoice, rel_sec_client=client)
         #     db.session.add(invoice)
         db.session.commit()
-        return request.args, 200
+        return response, 200
     else:
         return "Please check your parameters and try again", 400
 
