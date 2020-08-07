@@ -1,7 +1,7 @@
 import unittest
 from flask_testing import TestCase
 
-from flask import Flask, Response
+from flask import Response
 
 import bahamas.app.validations
 from bahamas.app import gateway, db, app

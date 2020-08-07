@@ -9,4 +9,3 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 from bahamas.app import gateway, models
-
