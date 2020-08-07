@@ -1,16 +1,34 @@
 import unittest
-from unittest import TestCase
+from flask_testing import TestCase
+
+from flask import Flask, Response
 
 import bahamas.app.validations
 from bahamas.app import ClientGateway
 
 
 class Test(TestCase):
-    # def test_register(self):
-    #     response = ClientGateway.app.get(
-    #         '/store-bahamas-client/1234?fiscal_id=999999999&name=Bob&email=bob@bob.com'
-    #     )
-    #     self.assertEquals(response.status_code, 200)
+    def create_app(self):
+        app = Flask(__name__)
+        app.config['TESTING'] = True
+        return app
+
+    def test_register(self):
+        response = self.register(invoice_id='12345', fiscal_id='999999999', name='Bob', email='bob@bob.com')
+        self.assertEqual(response.status_code, 200)
+
+    def register(self, invoice_id, fiscal_id, name, email):
+        ClientGateway.app.testing = True
+        client = ClientGateway.app.test_client()
+        r = client.get(
+            '/store-bahamas-client/{}'.format(invoice_id),
+            query_string='fiscal_id={}&name={}&email={}'.format(fiscal_id, name, email)
+        )
+        return Response(
+            r.data,
+            status=r.status_code,
+            content_type=r.headers['content-type']
+        )
 
     # def test_retrieve(self):
     #     response = ClientGateway.app.get(
@@ -37,3 +55,7 @@ class Test(TestCase):
     def test_valid_invoice(self):
         self.assertTrue(bahamas.app.validations.invoice_is_valid("12345"))
         self.assertFalse(bahamas.app.validations.invoice_is_valid("asd$123"))
+
+
+if __name__ == '__main__':
+    unittest.main()

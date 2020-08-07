@@ -9,8 +9,8 @@ from bahamas.app.validations import *
 NEEDED_ARGS = ['email', 'fiscal_id', 'name']
 
 
-@app.route('/store-bahamas-client/<invoice>')
-def register(invoice):
+@app.route('/store-bahamas-client/<invoice_id>')
+def register(invoice_id):
     for key in NEEDED_ARGS:
         if key not in request.args:
             return "Missing or invalid argument. Please check if all parameters are correct", 404
@@ -19,13 +19,13 @@ def register(invoice):
     cl_fiscal = request.args['fiscal_id']
     cl_name = request.args['name']
 
-    response = None
-    if name_is_valid(cl_name) and email_is_valid(cl_email) and fiscal_id_is_valid(cl_fiscal) and invoice_is_valid(invoice):
+    if name_is_valid(cl_name) and email_is_valid(cl_email) and fiscal_id_is_valid(cl_fiscal) and invoice_is_valid(invoice_id):
         client = Client.query.filter(Client.email == cl_email).first()
         if client is None:
             client = Client(fiscal_id=cl_fiscal, email=cl_email, name=cl_name)
             db.session.add(client)
-            r = requests.get("http://127.0.0.1:8000/mockup-bahamas?invoice={}&fiscal_id={}&name={}&email={}".format(invoice, cl_fiscal, cl_name, cl_email))
+            r = requests.get("http://127.0.0.1:8000/mockup-bahamas?invoice={}&fiscal_id={}&name={}&email={}".format(invoice_id, cl_fiscal, cl_name, cl_email))
+            # TODO mudar esta resposta e tentar fazer o unit testing
             return Response(
                 r.text,
                 status=r.status_code,
@@ -33,7 +33,7 @@ def register(invoice):
             )
         else:
             client.name, client.fiscal_id = cl_name, cl_fiscal
-        invoice_q = Invoice.query.filter(Invoice.invoice_id == invoice).first()
+        invoice_q = Invoice.query.filter(Invoice.invoice_id == invoice_id).first()
         if invoice_q is not None:
             if invoice_q.sec_client is not None:
                 if invoice_q.rel_sec_client != client:
@@ -48,9 +48,17 @@ def register(invoice):
         #     invoice = Invoice(invoice_id=invoice, rel_sec_client=client)
         #     db.session.add(invoice)
         db.session.commit()
-        return response, 200
+        return Response(
+            response,
+            status=200
+        )
+        # return response, 200
     else:
-        return "Please check your parameters and try again", 404
+        return Response(
+            "Please check your parameters and try again",
+            status=404
+        )
+        # return "Please check your parameters and try again", 404
 
 
 @app.route('/retrieve-bahamas-client/<invoice_id>')
