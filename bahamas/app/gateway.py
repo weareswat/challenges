@@ -1,6 +1,5 @@
 from bahamas.app import app
 from flask import request, Response
-import requests
 
 from bahamas.app import db
 from bahamas.app.models import Client, Invoice
@@ -19,15 +18,18 @@ def register(invoice_id):
     cl_fiscal = request.args['fiscal_id']
     cl_name = request.args['name']
 
-    if name_is_valid(cl_name) and email_is_valid(cl_email) and fiscal_id_is_valid(cl_fiscal) and invoice_is_valid(invoice_id):
+    response, code = "Generic response, something went wrong", 404
+
+    if name_is_valid(cl_name) and email_is_valid(cl_email) and fiscal_id_is_valid(cl_fiscal) and \
+            invoice_is_valid(invoice_id):
         client = Client.query.filter(Client.email == cl_email).first()
         if client is None:
             client = Client(fiscal_id=cl_fiscal, email=cl_email, name=cl_name)
             db.session.add(client)
-            r = requests.get("http://127.0.0.1:8000/mockup-bahamas?invoice={}&fiscal_id={}&name={}&email={}".format(invoice_id, cl_fiscal, cl_name, cl_email))
-            # TODO mudar esta resposta e tentar fazer o unit testing
-            return Response(
-                r.text,
+            r = app.test_client().get("/mockup-bahamas?invoice={}&fiscal_id={}&name={}&email={}"
+                                      .format(invoice_id, cl_fiscal, cl_name, cl_email))
+            Response(
+                r.data,
                 status=r.status_code,
                 content_type=r.headers['content-type']
             )
@@ -37,28 +39,22 @@ def register(invoice_id):
         if invoice_q is not None:
             if invoice_q.sec_client is not None:
                 if invoice_q.rel_sec_client != client:
-                    return "The provided invoice already has a second user", 200
+                    return "The provided invoice already has a second user", 404
             else:
                 invoice_q.rel_sec_client = client
-            response = "The client info as been updated"
+                response, code = "The client info as been updated", 200
         else:
-            response = "No invoices with that id"
-        # LOGIC FOR INSERTING A NEW INVOICE
-        # else:
-        #     invoice = Invoice(invoice_id=invoice, rel_sec_client=client)
-        #     db.session.add(invoice)
+            response, code = "No invoices with that id", 404
         db.session.commit()
         return Response(
             response,
-            status=200
+            status=code
         )
-        # return response, 200
     else:
         return Response(
             "Please check your parameters and try again",
             status=404
         )
-        # return "Please check your parameters and try again", 404
 
 
 @app.route('/retrieve-bahamas-client/<invoice_id>')
@@ -67,17 +63,18 @@ def retrieve(invoice_id):
         invoice_q = Invoice.query.filter(Invoice.invoice_id == invoice_id).first()
         if invoice_q is not None:
             client = invoice_q.rel_sec_client
-            client_info = {
-                'email': client.email,
-                'name': client.name,
-                'fiscal_id': client.fiscal_id
-            }
-            return client_info, 200
+            if client is not None:
+                response, code = {
+                                     'email': client.email,
+                                     'name': client.name,
+                                     'fiscal_id': client.fiscal_id
+                                 }, 200
+            else:
+                response, code = "No secondary client assigned to invoice", 404
+            return response, code
     return "No invoices with that id", 404
 
 
 @app.route('/mockup-bahamas')
 def mochup_bahamas():
     return request.args, 200
-
-

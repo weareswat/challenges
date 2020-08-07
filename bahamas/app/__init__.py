@@ -8,4 +8,5 @@ app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-from bahamas.app import ClientGateway, models
+from bahamas.app import gateway, models
+

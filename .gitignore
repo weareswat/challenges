@@ -129,4 +129,5 @@ dmypy.json
 
 bahamas/flask
 bahamas/app.db
+bahamas/test.db
 migrations
