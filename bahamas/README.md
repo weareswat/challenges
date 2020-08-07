@@ -13,3 +13,6 @@
 
 `flask run` 
 
+Unit testing:
+
+`python -m unittest bahamas\app\tests\test_ClientGateway.py`
