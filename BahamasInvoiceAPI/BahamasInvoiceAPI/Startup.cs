@@ -35,7 +35,7 @@ namespace BahamasInvoiceAPI
 
             services.AddHttpClient<IBahamasGovService,BahamasGovService>(c =>
             {
-                c.BaseAddress = new Uri("https://localhost:44379/api/");//TODO get base address dynamically
+                c.BaseAddress = new Uri("https://localhost:44379/api/");
             });
 
             services.AddSwaggerGen();
