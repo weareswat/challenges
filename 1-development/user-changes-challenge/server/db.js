@@ -13,13 +13,17 @@ function createChanges(obj) {
     return new Promise(function(resolve, reject) {
         try {
             let promises = []
-            for (const diffObj of obj.diffObject)
-                promises.push(
-                    db.query(
-                        `insert into changes (id, diff) values($1, $2)`,
-                        [obj._id, JSON.stringify(diffObj)]))
-
-            Promise.all(promises).then(_ => resolve(getRespObj("Values created successfully.", obj)));
+            for (const diffObj of obj.diffObject) {
+                promises.push(db.query(
+                `insert into changes (userID, diff) values($1, $2) returning *`,
+                [obj._id, JSON.stringify(diffObj)],
+                function (err, result)  {}).then(response => {
+                    return Promise.resolve(response.rows[0])
+                }))
+            }
+            Promise.all(promises).then(values => {
+                resolve(getRespObj("Values created successfully.", values))
+            });
         } catch (error) {
             reject(getRespObj(error + "."))
         }
@@ -35,9 +39,9 @@ function getChanges(id, minDate, maxDate) {
         try {
             db.query(
                 `
-                select id, date, diff ->> 'field' as field, diff ->> 'old' as old, diff ->> 'new' as new 
+                select uuid, userID, date, diff ->> 'field' as field, diff ->> 'old' as old, diff ->> 'new' as new 
                 from changes
-                where id = $1 and date > $2 and date < $3`, [id, minDate, maxDate])
+                where userID = $1 and date > $2 and date < $3`, [id, minDate, maxDate])
                 .then(rsp => resolve(getRespObj("Values retrieved successfully.", rsp.rows)))
                 .catch(err => reject(getRespObj(err + "."))
             )
