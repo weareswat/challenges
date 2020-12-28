@@ -4,16 +4,14 @@ This challenge was proposed as a Software Engineering interview.
 
 ![App flow](https://www.linkpicture.com/q/Architecture.png)
 
-Routind documentation can be found in [`routes.md`](https://github.com/gespcunha/ix-challenge/blob/main/routes.md/)
+Routind documentation can be found in [`routes.md`](https://github.com/gespcunha/challenges/blob/user-changes-challenge/1-development/user-changes-challenge/routes.md/)
 
 ## Requirements
 - [NodeJS](https://nodejs.org/)
 - [PostgreSQL](https://www.postgresql.org/)
 
-
 ## Building
-- `git clone https://github.com/gespcunha/ix-challenge`
-- `cd ix-challenge`
+- `cd user-changes-challenge`
 - `npm install`
 
 ## Creating the database and its schema
