@@ -3,8 +3,8 @@
 drop table if exists changes;
 
 create table changes (
-    id integer not null,
+    uuid serial primary key,
+    userID integer not null,
     date timestamp not null default now(),
-    diff json not null,
-    primary key (id, date)
+    diff json not null
 );

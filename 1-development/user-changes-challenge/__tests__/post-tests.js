@@ -19,13 +19,12 @@ describe("Testing with valid input", function() {
             }
         }
 
-        const expected = [
+        const expected =
             {
                 "field": "name",
                 "old": "Bruce Norris",
                 "new": "Bruce Willis"
             }
-        ]
 
         let url = utils.postURL();
 
@@ -33,7 +32,7 @@ describe("Testing with valid input", function() {
             .post(url, body)
             .then(response => {
                 assert.strictEqual(response.status, 201)
-                assert.strictEqual(JSON.stringify(response.data.body.diffObject), JSON.stringify(expected))
+                assert.strictEqual(JSON.stringify(response.data.body[0].diff), JSON.stringify(expected))
                 done()
             })
     });

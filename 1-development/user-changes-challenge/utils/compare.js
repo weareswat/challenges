@@ -50,9 +50,9 @@ function compareWithAccumulator(obj1, obj2, accumulator, propertyFullPath) {
  * @param maxDate maximum date to use in the filtering
  * @returns array of objects, each containing a difference between a property across time
  */
-function retrieveBetweenDatesAndID(array, id, minDate, maxDate) {
+function retrieveBetweenDatesAndID(array, userID, minDate, maxDate) {
     const objectsInRangeOfDate = array.filter(elem =>
-            elem.id === parseInt(id) &&
+            elem.userid === parseInt(userID) &&
             elem.date > new Date(minDate) &&
             elem.date < new Date(maxDate)
     )

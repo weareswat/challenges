@@ -1,6 +1,6 @@
 \connect ixchallenge postgres;
 
-insert into changes values (    
+insert into changes (userID, date, diff) values (
     1,
     '2020-12-23 23:32:10.257',
     '{
@@ -10,7 +10,7 @@ insert into changes values (
 	}'
 );
 
-insert into changes values (    
+insert into changes (userID, date, diff) values (
     1,
     '2020-12-23 23:34:15.759',
     '{
@@ -20,7 +20,7 @@ insert into changes values (
 	}'
 );
 
-insert into changes values (    
+insert into changes (userID, date, diff) values (
     1,
     '2020-12-23 23:37:34.829',
     '{
@@ -30,7 +30,7 @@ insert into changes values (
 	}'
 );
 
-insert into changes values (    
+insert into changes (userID, date, diff) (
     1,
     '2020-12-23 23:50:57.961',
     '{

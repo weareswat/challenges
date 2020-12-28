@@ -43,7 +43,7 @@ describe("Testing with valid input", function() {
         }
         axios
             .post(postURL, body)
-            .then( _ => {
+            .then(response => {
                 let getURL = utils.getURL(id, minDate, maxDate);
                 axios
                     .get(getURL)
