@@ -8,20 +8,34 @@ Returns a list of one change per user/field, filtered by `id`, `minDate` and `ma
   - Body: None
 - Response:
   - Success:
-    - URL example: /getChanges/1&2020-12-25&2020-12-26
+    - URL example: /getChanges/1&2020-10-30&2020-12-31
     - Status code: 200
     - Content-Type: application/json
     - Body example:
-    ```
+    ```json
     {
-        message: 'Games obtained successfully.',
-        body: [
+        "message": "Values retrieved successfully.",
+        "body": [
+            {
+                "field": "address",
+                "old": "2",
+                "new": "3"
+            },
             {
                 "field": "name",
-                "old": "Bruce Norris",
-                "new": "Bruce Willis"
+                "old": "gabriel",
+                "new": "John"
             },
-            (...)
+            {
+                "field": "address.country",
+                "old": "Portugal",
+                "new": "Germany"
+            },
+            {
+                "field": "address.city",
+                "old": "Lisbon",
+                "new": "Berlin"
+            }
         ]
     }
     ```
@@ -30,7 +44,7 @@ Returns a list of one change per user/field, filtered by `id`, `minDate` and `ma
     - Status code: 400
     - Content-Type: application/json
     - Body example:
-    ```
+    ```json
     {
         "message": "error: invalid input syntax for type timestamp: invalidDate.",
         "body": {}
@@ -41,24 +55,24 @@ Returns a list of one change per user/field, filtered by `id`, `minDate` and `ma
 Creates an object with the difference between `obj1` and `obj2`.
 - Request:
   - Body:
-    ``` 
+    ``` json
     {
-    	"obj1": {
-    		"_id": 1,
+        "obj1": {
+            "_id": 1,
             "name": "Bruce Willis",
-    		"address": {
-    			"city": "Lisbon",
-    			"country": "Portugal"
-    		}
-    	},
-    	"obj2": {
-    		"_id": 1,
-    		"name": "John",
-    		"address": {
-    			"city": "Berlin",
-    			"country": "Germany"
-    		}
-    	}
+            "address": {
+                "city": "Lisbon",
+                "country": "Portugal"
+            }
+        },
+        "obj2": {
+            "_id": 1,
+            "name": "John",
+            "address": {
+                "city": "Berlin",
+                "country": "Germany"
+            }
+        }
     }
     ```
 - Response:
@@ -66,58 +80,72 @@ Creates an object with the difference between `obj1` and `obj2`.
     - Status code: 201
     - Content-Type: application/json
     - Body example:
-    ```
+    ```json
     {
       "message": "Created - Values created successfully.",
-      "body": {
-            "_id": 1,
-            "diffObject": [
-                {
-                    "field": "name",
-                    "old": "Bruce Willis",
-                    "new": "John"
-                },
-                {
-                    "field": "address.city",
-                    "old": "Lisbon",
-                    "new": "Berlin"
-                },
-                {
-                    "field": "address.country",
-                    "old": "Portugal",
-                    "new": "Germany"
-                }
-            ]
-        }
+      "body": [
+          {
+            "uuid": 69,
+            "userid": 1,
+            "date": "2020-12-28T19:00:03.361Z",
+            "diff": {
+              "field": "name",
+              "old": "Bruce Willis",
+              "new": "John"
+            }
+          },
+          {
+            "uuid": 68,
+            "userid": 1,
+            "date": "2020-12-28T19:00:03.251Z",
+            "diff": {
+              "field": "address.city",
+              "old": "Lisbon",
+              "new": "Berlin"
+            }
+          },
+          {
+            "uuid": 67,
+            "userid": 1,
+            "date": "2020-12-28T19:00:03.250Z",
+            "diff": {
+              "field": "address.country",
+              "old": "Portugal",
+              "new": "Germany"
+            }
+          }
+      ]
     }
     ```
   - Error:
     - Status code: 400
     - Content-Type: application/json
     - Request body example:
-        - Different values for property _id
-        - Null value for a property
-        - Both objects don't have the exact same properties
-    ```
+    
+    ```json
     {
-    	"obj1": {
-    		"_id": 5,
+        "obj1": {
+            "_id": 5,
             "name": "Bruce Willis"
-    	},
-    	"obj2": {
-    		"_id": 1,
-    		"name": null,
-    		"address": {
-    			"city": "Berlin",
-    			"country": "Germany"
-    		}
-    	}
+        },
+        "obj2": {
+            "_id": 1,
+            "name": null,
+            "address": {
+                "city": "Berlin",
+                "country": "Germany"
+            }
+        }
     }
     ```
     - Response body example:
-    ```
+    ```json
     {
         "message": "Invalid arguments - Null value..",
         "body": {}
     }
     ```
+    - Possible errors: 
+        - Different values for property _id
+        - Null value for a property
+        - Both objects don't have the exact same properties
