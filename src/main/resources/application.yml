@@ -1,0 +1,17 @@
+server:
+  servlet:
+    context-path: /api
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    username: mp3
+    password: mp3
+    url: jdbc:h2:mem:db_posts
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: validate # Hibernate ddl auto (create, create-drop, validate, update) - migration is done using Flyway
+
+
+
