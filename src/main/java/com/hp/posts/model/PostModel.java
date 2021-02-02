@@ -18,5 +18,11 @@ public class PostModel {
 
     private String title;
 
-    private Integer votes;
+    private Integer votesUp;
+
+    private Integer votesDown;
+
+    private String votesUpPercentage;
+
+    private String votesDownPercentage;
 }

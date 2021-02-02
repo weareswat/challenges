@@ -1,0 +1,22 @@
+server:
+  servlet:
+    context-path: /api
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    username: sam
+    password: sam
+    url: jdbc:h2:mem:db_posts_tests;DB_CLOSE_DELAY=-1
+  jpa:
+    show-sql: true # Show or not log for each sql query
+    hibernate:
+      ddl-auto: create # Hibernate ddl auto (create, create-drop, update)
+  h2:
+    console:
+      enabled: true
+      path: /h2
+
+logging:
+  level:
+    root: INFO
