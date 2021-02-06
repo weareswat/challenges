@@ -1,15 +1,19 @@
 # List Posts by Rating
-
 You are a web programmer. You have users. Your users rate posts on your site.
 You want to put the highest-rated posts at the top and lowest-rated at the bottom.
 You need some sort of "score" to sort by.
 
-# Require
-
+### Require
 - MySQL Server
 - Maven
 
-# Install
-
+### Install
 - Run: create schema posts; on mysql server;
 - Run: mvn clean spring-boot:run on pom.xml directory;
+
+### Tecnologies
+- Java 11;
+- Spring Boot;
+- Spring Data;
+- Spring Web;
+- MySQL 8;
