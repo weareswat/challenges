@@ -1,11 +1,10 @@
 package com.hp.posts.controller;
 
-import antlr.StringUtils;
 import com.hp.posts.model.PostModel;
 import com.hp.posts.repository.PostRepository;
+import com.hp.posts.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.jdbc.Sql;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +19,9 @@ public class PostController {
     @Autowired
     private PostRepository postRepository;
 
+    @Autowired
+    private PostService postService;
+
     @GetMapping("/posts")
     public ResponseEntity<List<PostModel>> getAll() {
         return ResponseEntity.ok(postRepository.findAll());
@@ -30,8 +32,13 @@ public class PostController {
         Optional<PostModel> optionalPostModel = postRepository.findById(postId);
         if (optionalPostModel.isPresent()) {
             PostModel postModel = optionalPostModel.get();
+            double weightPercentage = postService.calculateWeightPercentage(
+                    postModel.getVotesUp(),
+                    postModel.getVotesDown()+postModel.getVotesUp()
+            );
+                    
             postModel.setVotesUp(postModel.getVotesUp()+1);
-            postModel.setVotesUpPercentage(postModel.getVotesUp().toString().substring(0, 1).concat("%"));
+            postModel.setVotesUpPercentage(Integer.toString((int) weightPercentage).concat("%"));
             postRepository.save(postModel);
 
             return ResponseEntity.ok(postModel);
@@ -45,8 +52,13 @@ public class PostController {
         Optional<PostModel> optionalPostModel = postRepository.findById(postId);
         if (optionalPostModel.isPresent()) {
             PostModel postModel = optionalPostModel.get();
+            double weightPercentage = postService.calculateWeightPercentage(
+                    postModel.getVotesDown(),
+                    postModel.getVotesDown()+postModel.getVotesUp()
+            );
+
             postModel.setVotesDown(postModel.getVotesDown()-1);
-            postModel.setVotesDownPercentage(postModel.getVotesDown().toString().substring(0,1).concat("%"));
+            postModel.setVotesDownPercentage(Integer.toString((int) weightPercentage).concat("%"));
             postRepository.save(postModel);
 
             return ResponseEntity.ok(postModel);
