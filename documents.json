@@ -1,0 +1,227 @@
+[
+  {
+    "_id": "0bddb23a-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Final",
+    "documentType": "Receipt",
+    "number": "10/2021",
+    "clientName": "Marian Neal",
+    "date": "2021-10-11",
+    "totalWithoutVat": 10208.97
+  },
+  {
+    "_id": "0bddb67c-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Draft",
+    "documentType": "Invoice-Receipt",
+    "number": "Draft",
+    "clientName": "Gretchen Daniel",
+    "date": "2021-10-13",
+    "totalWithoutVat": 5609.00
+  },
+  {
+    "_id": "0bddb7bc-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Cancelled",
+    "documentType": "Invoice",
+    "number": "10/2021",
+    "clientName": "Jerome James",
+    "date": "2021-10-18",
+    "totalWithoutVat": 10457.68
+  },
+  {
+    "_id": "0bddb88e-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Paid",
+    "documentType": "Invoice",
+    "number": "10/2021",
+    "clientName": "Ross Sims",
+    "date": "2021-10-20",
+    "totalWithoutVat": 9103.62
+  },
+  {
+    "_id": "0bddb94c-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Cancelled",
+    "documentType": "Invoice",
+    "number": "10/2021",
+    "clientName": "Dolores Allison",
+    "date": "2021-10-25",
+    "totalWithoutVat": 6247.43
+  },
+  {
+    "_id": "0bddba0a-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Final",
+    "documentType": "Receipt",
+    "number": "10/2021",
+    "clientName": "Lila Freeman",
+    "date": "2021-10-28",
+    "totalWithoutVat": 5387.29
+  },
+  {
+    "_id": "0bddbac8-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Draft",
+    "documentType": "Invoice-Receipt",
+    "number": "Draft",
+    "clientName": "Marlon Maldonado",
+    "date": "2021-11-03",
+    "totalWithoutVat": 1430.53
+  },
+  {
+    "_id": "0bddbb7c-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Paid",
+    "documentType": "Invoice",
+    "number": "11/2021",
+    "clientName": "Sonia Ingram",
+    "date": "2021-11-05",
+    "totalWithoutVat": 9618.52
+  },
+  {
+    "_id": "0bddbec4-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Final",
+    "documentType": "Receipt",
+    "number": "11/2021",
+    "clientName": "Stuart Fox",
+    "date": "2021-11-09",
+    "totalWithoutVat": 2888.96
+  },
+  {
+    "_id": "0bddbfa0-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Cancelled",
+    "documentType": "Invoice",
+    "number": "11/2021",
+    "clientName": "Jimmy Powell",
+    "date": "2021-11-16",
+    "totalWithoutVat": 4525.92
+  },
+  {
+    "_id": "0bddc05e-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Paid",
+    "documentType": "Invoice",
+    "number": "11/2021",
+    "clientName": "Dwight Wallace",
+    "date": "2021-11-17",
+    "totalWithoutVat": 1846.53
+  },
+  {
+    "_id": "0bddc112-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Final",
+    "documentType": "Receipt",
+    "number": "11/2021",
+    "clientName": "Thelma Roberson",
+    "date": "2021-11-19",
+    "totalWithoutVat": 3526.92
+  },
+  {
+    "_id": "0bddc1d0-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Draft",
+    "documentType": "Invoice-Receipt",
+    "number": "Draft",
+    "clientName": "Kristopher Curry",
+    "date": "2021-11-23",
+    "totalWithoutVat": 10918.94
+  },
+  {
+    "_id": "0bddc284-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Final",
+    "documentType": "Receipt",
+    "number": "11/2021",
+    "clientName": "Lewis Morris",
+    "date": "2021-11-25",
+    "totalWithoutVat": 5200.45
+  },
+  {
+    "_id": "0bddc338-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Paid",
+    "documentType": "Invoice",
+    "number": "11/2021",
+    "clientName": "Edwin Richards",
+    "date": "2021-11-26",
+    "totalWithoutVat": 3935.69
+  },
+  {
+    "_id": "0bddc612-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Cancelled",
+    "documentType": "Invoice",
+    "number": "12/2021",
+    "clientName": "Courtney Rogers",
+    "date": "2021-11-29",
+    "totalWithoutVat": 4327.60
+  },
+  {
+    "_id": "0bddc6e4-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Final",
+    "documentType": "Receipt",
+    "number": "12/2021",
+    "clientName": "Darnell Sanchez",
+    "date": "2021-11-30",
+    "totalWithoutVat": 7643.95
+  },
+  {
+    "_id": "0bddc798-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Draft",
+    "documentType": "Invoice-Receipt",
+    "number": "Draft",
+    "clientName": "Claude Carter",
+    "date": "2021-12-02",
+    "totalWithoutVat": 10574.55
+  },
+  {
+    "_id": "0bddc856-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Paid",
+    "documentType": "Invoice",
+    "number": "12/2021",
+    "clientName": "Nicolas Horton",
+    "date": "2021-12-03",
+    "totalWithoutVat": 3060.46
+  },
+  {
+    "_id": "0bddc90a-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Cancelled",
+    "documentType": "Invoice",
+    "number": "12/2021",
+    "clientName": "Wanda Evans",
+    "date": "2021-12-07",
+    "totalWithoutVat": 3839.56
+  },
+  {
+    "_id": "0bddc9be-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Paid",
+    "documentType": "Invoice",
+    "number": "12/2021",
+    "clientName": "Marion Adams",
+    "date": "2021-12-14",
+    "totalWithoutVat": 9325.58
+  },
+  {
+    "_id": "0bddca72-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Cancelled",
+    "documentType": "Invoice",
+    "number": "12/2021",
+    "clientName": "Myron Wolfe",
+    "date": "2021-12-17",
+    "totalWithoutVat": 2107.38
+  },
+  {
+    "_id": "0bddcb30-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Paid",
+    "documentType": "Invoice",
+    "number": "12/2021",
+    "clientName": "Joanna Ray",
+    "date": "2021-12-21",
+    "totalWithoutVat": 1111.23
+  },
+  {
+    "_id": "0bddced2-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Final",
+    "documentType": "Receipt",
+    "number": "12/2021",
+    "clientName": "Valerie Reynolds",
+    "date": "2021-12-27",
+    "totalWithoutVat": 10043.36
+  },
+  {
+    "_id": "0bddcfae-2922-11ec-9621-0242ac130002",
+    "documentStatus": "Draft",
+    "documentType": "Invoice-Receipt",
+    "number": "Draft",
+    "clientName": "Betty Vargas",
+    "date": "2021-12-30",
+    "totalWithoutVat": 7876.66
+  }
+]
