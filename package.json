@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest"
   },
   "dependencies": {
     "@emotion/react": "^11.4.1",
@@ -17,8 +18,13 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.2",
+    "babel-jest": "^27.2.5",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
+    "jest": "^27.2.5",
+    "prop-types": "^15.7.2",
     "sass": "^1.42.1"
   }
 }
