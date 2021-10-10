@@ -3,6 +3,8 @@ import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
 import CssBaseline from '@mui/material/CssBaseline'
 
+import { DocumentsContextProvider } from 'contexts'
+
 import '../styles/globals.scss'
 
 function MyApp({ Component, pageProps }) {
@@ -14,11 +16,14 @@ function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="initial-scale=1, width=device-width" key="material-ui-viewport" />
       </Head>
       <CssBaseline />
-      <Container>
-        <Grid container spacing={2}>
-          <Component {...pageProps} />
-        </Grid>
-      </Container>
+
+      <DocumentsContextProvider>
+        <Container>
+          <Grid container spacing={2}>
+            <Component {...pageProps} />
+          </Grid>
+        </Container>
+      </DocumentsContextProvider>
     </>
   )
 }
