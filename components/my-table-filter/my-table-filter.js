@@ -80,7 +80,6 @@ function MyTableFilter({ onSubmit }) {
               onChange={formik.handleChange}
               value={formik.values.number}
               size="small"
-              type="number"
               data-testid="number"
               sx={{ width: '100%' }}
             />
