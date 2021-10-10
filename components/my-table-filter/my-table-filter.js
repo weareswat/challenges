@@ -106,6 +106,7 @@ function MyTableFilter({ onSubmit }) {
               variant="standard"
               onChange={formik.handleChange}
               value={formik.values.date}
+              InputLabelProps={{ shrink: true }}
               size="small"
               type="date"
               name="date"
