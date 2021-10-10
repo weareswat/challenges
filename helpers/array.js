@@ -39,7 +39,13 @@ const clearEmptyFields = (object) => {
   return params
 }
 
+const arraySplitByItemNumber = (array, number) =>
+  new Array(Math.ceil(array.length / +number))
+    .fill()
+    .map(_ => array.splice(0, +number))
+
 export {
   arrayFilter,
   clearEmptyFields,
+  arraySplitByItemNumber,
 }
