@@ -21,6 +21,7 @@ function MyTable({ items }) {
 
   useEffect(() => {
     if (items && items.length > 0) {
+      setPage(0)
       const newItems = [...items]
       const splitedArray = arraySplitByItemNumber(newItems, 7)
       const [result] = splitedArray
