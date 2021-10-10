@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import Grid from '@mui/material/Grid'
 import TableContainer from '@mui/material/TableContainer'
 import Table from '@mui/material/Table'
@@ -5,10 +6,37 @@ import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
+import TableFooter from '@mui/material/TableFooter'
+import TablePagination from '@mui/material/TablePagination'
 import Paper from '@mui/material/Paper'
 import PropTypes from 'prop-types'
 
+import { arraySplitByItemNumber } from '../../helpers'
+
 function MyTable({ items }) {
+  const [itemsToShow, setItemsToShow] = useState([])
+  const [page, setPage] = useState(0)
+
+  const handleChangePage = (event, newPage) => setPage(+newPage)
+
+  useEffect(() => {
+    if (items && items.length > 0) {
+      setPage(0)
+      const newItems = [...items]
+      const splitedArray = arraySplitByItemNumber(newItems, 7)
+      const [result] = splitedArray
+      setItemsToShow(result)
+    }
+  }, [items])
+
+  useEffect(() => {
+    if (items && items.length > 0 && page >= 0) {
+      const newItems = [...items]
+      const splitedArray = arraySplitByItemNumber(newItems, 7)
+      setItemsToShow(splitedArray[page])
+    }
+  }, [page, items])
+
   if (!items || items.length === 0) return null
 
   return (
@@ -26,7 +54,7 @@ function MyTable({ items }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {items.map((row, index) => (
+            {itemsToShow && itemsToShow.map((row, index) => (
               <TableRow
                 key={`my-table-${index}`}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -40,6 +68,24 @@ function MyTable({ items }) {
               </TableRow>
             ))}
           </TableBody>
+          <TableFooter>
+            <TableRow>
+              <TablePagination
+                rowsPerPageOptions={[7]}
+                colSpan={3}
+                count={items.length}
+                rowsPerPage={7}
+                page={page}
+                SelectProps={{
+                  inputProps: {
+                    'aria-label': 'rows per page',
+                  },
+                  native: true,
+                }}
+                onPageChange={handleChangePage}
+              />
+            </TableRow>
+          </TableFooter>
         </Table>
       </TableContainer>
     </Grid>

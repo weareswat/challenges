@@ -1,6 +1,7 @@
-import { arrayFilter, clearEmptyFields } from './array-filter'
+import { arrayFilter, clearEmptyFields, arraySplitByItemNumber } from './array'
 
 export {
   arrayFilter,
   clearEmptyFields,
+  arraySplitByItemNumber,
 }
