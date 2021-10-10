@@ -48,7 +48,7 @@ export default function Home() {
   return (
     <>
       <Grid item xs={12}>
-        <h1>Invoices list</h1>
+        <h1 className={styles.title}>Invoices list</h1>
       </Grid>
 
       <MyTableFilter onSubmit={onSubmitFilter} />
