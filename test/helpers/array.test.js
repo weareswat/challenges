@@ -14,9 +14,18 @@ import { arrayFilter, arraySplitByItemNumber, clearEmptyFields } from '@helpers/
       expect(result.length).toBe(1)
    })
 
-   it('should return zero items', () => {
+   it('should return "[]"', () => {
       const items = [{client_name: 'tusk'}, {client_name: 'tisk'}, {client_name: 'tesk'}]
       const filter = { client_name: 'abc' }
+      const result = arrayFilter(items, filter)
+
+      expect(result).not.toBeNull()
+      expect(result.length).toBe(0)
+   })
+
+   it('should return "[]" when pass wrong params', () => {
+      const items = 'items'
+      const filter = null
       const result = arrayFilter(items, filter)
 
       expect(result).not.toBeNull()
@@ -40,6 +49,14 @@ import { arrayFilter, arraySplitByItemNumber, clearEmptyFields } from '@helpers/
     expect(result).not.toBeNull()
     expect(result).toMatchObject({ client_name: 'tusk' })
    })
+
+   it('should return "{}" when pass wrong params', () => {
+    const param = 'null'
+    const result = clearEmptyFields(param)
+
+    expect(result).not.toBeNull()
+    expect(result).toMatchObject({})
+   })
  })
 
  describe('#arraySplitByItemNumber', () => {
@@ -49,5 +66,13 @@ import { arrayFilter, arraySplitByItemNumber, clearEmptyFields } from '@helpers/
 
       expect(result).not.toBeNull()
       expect(result.length).toBe(4)
+   })
+
+   it('should return a "[]" when pass wrong params', () => {
+      const param = '[]'
+      const result = arraySplitByItemNumber(param, null)
+
+      expect(result).not.toBeNull()
+      expect(result.length).toBe(0)
    })
  })

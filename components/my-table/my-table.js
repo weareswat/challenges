@@ -71,6 +71,7 @@ function MyTable({ items }) {
           <TableFooter>
             <TableRow>
               <TablePagination
+                data-testid="my-table-pagination"
                 rowsPerPageOptions={[7]}
                 colSpan={3}
                 count={items.length}
