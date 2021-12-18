@@ -1,18 +1,24 @@
 version: '3'
 services:
-  database:
+  mongo:
     image: 'mongo'
-    container_name: 'bahamas-invoice-db'
     environment:
-      - MONGO_INITDB_DATABASE=bahamas-invoice
-      - MONGO_INITDB_ROOT_USERNAME=bahamasinvoice
-      - MONGO_INITDB_ROOT_PASSWORD=bahamasinvoice
-    volumes:
-      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
-      - ./mongo-volume:/data/db
+      MONGO_INITDB_DATABASE: 'bahamas'
+      MONGO_INITDB_ROOT_USERNAME: 'bahamasinvoice'
+      MONGO_INITDB_ROOT_PASSWORD: 'bahamasinvoice'
     ports:
-      - '27017-27019:27017-27019'
+      - "27017:27017"
+    volumes:
+      - /home/s2it_dbarbosa/MongoDB:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    networks:
+      - mongo-compose-network
   web:
     build: .
+    container_name: 'bahamas-invoice-api'
     ports:
       - "8081:8081"
+networks:
+  mongo-compose-network:
+    driver: bridge
+

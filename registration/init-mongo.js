@@ -3,6 +3,6 @@ db.createUser({
     pwd: "bahamasinvoice",
     roles : [{
         role: "readWrite",
-        db: "bahamas-invoice"
+        db: "bahamas"
     }]
 })
