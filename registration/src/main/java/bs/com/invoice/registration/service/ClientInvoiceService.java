@@ -24,7 +24,6 @@ public class ClientInvoiceService {
         if(invoiceClientRepository.findById(invoiceClientRequestDto.getInvoiceId()).isPresent()) {
             throw new InvoiceAlreadyPresentException();
         }
-        invoiceClientRepository.findById(invoiceClientRequestDto.getInvoiceId());
         callBahamaService(invoiceClientRequestDto);
         return save(invoiceClientRequestDto);
 

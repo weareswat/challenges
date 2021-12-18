@@ -18,7 +18,7 @@ public class InvoiceResource {
     }
 
     @PostMapping
-    public ResponseEntity<InvoiceClient> storeInvoiceClient(final InvoiceClientDto invoiceRequestDto) {
+    public ResponseEntity<InvoiceClient> storeInvoiceClient(@RequestBody final InvoiceClientDto invoiceRequestDto) {
         return new ResponseEntity<>(clientInvoiceService.createInvoiceClient(invoiceRequestDto), HttpStatus.CREATED);
     }
 
