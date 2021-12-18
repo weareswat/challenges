@@ -1,8 +1,7 @@
 version: '3'
 services:
-  mongo:
+  mongodb:
     image: 'mongo'
-    container_name: 'bahamas-bd'
     environment:
       MONGO_INITDB_DATABASE: 'bahamas'
       MONGO_INITDB_ROOT_USERNAME: 'bahamasinvoice'
@@ -11,16 +10,9 @@ services:
       - "27017:27017"
     volumes:
       -  ./mongo-volume:/data/db
-      -  ./src/main/java/resources/mongod.conf:/etc/mongod.conf
       - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
-    networks:
-      - mongo-compose-network
   web:
     build: .
     container_name: 'bahamas-invoice-api'
     ports:
       - "8080:8080"
-networks:
-  mongo-compose-network:
-    driver: bridge
-
