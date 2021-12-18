@@ -20,10 +20,13 @@ public class ClientInvoiceService {
     }
 
 
-    public void createInvoiceClient(final InvoiceClientDto invoiceClientRequestDto) {
-        invoiceClientRepository.findById(invoiceClientRequestDto.getInvoiceId()).ifPresent(InvoiceAlreadyPresentException::new);
+    public InvoiceClient createInvoiceClient(final InvoiceClientDto invoiceClientRequestDto) {
+        if(invoiceClientRepository.findById(invoiceClientRequestDto.getInvoiceId()).isPresent()) {
+            throw new InvoiceAlreadyPresentException();
+        }
+        invoiceClientRepository.findById(invoiceClientRequestDto.getInvoiceId());
         callBahamaService(invoiceClientRequestDto);
-        save(invoiceClientRequestDto);
+        return save(invoiceClientRequestDto);
 
     }
 
@@ -43,8 +46,8 @@ public class ClientInvoiceService {
         }
     }
 
-    private void save(final InvoiceClientDto invoiceClientRequestDto) {
-        invoiceClientRepository.save(InvoiceClient
+    private InvoiceClient save(final InvoiceClientDto invoiceClientRequestDto) {
+        return invoiceClientRepository.save(InvoiceClient
                 .builder()
                 .invoiceId(invoiceClientRequestDto.getInvoiceId())
                 .email(invoiceClientRequestDto.getEmail())
