@@ -1,0 +1,18 @@
+version: '3'
+services:
+  database:
+    image: 'mongo'
+    container_name: 'bahamas-invoice-db'
+    environment:
+      - MONGO_INITDB_DATABASE=bahamas-invoice
+      - MONGO_INITDB_ROOT_USERNAME=bahamasinvoice
+      - MONGO_INITDB_ROOT_PASSWORD=bahamasinvoice
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./mongo-volume:/data/db
+    ports:
+      - '27017-27019:27017-27019'
+  web:
+    build: .
+    ports:
+      - "8081:8081"
