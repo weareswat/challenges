@@ -24,7 +24,18 @@ Mostly, we work with Ruby and Clojure, but also have some stuff in Node.js. Even
 
 * **People** - you know, the guys in the team(s). We're not afraid to ask for help and we're not afraid to express our opinions. We're here to help.eachother.
 
-* **Culture** - Paulo, one of your future colleagues, wrote about it. [https://medium.com/we-are-swat/what-its-like-to-work-on-the-swat-team-30d3a081e116]
+* **Culture** - We follow RUPEAL's guiding principles:
+
+  * Give your best
+  * Show That You Care
+  * Build an environment of strong, open and honest relationships
+  * Deliver WOW through your service
+  * Stay humble
+  * Do What's Right
+  * Be coachable and don’t take it personally
+  * Do more with less
+  * Pursue growth and personal development
+  * Have fun
 
 * **You** - by joining our team, feel free to question all the items below and propose new ideas on how we work. This is definitely not a static thing.
 
