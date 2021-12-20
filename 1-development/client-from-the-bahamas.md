@@ -1,4 +1,4 @@
-InvoiceXpress is a web app that makes online invoicing easy. Customers can create an account and use the API to create invoices. Each invoice has a `Client`, and there is an [API for interacting with clients](http://invoicexpress.com/api/clients/create).
+InvoiceXpress is a web app that makes online invoicing easy. Customers can create an account and use the API to create invoices. Each invoice has a `Client`, and there is an [API for interacting with clients](https://invoicexpress.com/api-v2/clients/create-4).
 
 ### Bahamas
 
