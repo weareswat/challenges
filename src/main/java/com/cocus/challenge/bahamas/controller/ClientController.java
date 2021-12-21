@@ -1,7 +1,6 @@
 package com.cocus.challenge.bahamas.controller;
 
 
-import com.cocus.challenge.bahamas.exceptions.ClientNotFoundException;
 import com.cocus.challenge.bahamas.model.Client;
 import com.cocus.challenge.bahamas.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,7 @@ public class ClientController {
 
 
     @GetMapping(value = "/retrieve-bahamas-client/{invoice_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Client> retrieveClient(@PathVariable("invoice_id") Long invoiceId) throws ClientNotFoundException {
+    public ResponseEntity<Client> retrieveClient(@PathVariable("invoice_id") String invoiceId) {
         return ResponseEntity.ok(clientService.retrieveClient(invoiceId));
     }
 

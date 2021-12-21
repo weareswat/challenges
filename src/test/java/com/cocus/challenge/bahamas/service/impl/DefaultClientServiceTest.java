@@ -24,10 +24,10 @@ class DefaultClientServiceTest {
 
     @Test
     void whenClientNotFound_thenThrowClientNotFoundException() {
-        Mockito.doReturn(Optional.empty()).when(clientRepository).find(Mockito.anyLong());
+        Mockito.doReturn(Optional.empty()).when(clientRepository).findById(Mockito.anyString());
 
         ClientNotFoundException clientNotFoundException = Assertions.assertThrows(ClientNotFoundException.class, () -> {
-           defaultClientService.retrieveClient(123L);
+           defaultClientService.retrieveClient("123");
         });
 
         assertNotNull(clientNotFoundException);

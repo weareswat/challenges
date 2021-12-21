@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: test
+    password: test
+    driverClassName: org.h2.Driver
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+
+server:
+  error:
+    include-message: ALWAYS
+
+
+logging:
+  level:
+    com:
+      zaxxer:
+        hikari: DEBUG

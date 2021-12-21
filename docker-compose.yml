@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  bahamas-challenge-app:
+    image: maven:3.6.3-jdk-11
+    volumes:
+    - .:/var/app
+    working_dir: /var/app
+    entrypoint: mvn test && mvn spring-boot:run
+    ports:
+      - 8080:8080
