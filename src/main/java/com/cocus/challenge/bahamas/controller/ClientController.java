@@ -1,14 +1,12 @@
 package com.cocus.challenge.bahamas.controller;
 
 
-import com.cocus.challenge.bahamas.model.Client;
+import com.cocus.challenge.bahamas.entities.Client;
+import com.cocus.challenge.bahamas.model.ClientRequest;
 import com.cocus.challenge.bahamas.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ClientController {
@@ -21,9 +19,14 @@ public class ClientController {
     }
 
 
-    @GetMapping(value = "/retrieve-bahamas-client/{invoice_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Client> retrieveClient(@PathVariable("invoice_id") String invoiceId) {
+    @GetMapping("/retrieve-bahamas-client/{invoice_id}")
+    public ResponseEntity<Client> retrieveClient(@PathVariable("invoice_id") Long invoiceId) {
         return ResponseEntity.ok(clientService.retrieveClient(invoiceId));
+    }
+
+    @PostMapping("/store-bahamas-client")
+    public ResponseEntity<Client> storeBahamasClient(@RequestBody ClientRequest clientRequest){
+        return ResponseEntity.ok(clientService.storeBahamasClient(clientRequest.getClient()));
     }
 
 }
