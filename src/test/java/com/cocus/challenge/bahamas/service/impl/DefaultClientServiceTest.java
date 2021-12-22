@@ -1,9 +1,11 @@
 package com.cocus.challenge.bahamas.service.impl;
 
+import com.cocus.challenge.bahamas.exceptions.ClientAlreadyExistsException;
 import com.cocus.challenge.bahamas.exceptions.ClientNotFoundException;
 import com.cocus.challenge.bahamas.entities.Client;
 import com.cocus.challenge.bahamas.repository.ClientRepository;
 import com.cocus.challenge.bahamas.service.BahamasGovernmentService;
+import com.cocus.challenge.util.ClientTestHelper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -48,5 +50,29 @@ class DefaultClientServiceTest {
         Client client = defaultClientService.retrieveClient(123L);
 
         assertNotNull(client);
+    }
+
+    @Test
+    @DisplayName("Throw an ClientAlreadyExistsException if the client already exists during insert")
+    void whenClientExistsOnSave_thenThrowClientAlreadyExistsException() {
+        Mockito.doReturn(Optional.of(new Client())).when(clientRepository).findByCode(Mockito.anyLong());
+
+        Client client = ClientTestHelper.getBaseClientRequest().getClient();
+
+        ClientAlreadyExistsException clientAlreadyExistsException = Assertions.assertThrows(ClientAlreadyExistsException.class, () -> {
+            defaultClientService.storeBahamasClient(client);
+        });
+
+        assertNotNull(clientAlreadyExistsException);
+    }
+
+    @Test
+    @DisplayName("Save client if does not exist on database")
+    void whenClientDoesNotExistsOnSave_thenSaveIt() {
+        Mockito.doReturn(Optional.empty()).when(clientRepository).findByCode(Mockito.anyLong());
+
+        Client client = ClientTestHelper.getBaseClientRequest().getClient();
+
+        defaultClientService.storeBahamasClient(client);
     }
 }

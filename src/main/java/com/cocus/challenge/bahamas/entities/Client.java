@@ -1,5 +1,6 @@
 package com.cocus.challenge.bahamas.entities;
 
+import com.cocus.challenge.bahamas.enums.AcceptedLanguages;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -29,7 +30,7 @@ public class Client {
 
     @Column(name = "LANGUAGE")
     @JsonProperty("language")
-    private String language;
+    private AcceptedLanguages language;
 
     @Column(name = "ADDRESS")
     @JsonProperty("address")
@@ -103,11 +104,11 @@ public class Client {
         this.email = email;
     }
 
-    public String getLanguage() {
+    public AcceptedLanguages getLanguage() {
         return language;
     }
 
-    public void setLanguage(String language) {
+    public void setLanguage(AcceptedLanguages language) {
         this.language = language;
     }
 
