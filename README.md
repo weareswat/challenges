@@ -1,3 +1,41 @@
+#Bahamas client code challenge
+Developer: Rafael Araujo
+
+
+##Requirements:
+  * JDK 11
+  * Maven 3.6
+
+
+##Running the application
+
+  * ###With Spring Maven plugin
+  
+  You can use the Spring Maven plugin to start the app
+  ```
+  mvn spring-boot:run
+  ```
+
+  Also, to execute the test scenarios, the following command
+  ```
+  mvn test
+  ```
+
+
+* ###Running a Docker image
+  
+  You can build an image and create a container using the Dockerfile attached, exposing port
+
+
+##Using the application
+
+  Now that the application is running, it's possible interact with it through swagger and know how the available endpoints works
+
+  <host>/swagger-ui.html
+
+
+---
+
 # Challenges
 Code challenges for developers and designers.
 
