@@ -10,22 +10,24 @@ Developer: Rafael Araujo
 ##Running the application
 
   * ###With Spring Maven plugin
+    
+    You can use the Spring Maven plugin to start the app
+    ```
+    mvn spring-boot:run
+    ```
   
-  You can use the Spring Maven plugin to start the app
-  ```
-  mvn spring-boot:run
-  ```
-
-  Also, to execute the test scenarios, the following command
-  ```
-  mvn test
-  ```
+    Also, to execute the test scenarios, the following command
+    ```
+    mvn test
+    ```
 
 
-* ###Running a Docker image
+  * ###Running with Docker Compose
   
-  You can build an image and create a container using the Dockerfile attached, exposing port
-
+    You can start the app with docker compose
+    ```
+    docker-compose up
+    ```
 
 ##Using the application
 

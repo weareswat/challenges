@@ -6,6 +6,6 @@ services:
     volumes:
     - .:/var/app
     working_dir: /var/app
-    entrypoint: mvn test && mvn spring-boot:run
+    entrypoint: mvn spring-boot:run
     ports:
       - 8080:8080
