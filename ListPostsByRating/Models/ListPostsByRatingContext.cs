@@ -94,13 +94,31 @@ namespace ListPostsByRating.Models
                 UpvotePercentage = 0
             }.CalculateUpvotePercentage().CalculateVoteRatio(),
 
-            /* If you wish to add another BlogPost with your own values
-             * don't forget to add a comma after every extension method
-             * (Line 108, in this case) and to increment the Id!
-             */
             new BlogPost
             {
                 Id = 9,
+                Upvotes = 5,
+                Downvotes = 3,
+                Ratio = 0,
+                UpvotePercentage = 0
+            }.CalculateUpvotePercentage().CalculateVoteRatio(),
+
+            new BlogPost
+            {
+                Id = 10,
+                Upvotes = 9,
+                Downvotes = 7,
+                Ratio = 0,
+                UpvotePercentage = 0
+            }.CalculateUpvotePercentage().CalculateVoteRatio(),
+
+            /* If you wish to add another BlogPost with your own values
+             * don't forget to add a comma after every extension method
+             * (Line 126, in this case) and to increment the Id!
+             */
+            new BlogPost
+            {
+                Id = 11,
                 Upvotes = 0,
                 Downvotes = 0,
                 Ratio = 0,

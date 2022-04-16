@@ -27,8 +27,8 @@ namespace ListPostsByRating.Controllers
         public async Task<IActionResult> FetchAllBlogPosts()
         {
             return Ok(await blogPostContext.BlogPost.OrderByDescending(i => i.Ratio)
-                                                    .ThenByDescending(i => i.Upvotes)
                                                     .ThenByDescending(i => i.UpvotePercentage)
+                                                    .ThenByDescending(i => i.Upvotes)
                                                     .ToListAsync());
         }
 

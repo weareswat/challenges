@@ -33,7 +33,7 @@
 	* PUT - http://localhost:8000/upvote/{post_id}
 	* PUT - http://localhost:8000/downvote/{post_id}
 
-**Note:** Every {post_id} should be >0 and within the total amount of posts, which by default, is 8.
+**Note:** Every {post_id} should be >0 and within the total amount of posts, which by default, is 11.
 
 #### <a name="codetour_models"></a> Code Tour - Models/
 1. The file **BlogPost.cs**, is comprised of the following properties:
@@ -47,7 +47,7 @@ Every property is an integer, even the percentage as when it is calculated, trai
 
 The overall rating of posts is determined by their upvote percentage, followed by their ratio and finally by their upvotes.
 
-A post with the most upvotes might not rank higher than one with better ratio ```(Upvote - Downvote)```
+A post with the most upvotes will not rank higher than one with better ratio ```(Upvote - Downvote)```
 ```json
 [
   {
@@ -67,27 +67,46 @@ A post with the most upvotes might not rank higher than one with better ratio ``
 ]
 ```
 
-and a post with the most upvote percentage won't rank higher than a post with more upvotes, if both have the same ratio:
+and a post with less upvotes but higher upvote percentage will rank higher than a post with more upvotes and less upvote percentage if both have the same ratio:
 
 ```json
 [
-  {
-    "id": 8,
-    "upvotes": 7,
-    "downvotes": 5,
-    "ratio": 2,
-    "upvotePercentage": 58
-  },
   {
     "id": 2,
     "upvotes": 6,
     "downvotes": 4,
     "ratio": 2,
     "upvotePercentage": 60
+  },
+  {
+    "id": 8,
+    "upvotes": 7,
+    "downvotes": 5,
+    "ratio": 2,
+    "upvotePercentage": 58
   }
 ]
 ```
 
+In the case they both have the same ratio and upvote percentage, the one with the most upvotes will rank higher:
+```json
+[
+  {
+    "id": 5,
+    "upvotes": 800,
+    "downvotes": 800,
+    "ratio": 0,
+    "upvotePercentage": 50
+  },
+  {
+    "id": 6,
+    "upvotes": 8,
+    "downvotes": 8,
+    "ratio": 0,
+    "upvotePercentage": 50
+  }
+]
+```
 2. The file **ListPostsByRatingContext.cs**, is where the Entity Framework's database context is located, defining all the types of data present in our models.
 It is also where entity/table's relations are made, for this project, however, relations were not necessary.
 Data is also inserted in the BlogPost Entity ```DbSet<BlogPost> BlogPost```, under the *OnModelCreating(...)* method with the following code:
@@ -170,7 +189,7 @@ public async Task<IActionResult> FetchAllBlogPosts()
 						.ToListAsync());
 }
 ```
-This URI lists every BlogPost descendingly, so the top rated posts stay on top, when a GET request is made to /posts. Ratio is very important for post rating, but if two posts have this same value then whichever has the most upvotes gets ranked higher.
+This URI lists every BlogPost descendingly, so the top rated posts stay on top, when a GET request is made to /posts. Ratio is very important for post rating, but if two posts have this same value then whichever has the most upvote percentage gets ranked higher.
 
 4.3 The next two Actions, **UpvotePost(...)** and **DownvotePost(...)** work similarly, so only the former will be explained, the difference between them is in which Post property is incremented.
 
