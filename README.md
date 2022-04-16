@@ -8,12 +8,12 @@
 - .NET Core cross-platform development
 
 ### Techonology used
-> C# 9.0 (.NET 5)
-> Linq
-> Entity Framework Core 5.0.16
-> Entity Framework Core inMemory 5.0.16 (In-memory database)
-> Swashbuckle.AspNetCore 5.6.3
-> OpenApi (with SwaggerUI)
+* C# 9.0 (.NET 5)
+* Linq
+* Entity Framework Core 5.0.16
+* Entity Framework Core inMemory 5.0.16 (In-memory database)
+* Swashbuckle.AspNetCore 5.6.3
+* OpenApi (with SwaggerUI)
 
 # Table of contents
 1. [Usage](##Usage)
