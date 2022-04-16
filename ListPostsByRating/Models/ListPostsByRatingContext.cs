@@ -96,7 +96,7 @@ namespace ListPostsByRating.Models
 
             /* If you wish to add another BlogPost with your own values
              * don't forget to add a comma after every extension method
-             * (Line 109, in this case) and to increment the Id!
+             * (Line 108, in this case) and to increment the Id!
              */
             new BlogPost
             {

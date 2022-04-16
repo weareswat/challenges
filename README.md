@@ -1,4 +1,4 @@
-# List_posts_by_rating
+# List Posts by Rating
 
 ### Requirements:
 > Visual Studio Community 2019 with the following workloads:
@@ -9,32 +9,43 @@
 
 ### Techonology used
 > C# 9.0 (.NET 5)
+> Linq
 > Entity Framework Core 5.0.16
 > Entity Framework Core inMemory 5.0.16 (In-memory database)
 > Swashbuckle.AspNetCore 5.6.3
 > OpenApi (with SwaggerUI)
+
+# Table of contents
+1. [Usage](##Usage)
+	1. [Basic Testing](#basictesting)
+2. [Code Tour - Models/](#codetour_models)
+3. [Code Tour - Models/ExtensionMethods](#codetour_extensionmethods)
+4. [Code Tour - Controllers/](#codetour_controllers)
+---
 ## Usage
-***
-#### Basic Testing
+#### <a name="basictesting"></a> Basic Testing  
+
 1. In the project folder, open the **ListPostsByRating.sln** file;
 2. Once Visual Studio 2019 opens up, on the top bar click on **ISS Express** to run the application;
 3. A web page in your default browser will appear, with the URL **http://localhost:8000/swagger/index.html**. This is the SwaggerUI, simple click on the endpoint > "Try it out" button > Execute;
-3.1 If a tool like Postman is preferred, simply let the application run and copy and paste the following requests:
-3.1.1 GET - http://localhost:8000/posts
-3.1.2 PUT - http://localhost:8000/upvote/{post_id}
-3.1.3 PUT - http://localhost:8000/downvote/{post_id}
-Note: Every {post_id} should be >0 and within the total amount of posts, which by default, is 8.
+4. If a tool like Postman is preferred, simply let the application run and copy and paste the following requests:
+	* GET - http://localhost:8000/posts
+	* PUT - http://localhost:8000/upvote/{post_id}
+	* PUT - http://localhost:8000/downvote/{post_id}
 
-#### Code Tour - Models/
+**Note:** Every {post_id} should be >0 and within the total amount of posts, which by default, is 8.
+
+#### <a name="codetour_models"></a> Code Tour - Models/
 1. The file **BlogPost.cs**, is comprised of the following properties:
-1.1 - **Id**: Unique identifier of each post, used in upvoting/downvoting requests;
-1.2 - **Upvotes**: Plays a big part of determining the overall rating of a post;
-1.3 - **Downvotes**: When coupled with Upvotes, it is used to determine a post's Ratio;
-1.4 - **Ratio**: It is calculated by the difference of Upvotes and Downvotes;
-1.5 - **UpvotePercentage**: Calculated by how many Upvotes a post has according to its total.
+* **Id**: Unique identifier of each post, used in upvoting/downvoting requests;
+* **Upvotes**: Plays a big part of determining the overall rating of a post;
+* **Downvotes**: When coupled with Upvotes, it is used to determine a post's Ratio;
+* **Ratio**: It is calculated by the difference of Upvotes and Downvotes;
+* **UpvotePercentage**: Calculated by how many Upvotes a post has according to its total.
+
 Every property is an integer, even the percentage as when it is calculated, trailling decimal numbers are ignored for simplicity sake.
 
-The overall rating of posts are determined by their upvote percentage, followed by their ratio and finally by their upvotes.
+The overall rating of posts is determined by their upvote percentage, followed by their ratio and finally by their upvotes.
 
 A post with the most upvotes might not rank higher than one with better ratio ```(Upvote - Downvote)```
 ```json
@@ -56,11 +67,11 @@ A post with the most upvotes might not rank higher than one with better ratio ``
 ]
 ```
 
-and a post with the most upvote percentage won't rank higher than a post with more upvotes, if both have the same ratio
+and a post with the most upvote percentage won't rank higher than a post with more upvotes, if both have the same ratio:
 
 ```json
 [
-	  {
+  {
     "id": 8,
     "upvotes": 7,
     "downvotes": 5,
@@ -78,7 +89,7 @@ and a post with the most upvote percentage won't rank higher than a post with mo
 ```
 
 2. The file **ListPostsByRatingContext.cs**, is where the Entity Framework's database context is located, defining all the types of data present in our models.
-It is also where entitiy/table's relations are made, for this project those are not necessary.
+It is also where entity/table's relations are made, for this project, however, relations were not necessary.
 Data is also inserted in the BlogPost Entity ```DbSet<BlogPost> BlogPost```, under the *OnModelCreating(...)* method with the following code:
 ```cs
 modelBuilder.Entity<BlogPost>().HasData(
@@ -92,11 +103,11 @@ modelBuilder.Entity<BlogPost>().HasData(
 	}.CalculateUpvotePercentage().CalculateVoteRatio(),
 	// Code omitted
 ```
-*Don't worry about the __CalculateUpvotePercentage()__ and __CalculateVoteRatio()__ extension methods, they are here to calculate their respective values with the hard coded Upvotes and Downvotes numbers so coders don't have to waste time calculating them themselves, they are also explained in the next sub chapter*
+*Don't worry about the __CalculateUpvotePercentage()__ and __CalculateVoteRatio()__ extension methods, they are here to calculate their respective values with the hard coded Upvotes and Downvotes numbers so coders don't have to waste time calculating them themselves, they are also explained in the next sub chapter.*
 
-The hard coded data here is for testing purposes, their values, altered or not during testing, will remain in memory until the program is shutdown. The added posts will automatically be rated in the **BlogPostController.cs**, also explained later
+The hard coded data here is for testing purposes, their values, altered or not during testing, will remain in memory until the program is shutdown, in which, upon restart values will be reset to what they were previously. The added posts will automatically be rated in the **BlogPostController.cs**, also explained later.
 
-#### Code Tour - Models/ExtensionMethods
+#### <a name="codetour_extensionmethods"></a> Code Tour - Models/ExtensionMethods
 3. These [extension methods](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods#common-usage-patterns) only work with BlogPost objects (present in the Models/ folder), hence why they were attached to each newly created BlogPost hard coded data:
 
 ```cs
@@ -130,9 +141,75 @@ public static BlogPost CalculateVoteRatio(this BlogPost blogPost)
 }
 ```
 
-#### Code Tour - Controllers/
-4. 
+#### <a name="codetour_controllers"></a> Code Tour - Controllers/
+4. In the file **BlogPostController.cs**, is where access to the state of the BlogPost model and response methods are made. Methods in this controller are called Actions that can return various status codes as well as data from the database. Every Action runs asynchronously.
+4.1 In the following constructor, we receive the database context and inject it onto a local property for later use, such as querying. As precaution, it is checked whether or not the database context is null and, since the database is "In Memory" we also check if it is initialized via ```.Database.EnsureCreated()```.
 
+```cs
+private readonly ListPostsByRatingContext blogPostContext;
+
+public BlogPostController(ListPostsByRatingContext blogPostContext)
+{
+	if (blogPostContext == null)
+		throw new ArgumentNullException();
+		
+	this.blogPostContext = blogPostContext;
+	this.blogPostContext.Database.EnsureCreated();
+}
+```
+
+4.2 Each Action is routed with attributes containing their respective HTTP Verbs, let's start with the most basic one, ```[HttpGet]```
+
+```cs
+[HttpGet("posts")]
+public async Task<IActionResult> FetchAllBlogPosts()
+{
+	return Ok(await blogPostContext.BlogPost.OrderByDescending(i => i.Ratio)
+						.ThenByDescending(i => i.Upvotes)
+						.ThenByDescending(i => i.UpvotePercentage)
+						.ToListAsync());
+}
+```
+This URI lists every BlogPost descendingly, so the top rated posts stay on top, when a GET request is made to /posts. Ratio is very important for post rating, but if two posts have this same value then whichever has the most upvotes gets ranked higher.
+
+4.3 The next two Actions, **UpvotePost(...)** and **DownvotePost(...)** work similarly, so only the former will be explained, the difference between them is in which Post property is incremented.
+
+* It is first checked whether or not the post Id is valid, it has to be a positive integer, returning a "409 Conflict" status code otherwise;
+* Then a database query is made to see if a post with the given Id exists, if not, it returns a null object, in which case, returns a "404 Not Found" status code to the client;
+* If a post based on the given Id exists, the upvote value (or downvote value) is incremented, upvote percentage and vote ratio calculated. With the modified state being saved to the database. Returning the post with the updated values.
+```cs
+[HttpPut("upvote/{post_id:int}")]
+public async Task<IActionResult> UpvotePost(int post_id)
+{
+	if (post_id <= 0)
+	    return Conflict();
+
+	BlogPost blogPost = blogPostContext.BlogPost.Where(b => b.Id == post_id).FirstOrDefault();
+
+	if (blogPost == null)
+	    return NotFound();
+
+	try
+	{
+	    blogPost.Upvotes++;
+	    blogPost.CalculateUpvotePercentage().CalculateVoteRatio();
+
+	    blogPostContext.Entry(blogPost).State = EntityState.Modified;
+
+	    await blogPostContext.SaveChangesAsync();
+	}
+	catch(ArgumentNullException)
+	{
+	    return NotFound();
+	}
+	catch (DbUpdateConcurrencyException)
+	{
+	    throw;
+	}
+	
+	return Ok(blogPost);
+}
+```
 ***
 # Challenges
 Code challenges for developers and designers.
