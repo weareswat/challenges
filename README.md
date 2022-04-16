@@ -67,7 +67,7 @@ A post with the most upvotes will not rank higher than one with better ratio ```
 ]
 ```
 
-and a post with less upvotes but higher upvote percentage will rank higher than a post with more upvotes and less upvote percentage if both have the same ratio:
+and a post with less upvotes but higher upvote percentage will rank higher than a post with more upvotes and lower upvote percentage if both have the same ratio:
 
 ```json
 [
@@ -178,7 +178,7 @@ public BlogPostController(ListPostsByRatingContext blogPostContext)
 ```
 
 4.2 Each Action is routed with attributes containing their respective HTTP Verbs, let's start with the most basic one, ```[HttpGet]```
-
+ 
 ```cs
 [HttpGet("posts")]
 public async Task<IActionResult> FetchAllBlogPosts()
