@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="rubenmarques" id="1.0.0">
+        <sqlFile path="classpath:/db/migrations_scripts/Startup/CreateTables.sql" splitStatements="false"/>
+    </changeSet>
+
+    <changeSet author="rubenmarques" id="1.0.1">
+        <sqlFile path="classpath:/db/migrations_scripts/Startup/SeedData.sql"  splitStatements="false"/>
+    </changeSet>
+
+</databaseChangeLog>

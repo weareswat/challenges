@@ -1,0 +1,45 @@
+# APPLICATION
+spring.application.name: post-service
+spring.profiles.active: ${USER_PROFILE_ACTIVE:default}
+
+# SERVER
+server:
+  port: ${USER_SERVER_PORT:8082}
+  compression.enabled: true
+  http2.enabled: true
+spring.mandatory-file-encoding: UTF-8
+
+# JACKSON
+spring.jackson:
+  default-property-inclusion: use_defaults
+  serialization.write-dates-as-timestamps: false
+  deserialization.fail-on-unknown-properties: false
+
+# Spring Datasource
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/post_db
+    username: postgres
+    password: admin
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      maximum-pool-size: 4
+      minimum-idle: 50
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 900000
+      leak-detection-threshold: 60000
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/liquibase.xml
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: none
+      use-new-id-generator-mappings: false
+    show-sql: false
+
+logging.level.liquibase: INFO
