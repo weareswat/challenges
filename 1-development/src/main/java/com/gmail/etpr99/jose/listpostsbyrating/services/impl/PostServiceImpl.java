@@ -1,5 +1,6 @@
 package com.gmail.etpr99.jose.listpostsbyrating.services.impl;
 
+import com.gmail.etpr99.jose.listpostsbyrating.exceptions.PostNotFoundException;
 import com.gmail.etpr99.jose.listpostsbyrating.models.Post;
 import com.gmail.etpr99.jose.listpostsbyrating.repositories.PostRepository;
 import com.gmail.etpr99.jose.listpostsbyrating.services.PostService;
@@ -47,6 +48,14 @@ public class PostServiceImpl implements PostService {
      * {@inheritDoc}
      */
     @Override
+    public Long getPostUpvotes(Long id) {
+        return postRepository.getPostUpvotes(id);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public Post upvotePost(Post post) {
         if (!postRepository.existsById(post.getId())) {
             throw new IllegalArgumentException("Post with ID " + post.getId() + " does not exist.");
@@ -67,7 +76,15 @@ public class PostServiceImpl implements PostService {
             return postRepository.save(post);
         }
 
-        throw new IllegalArgumentException("Post with ID " + id + " does not exist.");
+        throw new PostNotFoundException("Post with ID " + id + " does not exist.");
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Long getPostDownvotes(Long id) {
+        return postRepository.getPostDownvotes(id);
     }
 
     /**
@@ -76,7 +93,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public Post downvotePost(Post post) {
         if (!postRepository.existsById(post.getId())) {
-            throw new IllegalArgumentException("Post with ID " + post.getId() + " does not exist.");
+            throw new PostNotFoundException("Post with ID " + post.getId() + " does not exist.");
         }
 
         post.setDownvotes(post.getDownvotes() + 1);
@@ -94,7 +111,7 @@ public class PostServiceImpl implements PostService {
             return postRepository.save(post);
         }
 
-        throw new IllegalArgumentException("Post with ID " + id + " does not exist.");
+        throw new PostNotFoundException("Post with ID " + id + " does not exist.");
     }
 
     /**
@@ -121,7 +138,7 @@ public class PostServiceImpl implements PostService {
         if (postRepository.existsById(post.getId())) {
             return postRepository.save(post);
         } else {
-            throw new IllegalArgumentException("Post does not exist.");
+            throw new PostNotFoundException("Post does not exist.");
         }
     }
 
@@ -130,7 +147,7 @@ public class PostServiceImpl implements PostService {
         if (posts.stream().allMatch(post -> postRepository.existsById(post.getId()))) {
             return postRepository.saveAll(posts);
         } else {
-            throw new IllegalArgumentException("One of the given posts does not exist.");
+            throw new PostNotFoundException("One of the given posts does not exist.");
         }
     }
 
@@ -142,7 +159,7 @@ public class PostServiceImpl implements PostService {
         if (postRepository.existsById(post.getId())) {
             postRepository.delete(post);
         } else {
-            throw new IllegalArgumentException("Post does not exist.");
+            throw new PostNotFoundException("Post does not exist.");
         }
     }
 
@@ -154,7 +171,7 @@ public class PostServiceImpl implements PostService {
         if (posts.stream().allMatch(post -> postRepository.existsById(post.getId()))) {
             postRepository.deleteAll(posts);
         } else {
-            throw new IllegalArgumentException("One of the given posts does not exist.");
+            throw new PostNotFoundException("One of the given posts does not exist.");
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.gmail.etpr99.jose.listpostsbyrating.services;
 
+import com.gmail.etpr99.jose.listpostsbyrating.exceptions.PostNotFoundException;
 import com.gmail.etpr99.jose.listpostsbyrating.models.Post;
 
 import java.util.List;
@@ -25,10 +26,19 @@ public interface PostService {
     Post getPost(Long id);
 
     /**
+     * Gets a post upvotes by its ID.
+     *
+     * @param id The ID of the post to get.
+     * @return The upvotes of the post with the given ID.
+     */
+    Long getPostUpvotes(Long id);
+
+    /**
      * Adds an upvote to the given post.
      *
      * @param post The post to upvote.
      * @return The post with the upvote added.
+     * @throws PostNotFoundException If the post does not exist.
      */
     Post upvotePost(Post post);
 
@@ -37,14 +47,24 @@ public interface PostService {
      *
      * @param id The ID of the post to upvote.
      * @return The post with the upvote added.
+     * @throws PostNotFoundException If the post with the given ID does not exist.
      */
     Post upvotePost(Long id);
+
+    /**
+     * Gets a post downvotes by its ID.
+     *
+     * @param id The ID of the post to get.
+     * @return The downvotes of the post with the given ID.
+     */
+    Long getPostDownvotes(Long id);
 
     /**
      * Adds a downvote to the given post.
      *
      * @param post The post to downvote.
      * @return The post with the downvote added.
+     * @throws PostNotFoundException If the post does not exist.
      */
     Post downvotePost(Post post);
 
@@ -53,6 +73,7 @@ public interface PostService {
      *
      * @param id The ID of the post to downvote.
      * @return The post with the downvote added.
+     * @throws PostNotFoundException If the post with the given ID does not exist.
      */
     Post downvotePost(Long id);
 
@@ -77,7 +98,7 @@ public interface PostService {
      *
      * @param post The post to update.
      * @return The updated post.
-     * @throws IllegalArgumentException If the post does not exist.
+     * @throws PostNotFoundException If the post does not exist.
      */
     Post updatePost(Post post);
 
@@ -86,7 +107,7 @@ public interface PostService {
      *
      * @param posts The list of posts to update.
      * @return The list of updated posts.
-     * @throws IllegalArgumentException If any of the posts do not exist.
+     * @throws PostNotFoundException If any of the posts do not exist.
      */
     List<Post> updatePosts(List<Post> posts);
 
@@ -94,7 +115,7 @@ public interface PostService {
      * Deletes a post.
      *
      * @param post The post to delete.
-     * @throws IllegalArgumentException If the post does not exist.
+     * @throws PostNotFoundException If the post does not exist.
      */
     void deletePost(Post post);
 
@@ -102,7 +123,7 @@ public interface PostService {
      * Deletes a list of posts.
      *
      * @param posts The list of the posts to delete.
-     * @throws IllegalArgumentException If any of the posts do not exist.
+     * @throws PostNotFoundException If any of the posts do not exist.
      */
     void deletePosts(List<Post> posts);
 }
