@@ -65,8 +65,8 @@ public class PostController {
      *
      * @param post The {@link Post} object to delete.
      */
-    @PatchMapping("/posts")
-    public ResponseEntity<String> deletePost(@Valid @RequestBody Post post) {
+    @DeleteMapping("/posts")
+    public ResponseEntity<String> deletePost(@RequestBody Post post) {
         postService.deletePost(post);
         return new ResponseEntity<>("Post with ID " + post.getId() + " deleted.", HttpStatus.OK);
     }

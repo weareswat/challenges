@@ -49,31 +49,37 @@ public class PostServiceImpl implements PostService {
      */
     @Override
     public Long getPostUpvotes(Long id) {
-        return postRepository.getPostUpvotes(id);
+        Long upvotes = postRepository.getPostUpvotes(id);
+        if (upvotes == null) {
+            throw new PostNotFoundException("Post with ID " + id + " does not exist.");
+        }
+
+        return upvotes;
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public Post upvotePost(Post post) {
+    public void upvotePost(Post post) {
         if (!postRepository.existsById(post.getId())) {
-            throw new IllegalArgumentException("Post with ID " + post.getId() + " does not exist.");
+            throw new PostNotFoundException("Post with ID " + post.getId() + " does not exist.");
         }
 
         post.setUpvotes(post.getUpvotes() + 1);
-        return postRepository.save(post);
+        postRepository.save(post);
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public Post upvotePost(Long id) {
+    public void upvotePost(Long id) {
         Post post = postRepository.findById(id).orElse(null);
         if (post != null) {
             post.setUpvotes(post.getUpvotes() + 1);
-            return postRepository.save(post);
+            postRepository.save(post);
+            return;
         }
 
         throw new PostNotFoundException("Post with ID " + id + " does not exist.");
@@ -91,24 +97,25 @@ public class PostServiceImpl implements PostService {
      * {@inheritDoc}
      */
     @Override
-    public Post downvotePost(Post post) {
+    public void downvotePost(Post post) {
         if (!postRepository.existsById(post.getId())) {
             throw new PostNotFoundException("Post with ID " + post.getId() + " does not exist.");
         }
 
         post.setDownvotes(post.getDownvotes() + 1);
-        return postRepository.save(post);
+        postRepository.save(post);
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public Post downvotePost(Long id) {
+    public void downvotePost(Long id) {
         Post post = postRepository.findById(id).orElse(null);
         if (post != null) {
             post.setDownvotes(post.getDownvotes() + 1);
-            return postRepository.save(post);
+            postRepository.save(post);
+            return;
         }
 
         throw new PostNotFoundException("Post with ID " + id + " does not exist.");

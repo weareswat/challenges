@@ -22,7 +22,7 @@ public class PostRepositoryTest {
 
     @Test
     public void testGetPostUpvotes() {
-        Post post = new Post(1L, "Lorem ipsum", 9L, 1L);
+        Post post = new Post(1L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L);
         entityManager.persist(post);
         entityManager.flush();
 
@@ -31,12 +31,22 @@ public class PostRepositoryTest {
     }
 
     @Test
+    public void testGetNonExistentPostUpvotes() {
+        assertThat(postRepository.getPostUpvotes(1L)).isNull();
+    }
+
+    @Test
     public void testGetPostDownvotes() {
-        Post post = new Post(1L, "Lorem ipsum", 9L, 1L);
+        Post post = new Post(1L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L);
         entityManager.persist(post);
         entityManager.flush();
 
         Long downvotes = postRepository.getPostDownvotes(post.getId());
         assertThat(downvotes).isEqualTo(post.getDownvotes());
+    }
+
+    @Test
+    public void testGetNonExistentPostDownvotes() {
+        assertThat(postRepository.getPostDownvotes(1L)).isNull();
     }
 }

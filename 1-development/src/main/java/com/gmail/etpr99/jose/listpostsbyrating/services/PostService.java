@@ -37,19 +37,17 @@ public interface PostService {
      * Adds an upvote to the given post.
      *
      * @param post The post to upvote.
-     * @return The post with the upvote added.
      * @throws PostNotFoundException If the post does not exist.
      */
-    Post upvotePost(Post post);
+    void upvotePost(Post post);
 
     /**
      * Adds an upvote to the post with the given ID.
      *
      * @param id The ID of the post to upvote.
-     * @return The post with the upvote added.
      * @throws PostNotFoundException If the post with the given ID does not exist.
      */
-    Post upvotePost(Long id);
+    void upvotePost(Long id);
 
     /**
      * Gets a post downvotes by its ID.
@@ -63,19 +61,17 @@ public interface PostService {
      * Adds a downvote to the given post.
      *
      * @param post The post to downvote.
-     * @return The post with the downvote added.
      * @throws PostNotFoundException If the post does not exist.
      */
-    Post downvotePost(Post post);
+    void downvotePost(Post post);
 
     /**
      * Adds a downvote to the post with the given ID.
      *
      * @param id The ID of the post to downvote.
-     * @return The post with the downvote added.
      * @throws PostNotFoundException If the post with the given ID does not exist.
      */
-    Post downvotePost(Long id);
+    void downvotePost(Long id);
 
     /**
      * Inserts a new post.

@@ -37,9 +37,9 @@ public class PostServiceTest {
 
     @Test
     public void testGetAll() {
-        Post post1 = new Post(1L, "Lorem ipsum", 9L, 1L);
-        Post post2 = new Post(2L, "Lorem ipsum", 7L, 1L);
-        Post post3 = new Post(3L, "Lorem ipsum", 8L, 1L);
+        Post post1 = new Post(1L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L);
+        Post post2 = new Post(2L, "Lorem ipsum ipsum ipsum ipsum ipsum", 7L, 1L);
+        Post post3 = new Post(3L, "Lorem ipsum ipsum ipsum ipsum ipsum", 8L, 1L);
 
         entityManager.persist(post1);
         entityManager.persist(post2);
@@ -54,7 +54,7 @@ public class PostServiceTest {
 
     @Test
     public void testGetPost() {
-        Post post = new Post(1L, "Lorem ipsum", 9L, 1L);
+        Post post = new Post(1L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L);
         entityManager.persist(post);
         entityManager.flush();
 
@@ -63,69 +63,93 @@ public class PostServiceTest {
     }
 
     @Test
-    public void testUpvotePostByPostObj() {
-        Post post = new Post(1L, "Lorem ipsum", 9L, 1L);
+    public void testGetPostUpvotes() {
+        Post post = new Post(1L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L);
         entityManager.persist(post);
         entityManager.flush();
 
-        Post found = postService.upvotePost(post);
+        Long upvotes = postService.getPostUpvotes(post.getId());
+        assertThat(upvotes).isEqualTo(post.getUpvotes());
+    }
+
+    @Test
+    public void testUpvotePostByPostObj() {
+        Post post = new Post(1L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L);
+        entityManager.persist(post);
+        entityManager.flush();
+
+        postService.upvotePost(post);
+        Post found = postService.getPost(post.getId());
         assertThat(found.getUpvotes()).isEqualTo(10L);
     }
 
     @Test
     public void testUpvotePostById() {
-        Post post = new Post(1L, "Lorem ipsum", 9L, 1L);
+        Post post = new Post(1L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L);
         entityManager.persist(post);
         entityManager.flush();
 
-        Post found = postService.upvotePost(post.getId());
+        postService.upvotePost(post.getId());
+        Post found = postService.getPost(post.getId());
         assertThat(found.getUpvotes()).isEqualTo(10L);
     }
 
     @Test
     public void whenUpvotingNonExistentPost_thenThrow() {
-        assertThrows(PostNotFoundException.class, () -> postService.upvotePost(new Post(2L, "Lorem ipsum", 9L, 1L)));
+        assertThrows(PostNotFoundException.class, () -> postService.upvotePost(new Post(2L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L)));
         assertThrows(PostNotFoundException.class, () -> postService.upvotePost(2L));
     }
 
     @Test
-    public void testDownvotePostByPostObj() {
-        Post post = new Post(1L, "Lorem ipsum", 9L, 1L);
+    public void testGetPostDownvotes() {
+        Post post = new Post(1L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L);
         entityManager.persist(post);
         entityManager.flush();
 
-        Post found = postService.downvotePost(post);
+        Long downvotes = postService.getPostDownvotes(post.getId());
+        assertThat(downvotes).isEqualTo(1L);
+    }
+
+    @Test
+    public void testDownvotePostByPostObj() {
+        Post post = new Post(1L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L);
+        entityManager.persist(post);
+        entityManager.flush();
+
+        postService.downvotePost(post);
+        Post found = postService.getPost(post.getId());
         assertThat(found.getDownvotes()).isEqualTo(2L);
     }
 
     @Test
     public void testDownvotePostById() {
-        Post post = new Post(1L, "Lorem ipsum", 9L, 1L);
+        Post post = new Post(1L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L);
         entityManager.persist(post);
         entityManager.flush();
 
-        Post found = postService.downvotePost(post.getId());
+        postService.downvotePost(post.getId());
+        Post found = postService.getPost(post.getId());
         assertThat(found.getDownvotes()).isEqualTo(2L);
     }
 
     @Test
     public void whenDownvotingNonExistentPost_thenThrow() {
-        assertThrows(PostNotFoundException.class, () -> postService.downvotePost(new Post(2L, "Lorem ipsum", 9L, 1L)));
+        assertThrows(PostNotFoundException.class, () -> postService.downvotePost(new Post(2L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L)));
         assertThrows(PostNotFoundException.class, () -> postService.downvotePost(2L));
     }
 
     @Test
     public void testInsertPost() {
-        Post post = new Post(1L, "Lorem ipsum", 9L, 1L);
+        Post post = new Post(1L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L);
         Post inserted = postService.insertPost(post);
         assertThat(inserted.getId()).isEqualTo(post.getId());
     }
 
     @Test
     public void testInsertPosts() {
-        Post post1 = new Post(1L, "Lorem ipsum", 9L, 1L);
-        Post post2 = new Post(2L, "Lorem ipsum", 7L, 1L);
-        Post post3 = new Post(3L, "Lorem ipsum", 8L, 1L);
+        Post post1 = new Post(1L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L);
+        Post post2 = new Post(2L, "Lorem ipsum ipsum ipsum ipsum ipsum", 7L, 1L);
+        Post post3 = new Post(3L, "Lorem ipsum ipsum ipsum ipsum ipsum", 8L, 1L);
 
         List<Post> posts = postService.insertPosts(Arrays.asList(post1, post2, post3));
         assertThat(posts.get(0).getId()).isEqualTo(post1.getId());
@@ -135,7 +159,7 @@ public class PostServiceTest {
 
     @Test
     public void testUpdatePost() {
-        Post post = new Post(1L, "Lorem ipsum", 9L, 1L);
+        Post post = new Post(1L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L);
         entityManager.persist(post);
         entityManager.flush();
 
@@ -145,14 +169,14 @@ public class PostServiceTest {
 
     @Test
     public void whenUpdatingNonExistentPost_thenThrow() {
-        assertThrows(PostNotFoundException.class, () -> postService.updatePost(new Post(2L, "Lorem ipsum", 9L, 1L)));
+        assertThrows(PostNotFoundException.class, () -> postService.updatePost(new Post(2L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L)));
     }
 
     @Test
     public void testUpdatePosts() {
-        Post post1 = new Post(1L, "Lorem ipsum", 9L, 1L);
-        Post post2 = new Post(2L, "Lorem ipsum", 7L, 1L);
-        Post post3 = new Post(3L, "Lorem ipsum", 8L, 1L);
+        Post post1 = new Post(1L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L);
+        Post post2 = new Post(2L, "Lorem ipsum ipsum ipsum ipsum ipsum", 7L, 1L);
+        Post post3 = new Post(3L, "Lorem ipsum ipsum ipsum ipsum ipsum", 8L, 1L);
 
         entityManager.persist(post1);
         entityManager.persist(post2);
@@ -167,12 +191,12 @@ public class PostServiceTest {
 
     @Test
     public void whenUpdatingNonExistentPosts_thenThrow() {
-        assertThrows(PostNotFoundException.class, () -> postService.updatePosts(Arrays.asList(new Post(2L, "Lorem ipsum", 9L, 1L), new Post(3L, "Lorem ipsum", 7L, 1L))));
+        assertThrows(PostNotFoundException.class, () -> postService.updatePosts(Arrays.asList(new Post(2L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L), new Post(3L, "Lorem ipsum ipsum ipsum ipsum ipsum", 7L, 1L))));
     }
 
     @Test
     public void testDeletePost() {
-        Post post = new Post(1L, "Lorem ipsum", 9L, 1L);
+        Post post = new Post(1L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L);
         entityManager.persist(post);
         entityManager.flush();
 
@@ -182,14 +206,14 @@ public class PostServiceTest {
 
     @Test
     public void whenDeletingNonExistentPost_thenThrow() {
-        assertThrows(PostNotFoundException.class, () -> postService.deletePost(new Post(2L, "Lorem ipsum", 9L, 1L)));
+        assertThrows(PostNotFoundException.class, () -> postService.deletePost(new Post(2L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L)));
     }
 
     @Test
     public void testDeletePosts() {
-        Post post1 = new Post(1L, "Lorem ipsum", 9L, 1L);
-        Post post2 = new Post(2L, "Lorem ipsum", 7L, 1L);
-        Post post3 = new Post(3L, "Lorem ipsum", 8L, 1L);
+        Post post1 = new Post(1L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L);
+        Post post2 = new Post(2L, "Lorem ipsum ipsum ipsum ipsum ipsum", 7L, 1L);
+        Post post3 = new Post(3L, "Lorem ipsum ipsum ipsum ipsum ipsum", 8L, 1L);
 
         entityManager.persist(post1);
         entityManager.persist(post2);
@@ -205,6 +229,6 @@ public class PostServiceTest {
     @Test
     public void whenDeletingNonExistentPosts_thenThrow() {
         assertThrows(PostNotFoundException.class, () ->
-            postService.deletePosts(Arrays.asList(new Post(2L, "Lorem ipsum", 9L, 1L), new Post(3L, "Lorem ipsum", 7L, 1L))));
+            postService.deletePosts(Arrays.asList(new Post(2L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L), new Post(3L, "Lorem ipsum ipsum ipsum ipsum ipsum", 7L, 1L))));
     }
 }

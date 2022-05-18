@@ -1,6 +1,7 @@
 package com.gmail.etpr99.jose.listpostsbyrating.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.gmail.etpr99.jose.listpostsbyrating.exceptions.PostNotFoundException;
 import com.gmail.etpr99.jose.listpostsbyrating.models.Post;
 import com.gmail.etpr99.jose.listpostsbyrating.services.PostService;
 import org.junit.Test;
@@ -17,9 +18,8 @@ import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(PostController.class)
@@ -94,5 +94,171 @@ public class PostControllerTest {
             .andExpect(jsonPath("$.downvotes").value(post.getDownvotes()))
             .andExpect(jsonPath("$.upvotePercentage").value(post.getUpvotePercentage()))
             .andExpect(jsonPath("$.downvotePercentage").value(post.getDownvotePercentage()));
+    }
+
+    @Test
+    public void testInsertNonExistentPost() throws Exception {
+        when(postService.insertPost(any())).thenThrow(new PostNotFoundException());
+
+        mvc.perform(MockMvcRequestBuilders.post("/posts")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(new ObjectMapper().writeValueAsString(new Post(1L, "Lorem ipsum ipsum ipsum ipsum ipsum", 9L, 1L))))
+            .andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void testInsertInvalidPost() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.post("/posts")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(new ObjectMapper().writeValueAsString(new Post())))
+            .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void testUpdatePost() throws Exception {
+        Post originalPost = new Post(1L, "Lorem ipsum ipsum ipsum ipsum ipsum", 7L, 1L);
+        Post updatedPost = new Post(1L, "Lorem ipsum ipsum ipsum ipsum ipsum", 8L, 1L);
+
+        when(postService.updatePost(any())).thenAnswer(invocation -> {
+            if (invocation.getArgument(0, Post.class).getId() == 1L) {
+                return updatedPost;
+            }
+
+            return null;
+        });
+
+        mvc.perform(MockMvcRequestBuilders.put("/posts")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(new ObjectMapper().writeValueAsString(originalPost)))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.id").value(updatedPost.getId()))
+            .andExpect(jsonPath("$.text").value(updatedPost.getText()))
+            .andExpect(jsonPath("$.upvotes").value(updatedPost.getUpvotes()))
+            .andExpect(jsonPath("$.downvotes").value(updatedPost.getDownvotes()))
+            .andExpect(jsonPath("$.upvotePercentage").value(updatedPost.getUpvotePercentage()))
+            .andExpect(jsonPath("$.downvotePercentage").value(updatedPost.getDownvotePercentage()));
+    }
+
+    @Test
+    public void testUpdateNonExistentPost() throws Exception {
+        Post post = new Post(1L, "Lorem ipsum ipsum ipsum ipsum ipsum", 7L, 1L);
+
+        when(postService.updatePost(any())).thenThrow(new PostNotFoundException());
+
+        mvc.perform(MockMvcRequestBuilders.put("/posts")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(new ObjectMapper().writeValueAsString(post)))
+            .andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void testUpdateInvalidPost() throws Exception {
+        Post post = new Post();
+
+        mvc.perform(MockMvcRequestBuilders.put("/posts")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(new ObjectMapper().writeValueAsString(post)))
+            .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void testDeletePost() throws Exception {
+        Post post = new Post(1L);
+
+        doNothing().when(postService).deletePost(any());
+
+        mvc.perform(MockMvcRequestBuilders.delete("/posts")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(new ObjectMapper().writeValueAsString(post)))
+            .andExpect(status().isOk())
+            .andExpect(content().string("Post with ID 1 deleted."));
+    }
+
+    @Test
+    public void testDeleteNonExistentPost() throws Exception {
+        Post post = new Post(1L);
+
+        doThrow(new PostNotFoundException()).when(postService).deletePost(any());
+
+        mvc.perform(MockMvcRequestBuilders.delete("/posts")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(new ObjectMapper().writeValueAsString(post)))
+            .andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void testGetPostUpvotes() throws Exception {
+        when(postService.getPostUpvotes(1L)).thenReturn(7L);
+
+        mvc.perform(MockMvcRequestBuilders.get("/upvote/1")
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$").value(7L));
+    }
+
+    @Test
+    public void testGetNonExistentPostUpvotes() throws Exception {
+        when(postService.getPostUpvotes(1L)).thenThrow(new PostNotFoundException());
+
+        mvc.perform(MockMvcRequestBuilders.get("/upvote/1")
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void testUpvotePost() throws Exception {
+        doNothing().when(postService).upvotePost(anyLong());
+
+        mvc.perform(MockMvcRequestBuilders.post("/upvote/1")
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(content().string("Post with ID 1 upvoted."));
+    }
+
+    @Test
+    public void testUpvoteNonExistentPost() throws Exception {
+        doThrow(new PostNotFoundException()).when(postService).upvotePost(anyLong());
+
+        mvc.perform(MockMvcRequestBuilders.post("/upvote/1")
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void testGetPostDownvotes() throws Exception {
+        when(postService.getPostDownvotes(1L)).thenReturn(1L);
+
+        mvc.perform(MockMvcRequestBuilders.get("/downvote/1")
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$").value(1L));
+    }
+
+    @Test
+    public void testGetNonExistentPostDownvotes() throws Exception {
+        when(postService.getPostDownvotes(1L)).thenThrow(new PostNotFoundException());
+
+        mvc.perform(MockMvcRequestBuilders.get("/downvote/1")
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void testDownvotePost() throws Exception {
+        doNothing().when(postService).downvotePost(anyLong());
+
+        mvc.perform(MockMvcRequestBuilders.post("/downvote/1")
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(content().string("Post with ID 1 downvoted."));
+    }
+
+    @Test
+    public void testDownvoteNonExistentPost() throws Exception {
+        doThrow(new PostNotFoundException()).when(postService).downvotePost(anyLong());
+
+        mvc.perform(MockMvcRequestBuilders.post("/downvote/1")
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isNotFound());
     }
 }

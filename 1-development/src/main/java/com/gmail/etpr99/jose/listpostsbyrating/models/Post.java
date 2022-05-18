@@ -150,6 +150,10 @@ public class Post {
      */
     @Transient
     public Long getUpvotePercentage() {
+        if ((upvotes == null || upvotes == 0) || (downvotes == null || downvotes == 0)) {
+            return 0L;
+        }
+
         return upvotes * 100 / (upvotes + downvotes);
     }
 
@@ -160,6 +164,10 @@ public class Post {
      */
     @Transient
     public Long getDownvotePercentage() {
+        if ((upvotes == null || upvotes == 0) || (downvotes == null || downvotes == 0)) {
+            return 0L;
+        }
+
         return downvotes * 100 / (upvotes + downvotes);
     }
 
