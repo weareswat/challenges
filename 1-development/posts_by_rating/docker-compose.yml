@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  # Serviço para o contêiner do banco de dados PostgreSQL
+  db:
+    image: postgres:latest
+    container_name: postgres_db
+    restart: always
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # Serviço para o contêiner da aplicação Rails
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: posts_by_rating
+    command: bash -c "rails server -b 0.0.0.0"
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+
+volumes:
+  postgres_data:
