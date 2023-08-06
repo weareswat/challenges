@@ -65,7 +65,7 @@ RSpec.describe PostsController, type: :controller do
     it 'increases the upvote count of the post by 1' do
       post = Post.create!(title: 'Upvote Post', up: 5, down: 3)
 
-      put :upvote, params: { id: post.id }
+      patch :upvote, params: { id: post.id }
 
       expect(response).to have_http_status(:no_content)
       expect(post.reload.up).to eq(6)
@@ -76,10 +76,11 @@ RSpec.describe PostsController, type: :controller do
     it 'increases the downvote count of the post by 1' do
       post = Post.create!(title: 'Downvote Post', up: 5, down: 3)
 
-      put :downvote, params: { id: post.id }
+      patch :downvote, params: { id: post.id }
 
       expect(response).to have_http_status(:no_content)
       expect(post.reload.down).to eq(4)
     end
   end
 end
+
