@@ -9,6 +9,7 @@ git clone https://github.com/mninaut/challenges.git
 ### 2. Run the follow commands
 
 ```bash
+rails db:create
 rails db:migrate
 rails db:seed #to populate the database with description content
 ```
