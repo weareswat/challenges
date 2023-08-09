@@ -130,14 +130,12 @@ GET /audits
 ##### GET /audits
 This endpoint returns all audits that have been created so far.
 
-`GET http://localhost:3000/audits/ID?field=FIELD_NAME&start_date=START_DATE&end_date=END_DATE`
+`GET http://localhost:3000/audits?start_date=START_DATE&end_date=END_DATE`
 
 Parameters included in the query string:
 ````
 Parameter  | Value
 -----------|-----
-:id        | 1
-field      | name or address.street
 start_date | YYYY-MM-DD format (YYYY = year, MM = month, DD = day of the month)
 end_date   | YYYY-MM-DD format (YYYY = year, MM = month, DD = day of the month)
 ````
@@ -145,11 +143,16 @@ end_date   | YYYY-MM-DD format (YYYY = year, MM = month, DD = day of the month)
 Sample response:
 ```json
 [
-    {
-        "field": "name",
-        "old": "Bruce Norries",
-        "new": "Bruce Whatsyourname"
-    }
+  {
+    "field": "name",
+    "old": "Bruce Norries",
+    "new": "Bruce Whatsyourname"
+  },
+  {
+    "field": "address.street",
+    "old": "Some street",
+    "new": "Soho Avenue"
+  }
 ]
 ````
 
@@ -162,31 +165,20 @@ This endpoint creates an audit for a model change.
 Payload for the POST request:
 ```json
 {
-  "audit": {
-      "model": "User",
-      "old": {
-          "_id": 1,
-          "name": "Bruce Norries",
-          "address": {
-              "street": "Some street"
-          }
-      },
-      "new": {
-          "_id": 1,
-          "name": "Bruce Willis",
-          "address": {
-              "street": "Nakatomi Plaza"
-          }
-      }
+  "_id": 1,
+  "name": "Bruce Norries",
+  "address": {
+    "street": "Some street"
   }
 }
+
 ````
 
 Response:
 ```json
 {
-    "status": 200,
-    "success": "Audit created!"
+  "status": 200,
+  "success": "Audit created!"
 }
 ````
 
