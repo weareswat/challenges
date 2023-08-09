@@ -32,8 +32,12 @@ class AuditService
     t = []
 
     v.each do |it_value|
-      it_value.second.each do |it_k, it_v|
-        t << { "#{it_value.first}.#{it_k}": it_v }
+      if it_value.second.is_a?(String) || it_value.second.is_a?(Integer)
+        t << { "#{k}": it_value.second }
+      else
+        it_value.second.each do |it_k, it_v|
+          t << { "#{it_value.first}.#{it_k}": it_v }
+        end
       end
     end
 

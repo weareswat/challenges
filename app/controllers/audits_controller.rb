@@ -2,7 +2,12 @@
 
 class AuditsController < ApplicationController
   def index
-    query = Audit.created_at(params[:start_date], params[:end_date]).order_by_created_at
+    query = if params.include?(:start_date && :end_date)
+              Audit.created_at(params[:start_date], params[:end_date]).order_by_created_at
+            else
+              Audit.all.order_by_created_at
+            end
+
     serialized_audit = FetchAuditService.new(audit: query).perform
 
     if serialized_audit.present?
@@ -22,7 +27,7 @@ class AuditsController < ApplicationController
     if audit.present?
       render json: { status: 200, success: 'Audit created!' }, status: 200
     else
-      render json: { status: :unprocessable_entity, success: 'Audit creation failed!' }, status: :unprocessable_entity
+      render json: { status: :unprocessable_entity, error: 'Audit creation failed!' }, status: :unprocessable_entity
     end
   rescue StandardError => e
     render json: { status: 422, exception: e.class, error: e }, status: :unprocessable_entity

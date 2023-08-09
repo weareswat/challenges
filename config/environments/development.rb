@@ -53,6 +53,8 @@ Rails.application.configure do
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
+  config.factory_bot.definition_file_paths = ["custom/factories"]
+
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
