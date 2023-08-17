@@ -1,0 +1,956 @@
+Started GET "/rails/info/routes" for ::1 at 2023-08-16 10:00:49 +0100
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.7/lib/rails/templates/layouts/application.html.erb
+  Rendering C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.7/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.7/lib/action_dispatch/middleware/templates/routes/_route.html.erb [34 times] (Duration: 12.7ms | Allocations: 5695)
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.7/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 36.8ms | Allocations: 1391)
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.7/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 68.9ms | Allocations: 11678)
+  Rendered layout C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.7/lib/rails/templates/layouts/application.html.erb (Duration: 74.8ms | Allocations: 11977)
+Completed 200 OK in 211ms (Views: 103.6ms | ActiveRecord: 0.0ms | Allocations: 18806)
+
+
+Started GET "/rails/info/routes" for ::1 at 2023-08-16 10:00:54 +0100
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.7/lib/rails/templates/layouts/application.html.erb
+  Rendering C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.7/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.7/lib/action_dispatch/middleware/templates/routes/_route.html.erb [34 times] (Duration: 5.4ms | Allocations: 5508)
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/actionpack-7.0.7/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 0.9ms | Allocations: 862)
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.7/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 11.3ms | Allocations: 10450)
+  Rendered layout C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.7/lib/rails/templates/layouts/application.html.erb (Duration: 13.0ms | Allocations: 10705)
+Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 0.0ms | Allocations: 11618)
+
+
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePosts (20230816091303)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "upvotes" integer DEFAULT 0 NOT NULL, "downvotes" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230816091303"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-08-16 11:53:06.191754"], ["updated_at", "2023-08-16 11:53:06.191754"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/posts" for ::1 at 2023-08-16 12:53:33 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#create as */*
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 584)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.7) lib/action_controller/metal/request_forgery_protection.rb:253:in `handle_unverified_request'
+actionpack (7.0.7) lib/action_controller/metal/request_forgery_protection.rb:286:in `handle_unverified_request'
+actionpack (7.0.7) lib/action_controller/metal/request_forgery_protection.rb:275:in `verify_authenticity_token'
+activesupport (7.0.7) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.7) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.7) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.7) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.7) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.7) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.7) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.7) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.7) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.7) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.7) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.7) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.7) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.7) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.7) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.7) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.7) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.7) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.7) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.7) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.7) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.8) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+actionpack (7.0.7) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.7) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.8) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.8) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.7) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.7) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.7) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/method_override.rb:24:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.7) lib/rails/engine.rb:530:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/posts" for ::1 at 2023-08-16 12:54:24 +0100
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+No template found for PostsController#index, rendering head :no_content
+Completed 204 No Content in 53ms (ActiveRecord: 0.2ms | Allocations: 3051)
+
+
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-16 11:59:49.070229"], ["updated_at", "2023-08-16 11:59:49.070229"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Started GET "/posts" for ::1 at 2023-08-16 13:00:56 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+No template found for PostsController#index, rendering head :no_content
+Completed 204 No Content in 21ms (ActiveRecord: 0.7ms | Allocations: 7268)
+
+
+Started GET "/posts" for ::1 at 2023-08-16 13:04:08 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 17ms (Views: 1.7ms | ActiveRecord: 0.7ms | Allocations: 7111)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Destroy (0.6ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (1.0ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-16 13:18:24.006363"], ["updated_at", "2023-08-16 13:18:24.006363"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 1], ["downvotes", 0], ["created_at", "2023-08-16 13:18:24.012372"], ["updated_at", "2023-08-16 13:18:24.012372"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 1], ["created_at", "2023-08-16 13:18:24.017237"], ["updated_at", "2023-08-16 13:18:24.017237"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 10], ["downvotes", 6], ["created_at", "2023-08-16 13:18:24.021514"], ["updated_at", "2023-08-16 13:18:24.021514"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 5], ["downvotes", 10], ["created_at", "2023-08-16 13:18:24.026095"], ["updated_at", "2023-08-16 13:18:24.026095"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 100], ["downvotes", 60], ["created_at", "2023-08-16 13:18:24.030841"], ["updated_at", "2023-08-16 13:18:24.030841"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 50], ["downvotes", 100], ["created_at", "2023-08-16 13:18:24.035292"], ["updated_at", "2023-08-16 13:18:24.035292"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 100], ["downvotes", 0], ["created_at", "2023-08-16 13:18:24.040144"], ["updated_at", "2023-08-16 13:18:24.040144"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 100], ["created_at", "2023-08-16 13:18:24.045262"], ["updated_at", "2023-08-16 13:18:24.045262"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 300], ["downvotes", 100], ["created_at", "2023-08-16 13:18:24.049827"], ["updated_at", "2023-08-16 13:18:24.049827"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/posts" for ::1 at 2023-08-16 14:18:50 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 21ms (Views: 4.2ms | ActiveRecord: 0.7ms | Allocations: 8340)
+
+
+Started GET "/posts" for ::1 at 2023-08-16 14:19:48 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms | Allocations: 11627)
+
+
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  
+NoMethodError (undefined method `sort_by!' for #<ActiveRecord::Relation [#<Post id: 2, upvotes: 0, downvotes: 0, created_at: "2023-08-16 13:18:24.006363000 +0000", updated_at: "2023-08-16 13:18:24.006363000 +0000">, #<Post id: 3, upvotes: 1, downvotes: 0, created_at: "2023-08-16 13:18:24.012372000 +0000", updated_at: "2023-08-16 13:18:24.012372000 +0000">, #<Post id: 4, upvotes: 0, downvotes: 1, created_at: "2023-08-16 13:18:24.017237000 +0000", updated_at: "2023-08-16 13:18:24.017237000 +0000">, #<Post id: 5, upvotes: 10, downvotes: 6, created_at: "2023-08-16 13:18:24.021514000 +0000", updated_at: "2023-08-16 13:18:24.021514000 +0000">, #<Post id: 6, upvotes: 5, downvotes: 10, created_at: "2023-08-16 13:18:24.026095000 +0000", updated_at: "2023-08-16 13:18:24.026095000 +0000">, #<Post id: 7, upvotes: 100, downvotes: 60, created_at: "2023-08-16 13:18:24.030841000 +0000", updated_at: "2023-08-16 13:18:24.030841000 +0000">, #<Post id: 8, upvotes: 50, downvotes: 100, created_at: "2023-08-16 13:18:24.035292000 +0000", updated_at: "2023-08-16 13:18:24.035292000 +0000">, #<Post id: 9, upvotes: 100, downvotes: 0, created_at: "2023-08-16 13:18:24.040144000 +0000", updated_at: "2023-08-16 13:18:24.040144000 +0000">, #<Post id: 10, upvotes: 0, downvotes: 100, created_at: "2023-08-16 13:18:24.045262000 +0000", updated_at: "2023-08-16 13:18:24.045262000 +0000">, #<Post id: 11, upvotes: 300, downvotes: 100, created_at: "2023-08-16 13:18:24.049827000 +0000", updated_at: "2023-08-16 13:18:24.049827000 +0000">]>
+Did you mean?  sort_by):
+  
+app/controllers/posts_controller.rb:9:in `index'
+Started GET "/posts" for ::1 at 2023-08-16 14:19:54 +0100
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 5100)
+
+
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  
+NoMethodError (undefined method `sort_by!' for #<ActiveRecord::Relation [#<Post id: 2, upvotes: 0, downvotes: 0, created_at: "2023-08-16 13:18:24.006363000 +0000", updated_at: "2023-08-16 13:18:24.006363000 +0000">, #<Post id: 3, upvotes: 1, downvotes: 0, created_at: "2023-08-16 13:18:24.012372000 +0000", updated_at: "2023-08-16 13:18:24.012372000 +0000">, #<Post id: 4, upvotes: 0, downvotes: 1, created_at: "2023-08-16 13:18:24.017237000 +0000", updated_at: "2023-08-16 13:18:24.017237000 +0000">, #<Post id: 5, upvotes: 10, downvotes: 6, created_at: "2023-08-16 13:18:24.021514000 +0000", updated_at: "2023-08-16 13:18:24.021514000 +0000">, #<Post id: 6, upvotes: 5, downvotes: 10, created_at: "2023-08-16 13:18:24.026095000 +0000", updated_at: "2023-08-16 13:18:24.026095000 +0000">, #<Post id: 7, upvotes: 100, downvotes: 60, created_at: "2023-08-16 13:18:24.030841000 +0000", updated_at: "2023-08-16 13:18:24.030841000 +0000">, #<Post id: 8, upvotes: 50, downvotes: 100, created_at: "2023-08-16 13:18:24.035292000 +0000", updated_at: "2023-08-16 13:18:24.035292000 +0000">, #<Post id: 9, upvotes: 100, downvotes: 0, created_at: "2023-08-16 13:18:24.040144000 +0000", updated_at: "2023-08-16 13:18:24.040144000 +0000">, #<Post id: 10, upvotes: 0, downvotes: 100, created_at: "2023-08-16 13:18:24.045262000 +0000", updated_at: "2023-08-16 13:18:24.045262000 +0000">, #<Post id: 11, upvotes: 300, downvotes: 100, created_at: "2023-08-16 13:18:24.049827000 +0000", updated_at: "2023-08-16 13:18:24.049827000 +0000">]>
+Did you mean?  sort_by):
+  
+app/controllers/posts_controller.rb:9:in `index'
+Started GET "/posts" for ::1 at 2023-08-16 14:20:41 +0100
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 4950)
+
+
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  
+NoMethodError (undefined method `sort_by!' for #<ActiveRecord::Relation [#<Post id: 2, upvotes: 0, downvotes: 0, created_at: "2023-08-16 13:18:24.006363000 +0000", updated_at: "2023-08-16 13:18:24.006363000 +0000">, #<Post id: 3, upvotes: 1, downvotes: 0, created_at: "2023-08-16 13:18:24.012372000 +0000", updated_at: "2023-08-16 13:18:24.012372000 +0000">, #<Post id: 4, upvotes: 0, downvotes: 1, created_at: "2023-08-16 13:18:24.017237000 +0000", updated_at: "2023-08-16 13:18:24.017237000 +0000">, #<Post id: 5, upvotes: 10, downvotes: 6, created_at: "2023-08-16 13:18:24.021514000 +0000", updated_at: "2023-08-16 13:18:24.021514000 +0000">, #<Post id: 6, upvotes: 5, downvotes: 10, created_at: "2023-08-16 13:18:24.026095000 +0000", updated_at: "2023-08-16 13:18:24.026095000 +0000">, #<Post id: 7, upvotes: 100, downvotes: 60, created_at: "2023-08-16 13:18:24.030841000 +0000", updated_at: "2023-08-16 13:18:24.030841000 +0000">, #<Post id: 8, upvotes: 50, downvotes: 100, created_at: "2023-08-16 13:18:24.035292000 +0000", updated_at: "2023-08-16 13:18:24.035292000 +0000">, #<Post id: 9, upvotes: 100, downvotes: 0, created_at: "2023-08-16 13:18:24.040144000 +0000", updated_at: "2023-08-16 13:18:24.040144000 +0000">, #<Post id: 10, upvotes: 0, downvotes: 100, created_at: "2023-08-16 13:18:24.045262000 +0000", updated_at: "2023-08-16 13:18:24.045262000 +0000">, #<Post id: 11, upvotes: 300, downvotes: 100, created_at: "2023-08-16 13:18:24.049827000 +0000", updated_at: "2023-08-16 13:18:24.049827000 +0000">]>
+Did you mean?  sort_by):
+  
+app/controllers/posts_controller.rb:9:in `index'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/posts" for ::1 at 2023-08-16 14:29:57 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as */*
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms | Allocations: 6547)
+
+
+  
+NoMethodError (undefined method `json_include' for Post:Class):
+  
+app/models/post.rb:4:in `<class:Post>'
+app/models/post.rb:1:in `<main>'
+app/controllers/posts_controller.rb:8:in `index'
+Started GET "/posts" for ::1 at 2023-08-16 14:29:59 +0100
+Processing by PostsController#index as */*
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 4892)
+
+
+  
+NoMethodError (undefined method `json_include' for Post:Class):
+  
+app/models/post.rb:4:in `<class:Post>'
+app/models/post.rb:1:in `<main>'
+app/controllers/posts_controller.rb:8:in `index'
+Started GET "/posts" for ::1 at 2023-08-16 14:37:53 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as */*
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 6489)
+
+
+  
+NoMethodError (undefined method `json_include' for Post:Class):
+  
+app/models/post.rb:4:in `<class:Post>'
+app/models/post.rb:1:in `<main>'
+app/controllers/posts_controller.rb:8:in `index'
+Started GET "/posts" for ::1 at 2023-08-16 14:39:24 +0100
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 24ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 7557)
+
+
+Started GET "/posts" for ::1 at 2023-08-16 14:49:10 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 21ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 8437)
+
+
+Started GET "/posts" for ::1 at 2023-08-16 14:51:35 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 19ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 8388)
+
+
+Started GET "/posts" for ::1 at 2023-08-16 14:56:21 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 19ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 8371)
+
+
+Started GET "/posts" for ::1 at 2023-08-16 15:24:20 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 19ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 8437)
+
+
+Started GET "/posts" for ::1 at 2023-08-16 16:10:40 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 8442)
+
+
+Started GET "/posts" for ::1 at 2023-08-17 17:30:22 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 47ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 8436)
+
+
+Started GET "/" for 127.0.0.1 at 2023-08-17 17:31:06 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.7/lib/rails/templates/rails/welcome/index.html.erb (Duration: 26.9ms | Allocations: 497)
+Completed 200 OK in 111ms (Views: 50.1ms | ActiveRecord: 0.0ms | Allocations: 3319)
+
+
+Started PUT "/posts/9/upvote" for ::1 at 2023-08-17 17:33:36 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"9"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 586)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.7) lib/action_controller/metal/request_forgery_protection.rb:253:in `handle_unverified_request'
+actionpack (7.0.7) lib/action_controller/metal/request_forgery_protection.rb:286:in `handle_unverified_request'
+actionpack (7.0.7) lib/action_controller/metal/request_forgery_protection.rb:275:in `verify_authenticity_token'
+activesupport (7.0.7) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.7) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.7) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.7) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.7) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.7) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.7) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.7) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.7) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.7) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.7) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.7) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.7) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.7) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.7) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.7) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.7) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.7) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.7) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.7) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.7) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.8) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+actionpack (7.0.7) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.7) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.8) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.8) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.7) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.7) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.7) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/method_override.rb:24:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.7) lib/rails/engine.rb:530:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started PUT "/posts/9/upvote" for ::1 at 2023-08-17 17:36:10 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `upvote'
+  [1m[36mPost Update All (8.4ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 9]]
+  ↳ app/controllers/posts_controller.rb:18:in `upvote'
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 48ms (ActiveRecord: 9.4ms | Allocations: 10164)
+
+
+Started GET "/posts" for ::1 at 2023-08-17 17:36:30 +0100
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2505)
+
+
+Started PUT "/posts/9/downvote" for ::1 at 2023-08-17 17:38:02 +0100
+Processing by PostsController#downvote as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `downvote'
+  [1m[36mPost Update All (3.2ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) - ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 9]]
+  ↳ app/controllers/posts_controller.rb:23:in `downvote'
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 3.3ms | Allocations: 1941)
+
+
+Started GET "/posts" for ::1 at 2023-08-17 17:38:05 +0100
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 2060)
+
+
+Started PUT "/posts/9/downvote" for ::1 at 2023-08-17 17:38:21 +0100
+Processing by PostsController#downvote as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `downvote'
+  [1m[36mPost Update All (9.3ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) - ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 9]]
+  ↳ app/controllers/posts_controller.rb:23:in `downvote'
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 20ms (ActiveRecord: 9.5ms | Allocations: 1129)
+
+
+Started PUT "/posts/9/downvote" for ::1 at 2023-08-17 17:38:21 +0100
+Processing by PostsController#downvote as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `downvote'
+  [1m[36mPost Update All (4.7ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) - ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 9]]
+  ↳ app/controllers/posts_controller.rb:23:in `downvote'
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 11ms (ActiveRecord: 4.8ms | Allocations: 1129)
+
+
+Started PUT "/posts/9/downvote" for ::1 at 2023-08-17 17:38:22 +0100
+Processing by PostsController#downvote as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `downvote'
+  [1m[36mPost Update All (3.3ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) - ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 9]]
+  ↳ app/controllers/posts_controller.rb:23:in `downvote'
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 9ms (ActiveRecord: 3.4ms | Allocations: 1141)
+
+
+Started GET "/posts" for ::1 at 2023-08-17 17:38:24 +0100
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2048)
+
+
+Started GET "/posts" for ::1 at 2023-08-17 17:43:24 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 21ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 8398)
+
+
+Started PUT "/posts/9/downvote" for ::1 at 2023-08-17 17:43:30 +0100
+Processing by PostsController#downvote as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `downvote'
+  [1m[36mPost Update All (4.0ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 9]]
+  ↳ app/controllers/posts_controller.rb:23:in `downvote'
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 17ms (ActiveRecord: 4.2ms | Allocations: 4201)
+
+
+Started PUT "/posts/9/downvote" for ::1 at 2023-08-17 17:43:31 +0100
+Processing by PostsController#downvote as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `downvote'
+  [1m[36mPost Update All (4.1ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 9]]
+  ↳ app/controllers/posts_controller.rb:23:in `downvote'
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 11ms (ActiveRecord: 4.3ms | Allocations: 1287)
+
+
+Started PUT "/posts/9/downvote" for ::1 at 2023-08-17 17:43:32 +0100
+Processing by PostsController#downvote as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `downvote'
+  [1m[36mPost Update All (3.7ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 9]]
+  ↳ app/controllers/posts_controller.rb:23:in `downvote'
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 9ms (ActiveRecord: 3.8ms | Allocations: 1135)
+
+
+Started PUT "/posts/9/downvote" for ::1 at 2023-08-17 17:43:33 +0100
+Processing by PostsController#downvote as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `downvote'
+  [1m[36mPost Update All (3.2ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 9]]
+  ↳ app/controllers/posts_controller.rb:23:in `downvote'
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 10ms (ActiveRecord: 3.3ms | Allocations: 1135)
+
+
+Started GET "/posts" for ::1 at 2023-08-17 17:43:34 +0100
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 2112)
+
+
+Started PUT "/posts/9/downvote" for ::1 at 2023-08-17 17:43:37 +0100
+Processing by PostsController#downvote as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `downvote'
+  [1m[36mPost Update All (5.2ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 9]]
+  ↳ app/controllers/posts_controller.rb:23:in `downvote'
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 11ms (ActiveRecord: 5.3ms | Allocations: 1122)
+
+
+Started PUT "/posts/9/downvote" for ::1 at 2023-08-17 17:43:38 +0100
+Processing by PostsController#downvote as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `downvote'
+  [1m[36mPost Update All (3.7ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 9]]
+  ↳ app/controllers/posts_controller.rb:23:in `downvote'
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 3.8ms | Allocations: 1121)
+
+
+Started GET "/posts" for ::1 at 2023-08-17 17:43:40 +0100
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2048)
+
+
+Started GET "/posts" for ::1 at 2023-08-17 17:49:47 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 21ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 8389)
+
+
+Started GET "/posts" for ::1 at 2023-08-17 17:53:10 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 21ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 8386)
+
+
+Started PUT "/posts/2/upvote" for ::1 at 2023-08-17 17:53:41 +0100
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `upvote'
+  [1m[36mPost Update All (3.5ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:18:in `upvote'
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 179ms (ActiveRecord: 3.8ms | Allocations: 14395)
+
+
+Started PUT "/posts/2/upvote" for ::1 at 2023-08-17 17:53:44 +0100
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `upvote'
+  [1m[36mPost Update All (4.5ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:18:in `upvote'
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 12ms (ActiveRecord: 4.6ms | Allocations: 1287)
+
+
+Started PUT "/posts/2/upvote" for ::1 at 2023-08-17 17:53:45 +0100
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `upvote'
+  [1m[36mPost Update All (4.4ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:18:in `upvote'
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 11ms (ActiveRecord: 4.5ms | Allocations: 1135)
+
+
+Started PUT "/posts/2/upvote" for ::1 at 2023-08-17 17:53:45 +0100
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `upvote'
+  [1m[36mPost Update All (3.2ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:18:in `upvote'
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 9ms (ActiveRecord: 3.3ms | Allocations: 1125)
+
+
+Started PUT "/posts/2/upvote" for ::1 at 2023-08-17 17:53:46 +0100
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `upvote'
+  [1m[36mPost Update All (4.7ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:18:in `upvote'
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 13ms (ActiveRecord: 4.9ms | Allocations: 1135)
+
+
+Started PUT "/posts/2/upvote" for ::1 at 2023-08-17 17:53:46 +0100
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `upvote'
+  [1m[36mPost Update All (4.7ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:18:in `upvote'
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 11ms (ActiveRecord: 4.8ms | Allocations: 1122)
+
+
+Started PUT "/posts/2/upvote" for ::1 at 2023-08-17 17:53:47 +0100
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `upvote'
+  [1m[36mPost Update All (4.2ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:18:in `upvote'
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 10ms (ActiveRecord: 4.4ms | Allocations: 1121)
+
+
+Started PUT "/posts/2/upvote" for ::1 at 2023-08-17 17:53:47 +0100
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `upvote'
+  [1m[36mPost Update All (3.3ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:18:in `upvote'
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 10ms (ActiveRecord: 3.4ms | Allocations: 1121)
+
+
+Started PUT "/posts/2/upvote" for ::1 at 2023-08-17 17:53:48 +0100
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `upvote'
+  [1m[36mPost Update All (3.1ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:18:in `upvote'
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 10ms (ActiveRecord: 3.2ms | Allocations: 1121)
+
+
+Started PUT "/posts/2/upvote" for ::1 at 2023-08-17 17:53:48 +0100
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `upvote'
+  [1m[36mPost Update All (3.9ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:18:in `upvote'
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 10ms (ActiveRecord: 4.1ms | Allocations: 1121)
+
+
+Started PUT "/posts/2/upvote" for ::1 at 2023-08-17 17:53:48 +0100
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `upvote'
+  [1m[36mPost Update All (4.2ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:18:in `upvote'
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 11ms (ActiveRecord: 4.4ms | Allocations: 1121)
+
+
+Started PUT "/posts/2/upvote" for ::1 at 2023-08-17 17:53:49 +0100
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `upvote'
+  [1m[36mPost Update All (3.1ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:18:in `upvote'
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 9ms (ActiveRecord: 3.2ms | Allocations: 1121)
+
+
+Started PUT "/posts/2/upvote" for ::1 at 2023-08-17 17:53:49 +0100
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `upvote'
+  [1m[36mPost Update All (3.9ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:18:in `upvote'
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 10ms (ActiveRecord: 4.1ms | Allocations: 1121)
+
+
+Started PUT "/posts/2/upvote" for ::1 at 2023-08-17 17:53:50 +0100
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `upvote'
+  [1m[36mPost Update All (4.3ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:18:in `upvote'
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 10ms (ActiveRecord: 4.5ms | Allocations: 1121)
+
+
+Started PUT "/posts/2/upvote" for ::1 at 2023-08-17 17:53:50 +0100
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `upvote'
+  [1m[36mPost Update All (4.4ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:18:in `upvote'
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 11ms (ActiveRecord: 4.5ms | Allocations: 1121)
+
+
+Started PUT "/posts/2/upvote" for ::1 at 2023-08-17 17:53:51 +0100
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `upvote'
+  [1m[36mPost Update All (3.9ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:18:in `upvote'
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 10ms (ActiveRecord: 4.0ms | Allocations: 1121)
+
+
+Started PUT "/posts/2/upvote" for ::1 at 2023-08-17 17:53:51 +0100
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `upvote'
+  [1m[36mPost Update All (3.2ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:18:in `upvote'
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 12ms (ActiveRecord: 3.3ms | Allocations: 1121)
+
+
+Started PUT "/posts/2/upvote" for ::1 at 2023-08-17 17:53:51 +0100
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `upvote'
+  [1m[36mPost Update All (3.2ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:18:in `upvote'
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 12ms (ActiveRecord: 3.3ms | Allocations: 1121)
+
+
+Started PUT "/posts/2/upvote" for ::1 at 2023-08-17 17:53:52 +0100
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `upvote'
+  [1m[36mPost Update All (3.4ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:18:in `upvote'
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 13ms (ActiveRecord: 3.6ms | Allocations: 1121)
+
+
+Started PUT "/posts/2/upvote" for ::1 at 2023-08-17 17:53:52 +0100
+Processing by PostsController#upvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `upvote'
+  [1m[36mPost Update All (3.5ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:18:in `upvote'
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 10ms (ActiveRecord: 3.6ms | Allocations: 1121)
+
+
+Started GET "/posts" for ::1 at 2023-08-17 17:53:54 +0100
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2108)
+
+
+Started PUT "/posts/2/downvote" for ::1 at 2023-08-17 17:54:08 +0100
+Processing by PostsController#downvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `downvote'
+  [1m[36mPost Update All (3.3ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:23:in `downvote'
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 13ms (ActiveRecord: 3.6ms | Allocations: 1260)
+
+
+Started PUT "/posts/2/downvote" for ::1 at 2023-08-17 17:54:09 +0100
+Processing by PostsController#downvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `downvote'
+  [1m[36mPost Update All (3.5ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:23:in `downvote'
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 10ms (ActiveRecord: 3.7ms | Allocations: 1121)
+
+
+Started PUT "/posts/2/downvote" for ::1 at 2023-08-17 17:54:09 +0100
+Processing by PostsController#downvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `downvote'
+  [1m[36mPost Update All (3.3ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:23:in `downvote'
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 10ms (ActiveRecord: 3.4ms | Allocations: 1121)
+
+
+Started PUT "/posts/2/downvote" for ::1 at 2023-08-17 17:54:11 +0100
+Processing by PostsController#downvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `downvote'
+  [1m[36mPost Update All (3.4ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:23:in `downvote'
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 10ms (ActiveRecord: 3.5ms | Allocations: 1121)
+
+
+Started PUT "/posts/2/downvote" for ::1 at 2023-08-17 17:54:11 +0100
+Processing by PostsController#downvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `downvote'
+  [1m[36mPost Update All (3.0ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:23:in `downvote'
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 10ms (ActiveRecord: 3.2ms | Allocations: 1121)
+
+
+Started PUT "/posts/2/downvote" for ::1 at 2023-08-17 17:54:12 +0100
+Processing by PostsController#downvote as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `downvote'
+  [1m[36mPost Update All (2.5ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:23:in `downvote'
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 10ms (ActiveRecord: 2.6ms | Allocations: 1121)
+
+
+Started GET "/posts" for ::1 at 2023-08-17 17:54:23 +0100
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 2044)
+
+
+Started POST "/posts" for ::1 at 2023-08-17 18:20:45 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#create as */*
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:4:in `create'
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-17 17:20:45.826200"], ["updated_at", "2023-08-17 17:20:45.826200"]]
+  ↳ app/controllers/posts_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:4:in `create'
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 30ms (ActiveRecord: 4.2ms | Allocations: 9866)
+
+
+Started GET "/posts" for ::1 at 2023-08-17 18:20:50 +0100
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2701)
+
+
+Started GET "/posts" for ::1 at 2023-08-17 18:20:58 +0100
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 2195)
+
+
+Started POST "/posts" for ::1 at 2023-08-17 18:21:04 +0100
+Processing by PostsController#create as */*
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:4:in `create'
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-17 17:21:04.730703"], ["updated_at", "2023-08-17 17:21:04.730703"]]
+  ↳ app/controllers/posts_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:4:in `create'
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 18ms (ActiveRecord: 3.1ms | Allocations: 2210)
+
+
+Started GET "/posts" for ::1 at 2023-08-17 18:21:06 +0100
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 2328)
+
+
+Started GET "/posts" for ::1 at 2023-08-17 22:17:09 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `sort_by'
+Completed 200 OK in 32ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 8762)
+
+

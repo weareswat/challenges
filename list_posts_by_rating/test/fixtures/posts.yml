@@ -1,0 +1,47 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  upvotes: 10
+  downvotes: 10
+
+two:
+  id: 2 
+  upvotes: 50
+  downvotes: 50
+
+three:
+  id: 3
+  upvotes: 100
+  downvotes: 0
+
+four: 
+  id: 4
+  upvotes: 0
+  downvotes: 100
+
+five:
+  id: 5
+  upvotes: 70
+  downvotes: 20
+
+six:
+  id: 6
+  upvotes: 7
+  downvotes: 2
+
+seven:
+  id: 7
+  upvotes: 9
+  downvotes: 12
+
+eight:
+  id: 8
+  upvotes: 90
+  downvotes: 120
+
+nine:
+  id: 9
+  upvotes: 1
+  downvotes: 0
+

@@ -1,0 +1,1643 @@
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePosts (20230816091303)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "upvotes" integer DEFAULT 0 NOT NULL, "downvotes" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230816091303"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2023-08-16 16:37:03.421101"], ["updated_at", "2023-08-16 16:37:03.421101"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.6ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (980190962, 1, 1, '2023-08-16 17:02:52.384624', '2023-08-16 17:02:52.384624');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (298486374, 1, 1, '2023-08-16 17:02:52.384624', '2023-08-16 17:02:52.384624')[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+PostControllerTest: test_creates
+--------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------
+PostControllerTest: test_index
+------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-16 17:11:13.839596', '2023-08-16 17:11:13.839596');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-16 17:11:13.839596', '2023-08-16 17:11:13.839596');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-16 17:11:13.839596', '2023-08-16 17:11:13.839596');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-16 17:11:13.839596', '2023-08-16 17:11:13.839596');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-16 17:11:13.839596', '2023-08-16 17:11:13.839596')[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------
+PostControllerTest: test_indexshould_return_a_list
+--------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+PostControllerTest: test_creates_post
+-------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-16 17:12:26.514461', '2023-08-16 17:12:26.514461');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-16 17:12:26.514461', '2023-08-16 17:12:26.514461');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-16 17:12:26.514461', '2023-08-16 17:12:26.514461');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-16 17:12:26.514461', '2023-08-16 17:12:26.514461');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-16 17:12:26.514461', '2023-08-16 17:12:26.514461')[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------
+PostControllerTest: test_indexshould_return_a_list
+--------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 18:12:26 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 5939)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+PostControllerTest: test_creates_post
+-------------------------------------
+Started POST "/posts" for 127.0.0.1 at 2023-08-16 18:12:26 +0100
+Processing by PostsController#create as HTML
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-16 17:12:26.909179"], ["updated_at", "2023-08-16 17:12:26.909179"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 7ms (ActiveRecord: 0.6ms | Allocations: 1556)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.6ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-16 17:13:22.015502', '2023-08-16 17:13:22.015502');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-16 17:13:22.015502', '2023-08-16 17:13:22.015502');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-16 17:13:22.015502', '2023-08-16 17:13:22.015502');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-16 17:13:22.015502', '2023-08-16 17:13:22.015502');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-16 17:13:22.015502', '2023-08-16 17:13:22.015502')[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+PostControllerTest: test_creates_post
+-------------------------------------
+Started POST "/posts" for 127.0.0.1 at 2023-08-16 18:13:22 +0100
+Processing by PostsController#create as HTML
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-16 17:13:22.174853"], ["updated_at", "2023-08-16 17:13:22.174853"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 17ms (ActiveRecord: 0.9ms | Allocations: 6052)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------
+PostControllerTest: test_indexshould_return_a_list
+--------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 18:13:22 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 1410)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-16 17:14:50.011542', '2023-08-16 17:14:50.011542');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-16 17:14:50.011542', '2023-08-16 17:14:50.011542');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-16 17:14:50.011542', '2023-08-16 17:14:50.011542');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-16 17:14:50.011542', '2023-08-16 17:14:50.011542');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-16 17:14:50.011542', '2023-08-16 17:14:50.011542')[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+PostControllerTest: test_creates_post
+-------------------------------------
+Started POST "/posts" for 127.0.0.1 at 2023-08-16 18:14:50 +0100
+Processing by PostsController#create as HTML
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-16 17:14:50.165791"], ["updated_at", "2023-08-16 17:14:50.165791"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 17ms (ActiveRecord: 0.8ms | Allocations: 6061)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PostControllerTest: test_index_should_return_a_list
+---------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 18:14:50 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1412)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-16 17:15:29.158212', '2023-08-16 17:15:29.158212');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-16 17:15:29.158212', '2023-08-16 17:15:29.158212');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-16 17:15:29.158212', '2023-08-16 17:15:29.158212');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-16 17:15:29.158212', '2023-08-16 17:15:29.158212');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-16 17:15:29.158212', '2023-08-16 17:15:29.158212')[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+PostControllerTest: test_creates_post
+-------------------------------------
+Started POST "/posts" for 127.0.0.1 at 2023-08-16 18:15:29 +0100
+Processing by PostsController#create as HTML
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (1.4ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-16 17:15:29.313699"], ["updated_at", "2023-08-16 17:15:29.313699"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 17ms (ActiveRecord: 1.5ms | Allocations: 6052)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PostControllerTest: test_index_should_return_a_list
+---------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 18:15:29 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 1412)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-16 17:22:15.657234', '2023-08-16 17:22:15.657234');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-16 17:22:15.657234', '2023-08-16 17:22:15.657234');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-16 17:22:15.657234', '2023-08-16 17:22:15.657234');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-16 17:22:15.657234', '2023-08-16 17:22:15.657234');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-16 17:22:15.657234', '2023-08-16 17:22:15.657234')[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+PostControllerTest: test_creates_post
+-------------------------------------
+Started POST "/posts" for 127.0.0.1 at 2023-08-16 18:22:15 +0100
+Processing by PostsController#create as HTML
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-16 17:22:15.813433"], ["updated_at", "2023-08-16 17:22:15.813433"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 17ms (ActiveRecord: 0.8ms | Allocations: 6061)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PostControllerTest: test_index_should_return_a_list
+---------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 18:22:15 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1412)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-16 17:34:16.253135', '2023-08-16 17:34:16.253135');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-16 17:34:16.253135', '2023-08-16 17:34:16.253135');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-16 17:34:16.253135', '2023-08-16 17:34:16.253135');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-16 17:34:16.253135', '2023-08-16 17:34:16.253135');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-16 17:34:16.253135', '2023-08-16 17:34:16.253135')[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+PostControllerTest: test_creates_post
+-------------------------------------
+Started POST "/posts" for 127.0.0.1 at 2023-08-16 18:34:16 +0100
+Processing by PostsController#create as HTML
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-16 17:34:16.410130"], ["updated_at", "2023-08-16 17:34:16.410130"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 17ms (ActiveRecord: 0.8ms | Allocations: 6052)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PostControllerTest: test_index_should_return_a_list
+---------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 18:34:16 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1412)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-16 17:38:01.485559', '2023-08-16 17:38:01.485559');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-16 17:38:01.485559', '2023-08-16 17:38:01.485559');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-16 17:38:01.485559', '2023-08-16 17:38:01.485559');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-16 17:38:01.485559', '2023-08-16 17:38:01.485559');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-16 17:38:01.485559', '2023-08-16 17:38:01.485559')[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+PostControllerTest: test_index_should_return_a_list_ordered_by_score
+--------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 18:38:01 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 5940)
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-16 17:55:18.892863', '2023-08-16 17:55:18.892863');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-16 17:55:18.892863', '2023-08-16 17:55:18.892863');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-16 17:55:18.892863', '2023-08-16 17:55:18.892863');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-16 17:55:18.892863', '2023-08-16 17:55:18.892863');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-16 17:55:18.892863', '2023-08-16 17:55:18.892863')[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+PostControllerTest: test_creates_post
+-------------------------------------
+Started POST "/posts" for 127.0.0.1 at 2023-08-16 18:55:19 +0100
+Processing by PostsController#create as HTML
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-16 17:55:19.046308"], ["updated_at", "2023-08-16 17:55:19.046308"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 18ms (ActiveRecord: 0.8ms | Allocations: 6061)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PostControllerTest: test_index_should_return_a_list
+---------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 18:55:19 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1412)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+PostControllerTest: test_index_should_return_a_list_ordered_by_score
+--------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 18:55:19 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 911)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-16 17:57:01.855365', '2023-08-16 17:57:01.855365');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-16 17:57:01.855365', '2023-08-16 17:57:01.855365');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-16 17:57:01.855365', '2023-08-16 17:57:01.855365');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-16 17:57:01.855365', '2023-08-16 17:57:01.855365');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-16 17:57:01.855365', '2023-08-16 17:57:01.855365')[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PostControllerTest: test_index_should_return_a_list
+---------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 18:57:01 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 5941)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+PostControllerTest: test_index_should_return_a_list_ordered_by_score
+--------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 18:57:02 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1037)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+PostControllerTest: test_creates_post
+-------------------------------------
+Started POST "/posts" for 127.0.0.1 at 2023-08-16 18:57:02 +0100
+Processing by PostsController#create as HTML
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-16 17:57:02.036131"], ["updated_at", "2023-08-16 17:57:02.036131"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 9ms (ActiveRecord: 0.7ms | Allocations: 1556)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-16 17:57:34.417340', '2023-08-16 17:57:34.417340');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-16 17:57:34.417340', '2023-08-16 17:57:34.417340');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-16 17:57:34.417340', '2023-08-16 17:57:34.417340');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-16 17:57:34.417340', '2023-08-16 17:57:34.417340');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-16 17:57:34.417340', '2023-08-16 17:57:34.417340')[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+PostControllerTest: test_creates_post
+-------------------------------------
+Started POST "/posts" for 127.0.0.1 at 2023-08-16 18:57:34 +0100
+Processing by PostsController#create as HTML
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-16 17:57:34.572742"], ["updated_at", "2023-08-16 17:57:34.572742"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 17ms (ActiveRecord: 0.7ms | Allocations: 6082)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+PostControllerTest: test_index_should_return_a_list_ordered_by_score
+--------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 18:57:34 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1412)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PostControllerTest: test_index_should_return_a_list
+---------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 18:57:34 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 911)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-16 19:17:21.343531', '2023-08-16 19:17:21.343531');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-16 19:17:21.343531', '2023-08-16 19:17:21.343531');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-16 19:17:21.343531', '2023-08-16 19:17:21.343531');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-16 19:17:21.343531', '2023-08-16 19:17:21.343531');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-16 19:17:21.343531', '2023-08-16 19:17:21.343531')[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/5/downvote" for 127.0.0.1 at 2023-08-16 20:17:21 +0100
+Processing by PostsController#downvote as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.1ms | Allocations: 1725)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+PostControllerTest: test_index_should_return_a_list_ordered_by_score
+--------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 20:17:21 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 1355)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/5/upvote" for 127.0.0.1 at 2023-08-16 20:17:21 +0100
+Processing by PostsController#upvote as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 264)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------------------------------
+PostControllerTest: test_index_posts_with_higher_vote_counts_should_take_precedence
+-----------------------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 20:17:21 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 980)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PostControllerTest: test_index_should_return_a_list
+---------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 20:17:21 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 911)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+PostControllerTest: test_index_array_should_not_be_sorted
+---------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 20:17:21 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 911)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+PostControllerTest: test_creates_post
+-------------------------------------
+Started POST "/posts" for 127.0.0.1 at 2023-08-16 20:17:21 +0100
+Processing by PostsController#create as HTML
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-16 19:17:21.550851"], ["updated_at", "2023-08-16 19:17:21.550851"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 9ms (ActiveRecord: 0.7ms | Allocations: 1548)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-16 19:22:17.695005', '2023-08-16 19:22:17.695005');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-16 19:22:17.695005', '2023-08-16 19:22:17.695005');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-16 19:22:17.695005', '2023-08-16 19:22:17.695005');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-16 19:22:17.695005', '2023-08-16 19:22:17.695005');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-16 19:22:17.695005', '2023-08-16 19:22:17.695005')[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+PostControllerTest: test_creates_post
+-------------------------------------
+Started POST "/posts" for 127.0.0.1 at 2023-08-16 20:22:17 +0100
+Processing by PostsController#create as HTML
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-16 19:22:17.863216"], ["updated_at", "2023-08-16 19:22:17.863216"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 18ms (ActiveRecord: 0.7ms | Allocations: 6061)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------------------------------
+PostControllerTest: test_index_posts_with_higher_vote_counts_should_take_precedence
+-----------------------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 20:22:17 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1412)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+PostControllerTest: test_index_array_should_not_be_sorted
+---------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 20:22:17 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.1ms | Allocations: 911)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PostControllerTest: test_index_should_return_a_list
+---------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 20:22:17 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 911)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/5/downvote" for 127.0.0.1 at 2023-08-16 20:22:17 +0100
+Processing by PostsController#downvote as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPost Update All (0.9ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) - ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 5]]
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 6ms (ActiveRecord: 0.9ms | Allocations: 1021)
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/5/upvote" for 127.0.0.1 at 2023-08-16 20:22:17 +0100
+Processing by PostsController#upvote as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPost Update All (0.5ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 5]]
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 6ms (ActiveRecord: 0.6ms | Allocations: 570)
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+PostControllerTest: test_index_should_return_a_list_ordered_by_score
+--------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 20:22:17 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 911)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.6ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-16 19:22:52.582091', '2023-08-16 19:22:52.582091');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-16 19:22:52.582091', '2023-08-16 19:22:52.582091');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-16 19:22:52.582091', '2023-08-16 19:22:52.582091');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-16 19:22:52.582091', '2023-08-16 19:22:52.582091');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-16 19:22:52.582091', '2023-08-16 19:22:52.582091')[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------------------------------
+PostControllerTest: test_index_posts_with_higher_vote_counts_should_take_precedence
+-----------------------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 20:22:52 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 5941)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/5/upvote" for 127.0.0.1 at 2023-08-16 20:22:52 +0100
+Processing by PostsController#upvote as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPost Update All (0.5ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 5]]
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 7ms (ActiveRecord: 0.6ms | Allocations: 1552)
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+PostControllerTest: test_creates_post
+-------------------------------------
+Started POST "/posts" for 127.0.0.1 at 2023-08-16 20:22:52 +0100
+Processing by PostsController#create as HTML
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-16 19:22:52.769804"], ["updated_at", "2023-08-16 19:22:52.769804"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 7ms (ActiveRecord: 0.7ms | Allocations: 1160)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+PostControllerTest: test_index_array_should_not_be_sorted
+---------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 20:22:52 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 981)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PostControllerTest: test_index_should_return_a_list
+---------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 20:22:52 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 911)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+PostControllerTest: test_index_should_return_a_list_ordered_by_score
+--------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-16 20:22:52 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 911)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/5/downvote" for 127.0.0.1 at 2023-08-16 20:22:52 +0100
+Processing by PostsController#downvote as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPost Update All (0.7ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) - ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 5]]
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 5ms (ActiveRecord: 0.7ms | Allocations: 621)
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-17 08:23:55.424734', '2023-08-17 08:23:55.424734');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-17 08:23:55.424734', '2023-08-17 08:23:55.424734');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-17 08:23:55.424734', '2023-08-17 08:23:55.424734');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-17 08:23:55.424734', '2023-08-17 08:23:55.424734');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-17 08:23:55.424734', '2023-08-17 08:23:55.424734');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (6, 7, 2, '2023-08-17 08:23:55.424734', '2023-08-17 08:23:55.424734');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (7, 9, 12, '2023-08-17 08:23:55.424734', '2023-08-17 08:23:55.424734');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (8, 90, 120, '2023-08-17 08:23:55.424734', '2023-08-17 08:23:55.424734');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (9, 1, 0, '2023-08-17 08:23:55.424734', '2023-08-17 08:23:55.424734')[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+PostControllerTest: test_index_array_should_not_be_sorted
+---------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 09:23:56 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 49ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 6533)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------------------------------
+PostControllerTest: test_index_posts_with_higher_vote_counts_should_take_precedence
+-----------------------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 09:23:56 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1629)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/9/downvote" for 127.0.0.1 at 2023-08-17 09:23:56 +0100
+Processing by PostsController#downvote as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPost Update All (0.6ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) - ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 9]]
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 17ms (ActiveRecord: 0.6ms | Allocations: 1553)
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/9/upvote" for 127.0.0.1 at 2023-08-17 09:23:56 +0100
+Processing by PostsController#upvote as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPost Update All (0.5ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 9]]
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 5ms (ActiveRecord: 0.5ms | Allocations: 614)
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PostControllerTest: test_index_should_return_a_list
+---------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 09:23:56 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1566)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+PostControllerTest: test_index_should_return_a_list_ordered_by_score
+--------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 09:23:56 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1503)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+PostControllerTest: test_creates_post
+-------------------------------------
+Started POST "/posts" for 127.0.0.1 at 2023-08-17 09:23:56 +0100
+Processing by PostsController#create as HTML
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (1.2ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-17 08:23:56.741495"], ["updated_at", "2023-08-17 08:23:56.741495"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 7ms (ActiveRecord: 1.3ms | Allocations: 1157)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-17 08:24:19.925760', '2023-08-17 08:24:19.925760');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-17 08:24:19.925760', '2023-08-17 08:24:19.925760');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-17 08:24:19.925760', '2023-08-17 08:24:19.925760');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-17 08:24:19.925760', '2023-08-17 08:24:19.925760');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-17 08:24:19.925760', '2023-08-17 08:24:19.925760');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (6, 7, 2, '2023-08-17 08:24:19.925760', '2023-08-17 08:24:19.925760');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (7, 9, 12, '2023-08-17 08:24:19.925760', '2023-08-17 08:24:19.925760');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (8, 90, 120, '2023-08-17 08:24:19.925760', '2023-08-17 08:24:19.925760');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (9, 1, 0, '2023-08-17 08:24:19.925760', '2023-08-17 08:24:19.925760')[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+PostControllerTest: test_creates_post
+-------------------------------------
+Started POST "/posts" for 127.0.0.1 at 2023-08-17 09:24:20 +0100
+Processing by PostsController#create as HTML
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-17 08:24:20.078516"], ["updated_at", "2023-08-17 08:24:20.078516"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 18ms (ActiveRecord: 1.0ms | Allocations: 6061)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/9/upvote" for 127.0.0.1 at 2023-08-17 09:24:20 +0100
+Processing by PostsController#upvote as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPost Update All (0.5ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 9]]
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 5ms (ActiveRecord: 0.6ms | Allocations: 1037)
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------------------------------
+PostControllerTest: test_index_posts_with_higher_vote_counts_should_take_precedence
+-----------------------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 09:24:20 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1840)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PostControllerTest: test_index_should_return_a_list
+---------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 09:24:20 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 3ms (Views: 0.0ms | ActiveRecord: 0.1ms | Allocations: 1503)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+PostControllerTest: test_index_array_should_not_be_sorted
+---------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 09:24:20 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.1ms | Allocations: 1503)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/9/downvote" for 127.0.0.1 at 2023-08-17 09:24:20 +0100
+Processing by PostsController#downvote as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPost Update All (0.7ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) - ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 9]]
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 5ms (ActiveRecord: 0.7ms | Allocations: 645)
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+PostControllerTest: test_index_should_return_a_list_ordered_by_score
+--------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 09:24:20 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1503)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-17 16:43:05.274973', '2023-08-17 16:43:05.274973');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-17 16:43:05.274973', '2023-08-17 16:43:05.274973');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-17 16:43:05.274973', '2023-08-17 16:43:05.274973');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-17 16:43:05.274973', '2023-08-17 16:43:05.274973');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-17 16:43:05.274973', '2023-08-17 16:43:05.274973');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (6, 7, 2, '2023-08-17 16:43:05.274973', '2023-08-17 16:43:05.274973');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (7, 9, 12, '2023-08-17 16:43:05.274973', '2023-08-17 16:43:05.274973');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (8, 90, 120, '2023-08-17 16:43:05.274973', '2023-08-17 16:43:05.274973');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (9, 1, 0, '2023-08-17 16:43:05.274973', '2023-08-17 16:43:05.274973')[0m
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+PostControllerTest: test_index_should_return_a_list_ordered_by_score
+--------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 17:43:05 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 6498)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/9/downvote" for 127.0.0.1 at 2023-08-17 17:43:05 +0100
+Processing by PostsController#downvote as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPost Update All (0.5ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 9]]
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 7ms (ActiveRecord: 0.6ms | Allocations: 1550)
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PostControllerTest: test_index_should_return_a_list
+---------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 17:43:05 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1563)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/9/upvote" for 127.0.0.1 at 2023-08-17 17:43:05 +0100
+Processing by PostsController#upvote as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPost Update All (0.6ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 9]]
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 5ms (ActiveRecord: 0.7ms | Allocations: 576)
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+PostControllerTest: test_creates_post
+-------------------------------------
+Started POST "/posts" for 127.0.0.1 at 2023-08-17 17:43:05 +0100
+Processing by PostsController#create as HTML
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-17 16:43:05.598434"], ["updated_at", "2023-08-17 16:43:05.598434"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 6ms (ActiveRecord: 0.7ms | Allocations: 1135)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+PostControllerTest: test_index_array_should_not_be_sorted
+---------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 17:43:05 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1562)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------------------------------
+PostControllerTest: test_index_posts_with_higher_vote_counts_should_take_precedence
+-----------------------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 17:43:05 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1492)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.6ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-17 16:49:00.085159', '2023-08-17 16:49:00.085159');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-17 16:49:00.085159', '2023-08-17 16:49:00.085159');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-17 16:49:00.085159', '2023-08-17 16:49:00.085159');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-17 16:49:00.085159', '2023-08-17 16:49:00.085159');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-17 16:49:00.085159', '2023-08-17 16:49:00.085159');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (6, 7, 2, '2023-08-17 16:49:00.085159', '2023-08-17 16:49:00.085159');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (7, 9, 12, '2023-08-17 16:49:00.085159', '2023-08-17 16:49:00.085159');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (8, 90, 120, '2023-08-17 16:49:00.085159', '2023-08-17 16:49:00.085159');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (9, 1, 0, '2023-08-17 16:49:00.085159', '2023-08-17 16:49:00.085159')[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PostControllerTest: test_index_should_return_a_list
+---------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 17:49:00 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 6487)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------------------------------
+PostControllerTest: test_index_posts_with_higher_vote_counts_should_take_precedence
+-----------------------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 17:49:00 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1609)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/9/upvote" for 127.0.0.1 at 2023-08-17 17:49:00 +0100
+Processing by PostsController#upvote as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPost Update All (1.1ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 9]]
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 8ms (ActiveRecord: 1.2ms | Allocations: 1550)
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+PostControllerTest: test_index_should_return_a_list_ordered_by_score
+--------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 17:49:00 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1554)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/9/downvote" for 127.0.0.1 at 2023-08-17 17:49:00 +0100
+Processing by PostsController#downvote as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPost Update All (0.5ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 9]]
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 5ms (ActiveRecord: 0.6ms | Allocations: 576)
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+PostControllerTest: test_index_array_should_not_be_sorted
+---------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 17:49:00 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1483)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+PostControllerTest: test_creates_post
+-------------------------------------
+Started POST "/posts" for 127.0.0.1 at 2023-08-17 17:49:00 +0100
+Processing by PostsController#create as HTML
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-17 16:49:00.298028"], ["updated_at", "2023-08-17 16:49:00.298028"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 7ms (ActiveRecord: 1.0ms | Allocations: 1135)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.6ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-17 16:50:41.362297', '2023-08-17 16:50:41.362297');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-17 16:50:41.362297', '2023-08-17 16:50:41.362297');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-17 16:50:41.362297', '2023-08-17 16:50:41.362297');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-17 16:50:41.362297', '2023-08-17 16:50:41.362297');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-17 16:50:41.362297', '2023-08-17 16:50:41.362297');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (6, 7, 2, '2023-08-17 16:50:41.362297', '2023-08-17 16:50:41.362297');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (7, 9, 12, '2023-08-17 16:50:41.362297', '2023-08-17 16:50:41.362297');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (8, 90, 120, '2023-08-17 16:50:41.362297', '2023-08-17 16:50:41.362297');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (9, 1, 0, '2023-08-17 16:50:41.362297', '2023-08-17 16:50:41.362297')[0m
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+PostControllerTest: test_index_should_return_a_list_ordered_by_score
+--------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 17:50:41 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 6487)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------------------------------
+PostControllerTest: test_index_posts_with_higher_vote_counts_should_take_precedence
+-----------------------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 17:50:41 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1609)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PostControllerTest: test_index_should_return_a_list
+---------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 17:50:41 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 3ms (Views: 0.0ms | ActiveRecord: 0.1ms | Allocations: 1483)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+PostControllerTest: test_creates_post
+-------------------------------------
+Started POST "/posts" for 127.0.0.1 at 2023-08-17 17:50:41 +0100
+Processing by PostsController#create as HTML
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-17 16:50:41.548767"], ["updated_at", "2023-08-17 16:50:41.548767"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 8ms (ActiveRecord: 1.0ms | Allocations: 1555)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/9/downvote" for 127.0.0.1 at 2023-08-17 17:50:41 +0100
+Processing by PostsController#downvote as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPost Update All (0.5ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 9]]
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 7ms (ActiveRecord: 0.5ms | Allocations: 1008)
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+PostControllerTest: test_index_array_should_not_be_sorted
+---------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 17:50:41 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1546)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/9/upvote" for 127.0.0.1 at 2023-08-17 17:50:41 +0100
+Processing by PostsController#upvote as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPost Update All (1.1ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 9]]
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 6ms (ActiveRecord: 1.1ms | Allocations: 539)
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.6ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-17 17:22:55.280643', '2023-08-17 17:22:55.280643');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-17 17:22:55.280643', '2023-08-17 17:22:55.280643');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-17 17:22:55.280643', '2023-08-17 17:22:55.280643');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-17 17:22:55.280643', '2023-08-17 17:22:55.280643');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-17 17:22:55.280643', '2023-08-17 17:22:55.280643');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (6, 7, 2, '2023-08-17 17:22:55.280643', '2023-08-17 17:22:55.280643');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (7, 9, 12, '2023-08-17 17:22:55.280643', '2023-08-17 17:22:55.280643');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (8, 90, 120, '2023-08-17 17:22:55.280643', '2023-08-17 17:22:55.280643');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (9, 1, 0, '2023-08-17 17:22:55.280643', '2023-08-17 17:22:55.280643')[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------------------------------
+PostControllerTest: test_index_posts_with_higher_vote_counts_should_take_precedence
+-----------------------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 18:22:55 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 6488)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+PostControllerTest: test_index_array_should_not_be_sorted
+---------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 18:22:55 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1609)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+PostControllerTest: test_index_should_return_a_list_ordered_by_score
+--------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 18:22:55 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 3ms (Views: 0.0ms | ActiveRecord: 0.1ms | Allocations: 1483)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/9/downvote" for 127.0.0.1 at 2023-08-17 18:22:55 +0100
+Processing by PostsController#downvote as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPost Update All (0.6ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 9]]
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 7ms (ActiveRecord: 0.7ms | Allocations: 1550)
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+PostControllerTest: test_creates_post
+-------------------------------------
+Started POST "/posts" for 127.0.0.1 at 2023-08-17 18:22:55 +0100
+Processing by PostsController#create as HTML
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-17 17:22:55.476476"], ["updated_at", "2023-08-17 17:22:55.476476"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 7ms (ActiveRecord: 0.8ms | Allocations: 1137)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PostControllerTest: test_index_should_return_a_list
+---------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 18:22:55 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1553)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/9/upvote" for 127.0.0.1 at 2023-08-17 18:22:55 +0100
+Processing by PostsController#upvote as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPost Update All (0.5ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 9]]
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 5ms (ActiveRecord: 0.6ms | Allocations: 591)
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.1ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-17 21:11:42.884274', '2023-08-17 21:11:42.884274');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-17 21:11:42.884274', '2023-08-17 21:11:42.884274');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-17 21:11:42.884274', '2023-08-17 21:11:42.884274');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-17 21:11:42.884274', '2023-08-17 21:11:42.884274');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-17 21:11:42.884274', '2023-08-17 21:11:42.884274');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (6, 7, 2, '2023-08-17 21:11:42.884274', '2023-08-17 21:11:42.884274');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (7, 9, 12, '2023-08-17 21:11:42.884274', '2023-08-17 21:11:42.884274');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (8, 90, 120, '2023-08-17 21:11:42.884274', '2023-08-17 21:11:42.884274');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (9, 1, 0, '2023-08-17 21:11:42.884274', '2023-08-17 21:11:42.884274')[0m
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------------------------------
+PostControllerTest: test_index_posts_with_higher_vote_counts_should_take_precedence
+-----------------------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 22:11:43 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 26ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 6487)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+PostControllerTest: test_index_array_should_not_be_sorted
+---------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 22:11:43 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1609)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+PostControllerTest: test_creates_post
+-------------------------------------
+Started POST "/posts" for 127.0.0.1 at 2023-08-17 22:11:43 +0100
+Processing by PostsController#create as HTML
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (1.3ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-17 21:11:43.394028"], ["updated_at", "2023-08-17 21:11:43.394028"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 9ms (ActiveRecord: 1.3ms | Allocations: 1556)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/9/downvote" for 127.0.0.1 at 2023-08-17 22:11:43 +0100
+Processing by PostsController#downvote as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPost Update All (0.9ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 9]]
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 6ms (ActiveRecord: 1.0ms | Allocations: 1008)
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+PostControllerTest: test_index_should_return_a_list_ordered_by_score
+--------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 22:11:43 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1546)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/9/upvote" for 127.0.0.1 at 2023-08-17 22:11:43 +0100
+Processing by PostsController#upvote as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPost Update All (1.1ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 9]]
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 6ms (ActiveRecord: 1.1ms | Allocations: 539)
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PostControllerTest: test_index_should_return_a_list
+---------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 22:11:43 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1483)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "posts";
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (1, 10, 10, '2023-08-17 21:18:38.684333', '2023-08-17 21:18:38.684333');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (2, 50, 50, '2023-08-17 21:18:38.684333', '2023-08-17 21:18:38.684333');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (3, 100, 0, '2023-08-17 21:18:38.684333', '2023-08-17 21:18:38.684333');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (4, 0, 100, '2023-08-17 21:18:38.684333', '2023-08-17 21:18:38.684333');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (5, 70, 20, '2023-08-17 21:18:38.684333', '2023-08-17 21:18:38.684333');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (6, 7, 2, '2023-08-17 21:18:38.684333', '2023-08-17 21:18:38.684333');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (7, 9, 12, '2023-08-17 21:18:38.684333', '2023-08-17 21:18:38.684333');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (8, 90, 120, '2023-08-17 21:18:38.684333', '2023-08-17 21:18:38.684333');
+INSERT INTO "posts" ("id", "upvotes", "downvotes", "created_at", "updated_at") VALUES (9, 1, 0, '2023-08-17 21:18:38.684333', '2023-08-17 21:18:38.684333')[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+PostControllerTest: test_index_array_should_not_be_sorted
+---------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 22:18:38 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 6486)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+PostControllerTest: test_creates_post
+-------------------------------------
+Started POST "/posts" for 127.0.0.1 at 2023-08-17 22:18:38 +0100
+Processing by PostsController#create as HTML
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (1.2ms)[0m  [1m[32mINSERT INTO "posts" ("upvotes", "downvotes", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["upvotes", 0], ["downvotes", 0], ["created_at", "2023-08-17 21:18:38.896826"], ["updated_at", "2023-08-17 21:18:38.896826"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 8ms (ActiveRecord: 1.3ms | Allocations: 1484)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+PostControllerTest: test_downvote
+---------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/9/downvote" for 127.0.0.1 at 2023-08-17 22:18:38 +0100
+Processing by PostsController#downvote as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPost Update All (0.7ms)[0m  [1m[33mUPDATE "posts" SET "downvotes" = COALESCE("downvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["downvotes", 1], ["id", 9]]
+No template found for PostsController#downvote, rendering head :no_content
+Completed 204 No Content in 6ms (ActiveRecord: 0.7ms | Allocations: 1008)
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+PostControllerTest: test_upvote
+-------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started PUT "/posts/9/upvote" for 127.0.0.1 at 2023-08-17 22:18:38 +0100
+Processing by PostsController#upvote as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPost Update All (1.2ms)[0m  [1m[33mUPDATE "posts" SET "upvotes" = COALESCE("upvotes", 0) + ? WHERE "posts"."id" = ?[0m  [["upvotes", 1], ["id", 9]]
+No template found for PostsController#upvote, rendering head :no_content
+Completed 204 No Content in 6ms (ActiveRecord: 1.3ms | Allocations: 539)
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+PostControllerTest: test_index_should_return_a_list_ordered_by_score
+--------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 22:18:38 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1546)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------------------------------
+PostControllerTest: test_index_posts_with_higher_vote_counts_should_take_precedence
+-----------------------------------------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 22:18:38 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1483)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PostControllerTest: test_index_should_return_a_list
+---------------------------------------------------
+Started GET "/posts" for 127.0.0.1 at 2023-08-17 22:18:38 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1483)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
