@@ -1,0 +1,71 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 3.1.2
+  NewCops: enable
+
+  Exclude:
+    - "config/*/"
+    - "libs/*/"
+    - "app/assets/*/"
+    - "bin/*"
+    - "coverage/*/"
+    - "db/*/"
+    - "log/*/"
+    - "node_modules/*/"
+    - "public/*/"
+    - "tmp/*/"
+    - "vendor/*/"
+
+# Layout
+Layout/LineLength:
+  AutoCorrect: true
+  Max: 120
+
+# Lint
+Lint/Debugger:
+  Enabled: true
+  Severity: error
+
+# Metrics
+Metrics/ClassLength:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: true
+  Max: 30
+Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockLength:
+  Exclude:
+    - "Rakefile"
+    - "*/.rake"
+    - "spec/*/.rb"
+    - "*/.gemspec"
+    - "**/routes.rb"
+Migration/DepartmentName:
+  Enabled: false
+
+# Style
+Style/Documentation:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+#################### Bundler ###############################
+
+Bundler/OrderedGems:
+  Description: >-
+    Gems within groups in the Gemfile should be alphabetically sorted.
+  Enabled: true
+  VersionAdded: "0.46"
+  VersionChanged: "0.47"
+  TreatCommentsAsGroupSeparators: true
+  # By default, "-" and "_" are ignored for order purposes.
+  # This can be overridden by setting this parameter to true.
+  ConsiderPunctuation: false
+  Include:
+    - "*/.gemfile"
+    - "**/Gemfile"
+    - "**/gems.rb"
