@@ -31,7 +31,7 @@ Mostly, we work with Ruby and java, but also have some stuff in javascript. Even
   * Show That You Care
   * Build an environment of strong, open and honest relationships
   * Deliver WOW through your service
-  * Stay humble
+w  * Stay humble
   * Do What's Right
   * Be coachable and don’t take it personally
   * Do more with less
