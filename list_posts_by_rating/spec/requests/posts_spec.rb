@@ -37,5 +37,14 @@ RSpec.describe '/posts', type: :request do
   end
 
   describe 'PUT /downvote' do
+    let!(:my_post) { Fabricate :post, upvotes: 0, downvotes: 0 }
+
+    it 'increments post downvotes by 1' do
+      put post_downvote_url(my_post), as: :json
+      my_post.reload
+      expect(my_post.upvotes).to eq 0
+      expect(my_post.downvotes).to eq 1
+      expect(response).to be_successful
+    end
   end
 end
