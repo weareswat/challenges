@@ -14,4 +14,10 @@ class Post < ApplicationRecord
   def engagement
     upvotes + downvotes
   end
+
+  def upvotes_ratio
+    return 0.0 if engagement.zero?
+
+    upvotes.to_f/engagement.to_f
+  end
 end
