@@ -23,9 +23,9 @@ RSpec.describe Post, type: :model do
       end
     end
 
-    describe '#engagement' do
+    describe '#votes' do
       it 'returns upvotes + downvotes' do
-        expect(post.engagement).to eq 2
+        expect(post.votes).to eq 2
       end
     end
 
@@ -35,25 +35,25 @@ RSpec.describe Post, type: :model do
       end
     end
 
-    describe '#upvotes_ratio' do
-      context 'when has no engagement' do
+    describe '#average_rating' do
+      context 'when has no votes' do
         subject { Fabricate :post, upvotes: 0, downvotes: 0 }
         it 'returns 0.0' do
-          expect(subject.upvotes_ratio).to eq 0.0
+          expect(subject.average_rating).to eq 0.0
         end
       end
 
       context 'when positive score is negative' do
         subject { posts(:negative1) }
         it 'returns 0.0' do
-          expect(subject.upvotes_ratio).to eq 0.0
+          expect(subject.average_rating).to eq 0.0
         end
       end
 
-      context 'when has engagement' do
+      context 'when has votes' do
         subject { Fabricate :post, upvotes: 60, downvotes: 40 }
         it 'returns the correct ratio' do
-          expect(subject.upvotes_ratio).to eq 0.6
+          expect(subject.average_rating).to eq 0.6
         end
       end
     end
