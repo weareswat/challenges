@@ -29,31 +29,31 @@ RSpec.describe Post, type: :model do
       end
     end
 
-    describe '#positive_score' do
+    describe '#score' do
       it 'returns upvotes - downvotes' do
-        expect(post.positive_score).to eq 0
+        expect(post.score).to eq 0
       end
     end
 
-    describe '#average_rating' do
+    describe '#upvote_ratio' do
       context 'when has no votes' do
         subject { Fabricate :post, upvotes: 0, downvotes: 0 }
         it 'returns 0.0' do
-          expect(subject.average_rating).to eq 0.0
+          expect(subject.upvote_ratio).to eq 0
         end
       end
 
       context 'when positive score is negative' do
         subject { posts(:negative1) }
         it 'returns 0.0' do
-          expect(subject.average_rating).to eq 0.0
+          expect(subject.upvote_ratio).to eq 0
         end
       end
 
       context 'when has votes' do
         subject { Fabricate :post, upvotes: 60, downvotes: 40 }
         it 'returns the correct ratio' do
-          expect(subject.average_rating).to eq 0.6
+          expect(subject.upvote_ratio).to eq 60
         end
       end
     end

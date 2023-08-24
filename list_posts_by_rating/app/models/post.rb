@@ -1,4 +1,8 @@
 class Post < ApplicationRecord
+  scope :all_posts_ranked_desc, -> do
+    all.sort_by { |p| [p.upvote_ratio, p.score] }.reverse
+  end
+
   def increment_upvotes
     with_lock do
       update(upvotes: upvotes + 1)
@@ -15,19 +19,15 @@ class Post < ApplicationRecord
     upvotes + downvotes
   end
 
-  def positive_score
+  def score
     upvotes - downvotes
   end
 
-  def average_rating
-    return 0.0 if votes.zero?
+  def upvote_ratio
+    return 0 if votes.zero?
 
-    return 0.0 if positive_score.negative?
+    return 0 if score.negative?
 
-    upvotes.to_f/votes.to_f
+    (100*(upvotes.to_f/votes.to_f)).to_i
   end
-
- scope :all_posts_ranked_desc, -> do
-   all.sort_by { |p| [p.average_rating, p.positive_score] }.reverse
- end
 end
