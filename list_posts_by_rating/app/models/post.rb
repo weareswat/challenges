@@ -1,17 +1,17 @@
 class Post < ApplicationRecord
   scope :all_posts_ranked_desc, -> do
-    all.sort_by { |p| [p.upvote_ratio, p.score] }.reverse
+    all.order(Arel.sql('rating DESC, (upvotes - downvotes) DESC'))
   end
 
   def increment_upvotes
     with_lock do
-      update(upvotes: upvotes + 1)
+      update(upvotes: upvotes + 1, rating: upvote_ratio)
     end
   end
 
   def increment_downvotes
     with_lock do
-      update(downvotes: downvotes + 1)
+      update(downvotes: downvotes + 1, rating: upvote_ratio)
     end
   end
 

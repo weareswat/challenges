@@ -8,10 +8,11 @@ RSpec.describe Post, type: :model do
     let!(:post) { Fabricate :post }
 
     describe '#increment_upvotes' do
-      it 'Increments upvotes by 1' do
+      it 'Increments upvotes by 1 and recalculates the rating' do
         post.increment_upvotes
+        post.reload
 
-        expect(post.reload.upvotes).to eq 2
+        expect(post.upvotes).to eq 2
       end
     end
 
