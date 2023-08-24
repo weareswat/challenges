@@ -24,4 +24,20 @@ RSpec.describe Post, type: :model do
       expect(post.engagement).to eq 2
     end
   end
+
+  describe '#upvotes_ratio' do
+    context 'when has no engagement' do
+      subject { Fabricate :post, upvotes: 0, downvotes: 0 }
+      it 'returns 0.0' do
+        expect(subject.upvotes_ratio).to eq 0.0
+      end
+    end
+
+    context 'when has engagement' do
+      subject { Fabricate :post, upvotes: 60, downvotes: 40 }
+      it 'returns the correct ratio' do
+        expect(subject.upvotes_ratio).to eq 0.6
+      end
+    end
+  end
 end
