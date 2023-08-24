@@ -25,7 +25,7 @@ class Post < ApplicationRecord
     upvotes.to_f/engagement.to_f
   end
 
- scope :all_posts_ranking_desc, -> do
+ scope :all_posts_ranked_desc, -> do
    all.sort_by { |p| [p.upvotes_ratio, p.positive_score] }
  end
 end

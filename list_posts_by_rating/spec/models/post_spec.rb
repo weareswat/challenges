@@ -49,7 +49,7 @@ RSpec.describe Post, type: :model do
     end
   end
 
-  describe '.all_posts_ranking_desc' do
+  describe '.all_posts_ranked_desc' do
       let!(:only_upvotes) { Fabricate :post, upvotes: 600, downvotes: 0, content: 'I should rank 1st' }
       let!(:same_ratio1)  { Fabricate :post, upvotes: 600, downvotes: 400, content: 'I should rank 2nd' }
       let!(:same_ratio2)  { Fabricate :post, upvotes: 60, downvotes: 40, content: 'I should rank 3rd' }
@@ -69,7 +69,7 @@ RSpec.describe Post, type: :model do
       end
 
     it 'return all posts ranked correctly' do
-      expect(Post.all_posts_ranking_desc).to match_array(expected_order)
+      expect(Post.all_posts_ranked_desc).to match_array(expected_order)
     end
   end
 end
