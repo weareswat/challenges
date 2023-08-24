@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
+
+  fixtures :all
+
   context 'instance methods' do
     let!(:post) { Fabricate :post }
 
@@ -50,21 +53,15 @@ RSpec.describe Post, type: :model do
   end
 
   describe '.all_posts_ranked_desc' do
-      let!(:only_upvotes) { Fabricate :post, upvotes: 600, downvotes: 0, content: 'I should rank 1st' }
-      let!(:same_ratio1)  { Fabricate :post, upvotes: 600, downvotes: 400, content: 'I should rank 2nd' }
-      let!(:same_ratio2)  { Fabricate :post, upvotes: 60, downvotes: 40, content: 'I should rank 3rd' }
-      let!(:no_votes)     { Fabricate :post, upvotes: 0, downvotes: 0, content: 'I should rank 4th' }
-      let!(:negative1)    { Fabricate :post, upvotes: 1, downvotes: 2, content: 'I should rank 5th' }
-      let!(:negative2)    { Fabricate :post, upvotes: 0, downvotes: 2, content: 'I should rank 6th' }
-
+      # Using fixtures defined at spec/fixtures/posts.yml
       let(:expected_order) do
         [
-          only_upvotes,
-          same_ratio1,
-          same_ratio2,
-          no_votes,
-          negative1,
-          negative2,
+          posts(:only_upvotes),
+          posts(:same_ratio1),
+          posts(:same_ratio2),
+          posts(:no_votes),
+          posts(:negative1),
+          posts(:negative2),
         ]
       end
 
