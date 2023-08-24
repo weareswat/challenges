@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: invoicexpress
+  password: 123456
+  database: invoicexpress
+
+development:
+  <<: *default
+  database: invoicexpress
+
+test:
+  <<: *default
+  database: invoicexpress_test
+
+production:
+  <<: *default
+  database: invoicexpress_production
+  username: invoicexpress
+  password: <%= ENV["IX_CHALLENGE_USER_CHANGES_DATABASE_PASSWORD"] %>

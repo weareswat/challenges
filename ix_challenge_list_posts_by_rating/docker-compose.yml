@@ -1,0 +1,17 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      RAILS_ENV: development
+      DATABASE_URL: postgres://invoicexpress:123456@db/invoicexpress
+    depends_on:
+      - db
+  db:
+    image: postgres:12
+    environment:
+      POSTGRES_USER: invoicexpress
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: invoicexpress
