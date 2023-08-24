@@ -8,9 +8,18 @@ class PostsController < ApplicationController
     render json: @posts
   end
 
-  # PATCH/PUT /posts/1
+  # PUT /upvote/1
   def upvote
     if @post.increment_upvotes
+      render status: :ok
+    else
+      render json: @post.errors, status: 500
+    end
+  end
+
+  # PUT /downvote/1
+  def downvote
+    if @post.increment_downvotes
       render status: :ok
     else
       render json: @post.errors, status: 500
