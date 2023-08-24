@@ -43,6 +43,13 @@ RSpec.describe Post, type: :model do
         end
       end
 
+      context 'when positive score is negative' do
+        subject { posts(:negative1) }
+        it 'returns 0.0' do
+          expect(subject.upvotes_ratio).to eq 0.0
+        end
+      end
+
       context 'when has engagement' do
         subject { Fabricate :post, upvotes: 60, downvotes: 40 }
         it 'returns the correct ratio' do
@@ -66,7 +73,7 @@ RSpec.describe Post, type: :model do
       end
 
     it 'return all posts ranked correctly' do
-      expect(Post.all_posts_ranked_desc).to match_array(expected_order)
+      expect(Post.all_posts_ranked_desc).to eq(expected_order)
     end
   end
 end
