@@ -25,6 +25,12 @@ RSpec.describe Post, type: :model do
     end
   end
 
+  describe '#positive_score' do
+    it 'returns upvotes - downvotes' do
+      expect(post.positive_score).to eq 0
+    end
+  end
+
   describe '#upvotes_ratio' do
     context 'when has no engagement' do
       subject { Fabricate :post, upvotes: 0, downvotes: 0 }
