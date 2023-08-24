@@ -1,9 +1,5 @@
 class Post < ApplicationRecord
   scope :all_posts_ranked_desc, -> do
-    all.sort_by { |p| [p.upvote_ratio, p.score] }.reverse
-  end
-
-  scope :pipelined_order_by, -> do
     all.order(Arel.sql('rating DESC, (upvotes - downvotes) DESC'))
   end
 

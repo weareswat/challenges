@@ -1,9 +1,11 @@
 class PostsController < ApplicationController
+  include Pagy::Backend
+
   before_action :set_post, only: %i[upvote downvote]
 
   # GET /posts
   def index
-    @posts = Post.all_posts_ranked_desc
+    @pagy, @posts = pagy(Post.all_posts_ranked_desc)
 
     render json: @posts
   end

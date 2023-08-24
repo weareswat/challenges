@@ -16,3 +16,4 @@ group :development, :test do
 end
 
 gem 'simplecov', require: false, group: :test
+gem 'pagy', '~> 6.0' # Fast-pagination gem
