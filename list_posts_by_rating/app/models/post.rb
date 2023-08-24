@@ -22,10 +22,12 @@ class Post < ApplicationRecord
   def upvotes_ratio
     return 0.0 if engagement.zero?
 
+    return 0.0 if positive_score.negative?
+
     upvotes.to_f/engagement.to_f
   end
 
  scope :all_posts_ranked_desc, -> do
-   all.sort_by { |p| [p.upvotes_ratio, p.positive_score] }
+   all.sort_by { |p| [p.upvotes_ratio, p.positive_score] }.reverse
  end
 end
