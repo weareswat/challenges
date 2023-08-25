@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 
   def upvote
     @post.upvotes += 1
-    @post.save
+    @post.update(upvotes: @post.upvotes + 1)
     render json: { message: "Upvoted" }
   end
 
