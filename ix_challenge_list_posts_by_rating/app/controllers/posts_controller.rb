@@ -12,21 +12,17 @@ class PostsController < ApplicationController
   end
 
   def upvote
-    @post.upvotes += 1
     @post.update(upvotes: @post.upvotes + 1)
     render json: { message: "Upvoted" }
   end
 
   def downvote
-    @post.downvotes += 1
-    @post.save
+    @post.update(downvotes: @post.downvotes + 1)
     render json: { message: "Downvoted" }
   end
 
   def index
-    posts = Post.all.sort_by do |post|
-      (post.upvotes + 1).to_f / (post.upvotes + post.downvotes + 2)
-    end.reverse
+    posts = Post.all.order(rating: :desc)
     render json: posts
   end
 
