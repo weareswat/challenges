@@ -1,4 +1,7 @@
 class User < ApplicationRecord
-  validates_presence_of :name, presence: true
-  
+  # Relationship
+  has_many :user_votes, dependent: :destroy
+
+  # Validations
+  validates :name, presence: { presence: true }
 end
