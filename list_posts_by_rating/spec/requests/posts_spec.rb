@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe '/posts', type: :request do
-
   fixtures :posts
 
   describe 'GET /index' do

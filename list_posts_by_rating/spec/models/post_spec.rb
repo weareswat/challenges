@@ -1,11 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-
   fixtures :all
 
   context 'instance methods' do
-
     describe '#increment_vote' do
       let!(:post) { Fabricate :post, upvotes: 0, downvotes: 0, rating: 0 }
 
@@ -68,17 +68,17 @@ RSpec.describe Post, type: :model do
   end
 
   describe '.all_posts_ranked_desc' do
-      # Using fixtures defined at spec/fixtures/posts.yml
-      let(:expected_order) do
-        [
-          posts(:only_upvotes),
-          posts(:same_ratio1),
-          posts(:same_ratio2),
-          posts(:no_votes),
-          posts(:negative1),
-          posts(:negative2),
-        ]
-      end
+    # Using fixtures defined at spec/fixtures/posts.yml
+    let(:expected_order) do
+      [
+        posts(:only_upvotes),
+        posts(:same_ratio1),
+        posts(:same_ratio2),
+        posts(:no_votes),
+        posts(:negative1),
+        posts(:negative2)
+      ]
+    end
 
     it 'return all posts ranked correctly' do
       expect(Post.all_posts_ranked_desc).to eq(expected_order)

@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class Post < ApplicationRecord
-  scope :all_posts_ranked_desc, -> do
+  scope :all_posts_ranked_desc, lambda {
     all.order(Arel.sql('rating DESC, (upvotes - downvotes) DESC'))
-  end
+  }
 
   # Increments either upvotes or downvotes by 1 and also updates the rating.
   #
@@ -25,6 +27,6 @@ class Post < ApplicationRecord
 
     return 0 if score.negative?
 
-    (100*(new_upvotes.to_f/votes.to_f)).to_i
+    (100 * (new_upvotes.to_f / votes)).to_i
   end
 end

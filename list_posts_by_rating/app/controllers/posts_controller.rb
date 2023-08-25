@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   include Pagy::Backend
 
@@ -21,6 +23,7 @@ class PostsController < ApplicationController
   end
 
   private
+
   def set_post
     @post = Post.find(params[:id])
   end
@@ -41,9 +44,9 @@ class PostsController < ApplicationController
   def log_error(post, vote_type)
     Rails.logger.error(
       <<~ERRORMSG
-          Failed to increment #{vote_type} for Post id #{post.id}.\n
-          Errors: #{post.errors.inspect}
-          #{post.attributes.inspect}
+        Failed to increment #{vote_type} for Post id #{post.id}.\n
+        Errors: #{post.errors.inspect}
+        #{post.attributes.inspect}
       ERRORMSG
     )
   end
