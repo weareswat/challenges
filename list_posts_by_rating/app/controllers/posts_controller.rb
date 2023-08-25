@@ -27,13 +27,24 @@ class PostsController < ApplicationController
 
   # @param vote_type [Symbol] the type of vote to increment. Either :upvotes or :downvotes.
   def increment_vote(vote_type)
-
     result = @post.with_lock { @post.increment_vote(vote_type) }
 
     if result
       render status: :ok
     else
+      log_error(@post, vote_type)
+
       render json: @post.errors, status: 500
     end
+  end
+
+  def log_error(post, vote_type)
+    Rails.logger.error(
+      <<~ERRORMSG
+          Failed to increment #{vote_type} for Post id #{post.id}.\n
+          Errors: #{post.errors.inspect}
+          #{post.attributes.inspect}
+      ERRORMSG
+    )
   end
 end

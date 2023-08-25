@@ -3,6 +3,8 @@ class Post < ApplicationRecord
     all.order(Arel.sql('rating DESC, (upvotes - downvotes) DESC'))
   end
 
+  # Increments either upvotes or downvotes by 1 and also updates the rating.
+  #
   # @param vote_type [Symbol] The kind of vote to increment. Either :upvotes or :downvotes.
   def increment_vote(vote_type)
     new_votes_count = send(vote_type) + 1
