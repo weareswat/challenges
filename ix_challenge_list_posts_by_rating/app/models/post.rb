@@ -8,6 +8,7 @@ class Post < ApplicationRecord
   private
 
   def calculate_rating
-    self.rating = (upvotes + 1).to_f / (upvotes + downvotes + 2)
+    weight = (upvotes + downvotes + 2)
+    self.rating = (upvotes + 1).to_f / (downvotes + 1).to_f * weight
   end
 end
