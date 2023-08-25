@@ -6,12 +6,12 @@ services:
       - "3000:3000"
     environment:
       RAILS_ENV: development
-      DATABASE_URL: postgres://invoicexpress:123456@db/invoicexpress
+      DATABASE_URL: ${DATABASE_URL}
     depends_on:
       - db
   db:
     image: postgres:12
     environment:
-      POSTGRES_USER: invoicexpress
-      POSTGRES_PASSWORD: 123456
-      POSTGRES_DB: invoicexpress
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
