@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::UsersController do
   let!(:user) { create(:user) }
-  
+
   describe '#index' do
     it 'returns the user list' do
       get :index
@@ -10,14 +10,14 @@ RSpec.describe Api::V1::UsersController do
       resp = response.parsed_body
 
       expect(resp['users'].last['name']).to eq(user.name)
-      expect(response.status).to eq(200) 
+      expect(response.status).to eq(200)
     end
   end
 
   describe '#create' do
     let(:params) { nil }
     let(:do_request) { post :create, params: }
-    
+
     context 'with a valid params' do
       let(:params) do
         {
