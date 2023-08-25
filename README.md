@@ -21,8 +21,9 @@ After you get all the [prerequisites](#prerequisites), simply execute the follow
 
 1. `gem install pg -v '1.3.4'`
 2. `bundle`
-3. `bundle exec rake db:create`
-4. `bundle exec rake db:migrate`
+3. `You must copy database.yml.example to database.yml and insert your own db credentials`
+4. `bundle exec rake db:create`
+5. `bundle exec rake db:migrate`
 
 You can run seed to populate the database with information from the posts and users api
 
