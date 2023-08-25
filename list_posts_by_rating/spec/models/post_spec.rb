@@ -5,34 +5,27 @@ RSpec.describe Post, type: :model do
   fixtures :all
 
   context 'instance methods' do
-    let!(:post) { Fabricate :post }
 
-    describe '#increment_upvotes' do
-      it 'Increments upvotes by 1 and recalculates the rating' do
-        post.increment_upvotes
-        post.reload
+    describe '#increment_vote' do
+      let!(:post) { Fabricate :post, upvotes: 0, downvotes: 0, rating: 0 }
 
-        expect(post.upvotes).to eq 2
+      context 'increment upvotes' do
+        it 'Increments upvotes by 1 and updates the rating' do
+          post.increment_vote(:upvotes)
+          post.reload
+
+          expect(post.upvotes).to eq 1
+          expect(post.rating).to eq 100
+        end
       end
-    end
 
-    describe '#increment_downvotes' do
-      it 'Increments downvotes by 1' do
-        post.increment_downvotes
+      context 'increment downvotes' do
+        it 'Increments downvotes by 1' do
+          post.increment_vote(:downvotes)
+          post.reload
 
-        expect(post.reload.downvotes).to eq 2
-      end
-    end
-
-    describe '#votes' do
-      it 'returns upvotes + downvotes' do
-        expect(post.votes).to eq 2
-      end
-    end
-
-    describe '#score' do
-      it 'returns upvotes - downvotes' do
-        expect(post.score).to eq 0
+          expect(post.reload.downvotes).to eq 1
+        end
       end
     end
 
@@ -55,6 +48,20 @@ RSpec.describe Post, type: :model do
         subject { Fabricate :post, upvotes: 60, downvotes: 40 }
         it 'returns the correct ratio' do
           expect(subject.upvote_ratio).to eq 60
+        end
+      end
+
+      context 'when passing param new_upvotes' do
+        subject { Fabricate :post, upvotes: 60, downvotes: 40 }
+        it 'returns the correct ratio' do
+          expect(subject.upvote_ratio(new_upvotes: 63)).to eq 61
+        end
+      end
+
+      context 'when passing param new_downvotes' do
+        subject { Fabricate :post, upvotes: 60, downvotes: 40 }
+        it 'returns the correct ratio' do
+          expect(subject.upvote_ratio(new_downvotes: 41)).to eq 59
         end
       end
     end

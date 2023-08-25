@@ -12,24 +12,28 @@ class PostsController < ApplicationController
 
   # PUT /upvote/1
   def upvote
-    if @post.increment_upvotes
-      render status: :ok
-    else
-      render json: @post.errors, status: 500
-    end
+    increment_vote :upvotes
   end
 
   # PUT /downvote/1
   def downvote
-    if @post.increment_downvotes
-      render status: :ok
-    else
-      render json: @post.errors, status: 500
-    end
+    increment_vote :downvotes
   end
 
   private
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  # @param vote_type [Symbol] the type of vote to increment. Either :upvotes or :downvotes.
+  def increment_vote(vote_type)
+
+    result = @post.with_lock { @post.increment_vote(vote_type) }
+
+    if result
+      render status: :ok
+    else
+      render json: @post.errors, status: 500
+    end
   end
 end

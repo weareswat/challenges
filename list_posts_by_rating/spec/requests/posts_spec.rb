@@ -25,7 +25,7 @@ RSpec.describe '/posts', type: :request do
     end
 
     context 'internal server error' do
-      before { allow_any_instance_of(Post).to receive(:increment_upvotes).and_return(nil) }
+      before { allow_any_instance_of(Post).to receive(:increment_vote).and_return(nil) }
 
       it 'returns a 500 error' do
         put post_upvote_url(my_post), as: :json
@@ -48,7 +48,7 @@ RSpec.describe '/posts', type: :request do
     end
 
     context 'internal server error' do
-      before { allow_any_instance_of(Post).to receive(:increment_downvotes).and_return(nil) }
+      before { allow_any_instance_of(Post).to receive(:increment_vote).and_return(nil) }
 
       it 'returns a 500 error' do
         put post_downvote_url(my_post), as: :json

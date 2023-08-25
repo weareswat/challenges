@@ -3,31 +3,26 @@ class Post < ApplicationRecord
     all.order(Arel.sql('rating DESC, (upvotes - downvotes) DESC'))
   end
 
-  def increment_upvotes
-    with_lock do
-      update(upvotes: upvotes + 1, rating: upvote_ratio)
+  # @param vote_type [Symbol] The kind of vote to increment. Either :upvotes or :downvotes.
+  def increment_vote(vote_type)
+    new_votes_count = send(vote_type) + 1
+
+    params = {}.tap do |p|
+      p[vote_type] = new_votes_count
+      p[:rating] = upvote_ratio(**Hash[:"new_#{vote_type}", new_votes_count])
     end
+
+    update(**params)
   end
 
-  def increment_downvotes
-    with_lock do
-      update(downvotes: downvotes + 1, rating: upvote_ratio)
-    end
-  end
+  def upvote_ratio(new_upvotes: upvotes, new_downvotes: downvotes)
+    votes = new_upvotes + new_downvotes
+    score = new_upvotes - new_downvotes
 
-  def votes
-    upvotes + downvotes
-  end
-
-  def score
-    upvotes - downvotes
-  end
-
-  def upvote_ratio
     return 0 if votes.zero?
 
     return 0 if score.negative?
 
-    (100*(upvotes.to_f/votes.to_f)).to_i
+    (100*(new_upvotes.to_f/votes.to_f)).to_i
   end
 end
