@@ -29,39 +29,51 @@ RSpec.describe Post, type: :model do
       end
     end
 
-    describe '#upvote_ratio' do
+    describe '#assign_rating' do
       context 'when has no votes' do
         subject { Fabricate :post, upvotes: 0, downvotes: 0 }
         it 'returns 0.0' do
-          expect(subject.upvote_ratio).to eq 0
+          expect(subject.rating).to eq 0
         end
       end
 
       context 'when positive score is negative' do
         subject { posts(:negative1) }
         it 'returns 0.0' do
-          expect(subject.upvote_ratio).to eq 0
+          expect(subject.rating).to eq 0
         end
       end
 
       context 'when has votes' do
         subject { Fabricate :post, upvotes: 60, downvotes: 40 }
         it 'returns the correct ratio' do
-          expect(subject.upvote_ratio).to eq 60
+          expect(subject.rating).to eq 60
         end
       end
 
       context 'when passing param new_upvotes' do
         subject { Fabricate :post, upvotes: 60, downvotes: 40 }
+
+        before do
+          3.times { subject.increment_vote(:upvotes) }
+          subject.reload
+        end
+
         it 'returns the correct ratio' do
-          expect(subject.upvote_ratio(new_upvotes: 63)).to eq 61
+          expect(subject.rating).to eq 61
         end
       end
 
       context 'when passing param new_downvotes' do
         subject { Fabricate :post, upvotes: 60, downvotes: 40 }
+
+        before do
+          subject.increment_vote(:downvotes)
+          subject.reload
+        end
+
         it 'returns the correct ratio' do
-          expect(subject.upvote_ratio(new_downvotes: 41)).to eq 59
+          expect(subject.rating).to eq 59
         end
       end
     end

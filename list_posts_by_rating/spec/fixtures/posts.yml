@@ -1,35 +1,29 @@
 only_upvotes:
   upvotes: 600
   downvotes: 0
-  rating: 100
   content: 'I should rank 1st'
 
 same_ratio1:
   upvotes: 600
   downvotes: 400
-  rating: 60
   content: 'I should rank 2nd'
 
 same_ratio2:
   upvotes: 60
   downvotes: 40
-  rating: 60
   content: 'I should rank 3rd'
 
 no_votes:
   upvotes: 0
   downvotes: 0
-  rating: 0
   content: 'I should rank 4th'
 
 negative1:
   upvotes: 1
   downvotes: 2
-  rating: 0
   content: 'I should rank 5th'
 
 negative2:
   upvotes: 0
   downvotes: 2
-  rating: 0
   content: 'I should rank 6th'
