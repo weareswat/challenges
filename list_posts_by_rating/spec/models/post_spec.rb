@@ -51,7 +51,7 @@ RSpec.describe Post, type: :model do
         end
       end
 
-      context 'when passing param new_upvotes' do
+      context 'when adding upvotes' do
         subject { Fabricate :post, upvotes: 60, downvotes: 40 }
 
         before do
@@ -64,7 +64,7 @@ RSpec.describe Post, type: :model do
         end
       end
 
-      context 'when passing param new_downvotes' do
+      context 'when adding downvotes' do
         subject { Fabricate :post, upvotes: 60, downvotes: 40 }
 
         before do
