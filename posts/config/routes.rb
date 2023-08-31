@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  get '/users', to: 'users#index',:defaults => { :format => 'json' }
+  post '/users', to: 'users#create',:defaults => { :format => 'json' }
 end
