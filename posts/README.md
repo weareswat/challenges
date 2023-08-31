@@ -71,3 +71,6 @@ We have unit test coverage for Users and Posts, both on their models and control
 rails test
 ```
 
+## Disclaimer
+
+This project does *not* emcompass security (either on the perpective of a user or an API), nor best practices for production-level software. This is very much a proof-of-concept just for the sake of a coding challenge.
