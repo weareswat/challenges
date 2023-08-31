@@ -14,6 +14,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(username)
+    params.require(:username)
   end
 end
