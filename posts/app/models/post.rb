@@ -3,6 +3,8 @@ class Post < ApplicationRecord
 
   def ratio
     total = self.upvotes + self.downvotes
+    return 0 if total.zero?
+
     (self.upvotes.to_f / total.to_f * 100).round(2)
   end
 
