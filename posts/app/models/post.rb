@@ -3,7 +3,7 @@ class Post < ApplicationRecord
 
   def ratio
     total = self.upvotes + self.downvotes
-    return 0 if total.zero?
+    return 50.0 if total.zero?
 
     (self.upvotes.to_f / total.to_f * 100).round(2)
   end
@@ -11,6 +11,8 @@ class Post < ApplicationRecord
   def self.sorted(query = nil)
     posts = query.nil? ? Post.all : where(query)
 
+    # Notice that each comparison puts b before a.
+    # This is important to make sure the posts are sorted in desc order
     posts.sort {|a,b| a.ratio == b.ratio ? b.upvotes <=> a.upvotes : b.ratio <=> a.ratio}
   end
 end
