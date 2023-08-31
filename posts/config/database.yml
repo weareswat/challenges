@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: postgres
+  password: password
+  pool: 5
+
+development:
+  <<: *default
+  database: myapp_development
+
+
+test:
+  <<: *default
+  adapter: sqlite3
+  database: db/test.sqlite3
+
+local:
+  <<: *default
+  adapter: sqlite3
+  database: db/local.sqlite3
