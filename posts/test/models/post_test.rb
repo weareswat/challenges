@@ -64,4 +64,23 @@ class PostTest < ActiveSupport::TestCase
     assert_equal third_post, posts[3]
     assert_equal fourth_post, posts[4]
   end
+
+  test "posts with no reactions should be above negative posts" do
+    user = User.create(username: "alice_or_bob")
+    first_post = Post.create(title: "first", content: "lorem ipsum", user: user, upvotes: 600, downvotes: 40)
+    second_post = Post.create(title: "second", content: "lorem ipsum", user: user, upvotes: 200000, downvotes: 900)
+    third_post = Post.create(title: "third", content: "lorem ipsum", user: user)
+    fourth_post = Post.create(title: "fourth", content: "lorem ipsum", user: user, upvotes: 10, downvotes: 200)
+    fifth_post = Post.create(title: "fifth", content: "lorem ipsum", user: user)
+
+    #both third_post and fifth_post have the same ratio, but fifth_post should come up first since it has more upvotes
+
+    posts = Post.sorted
+
+    assert_equal second_post, posts[0]
+    assert_equal first_post, posts[1]
+    assert_equal third_post, posts[2]
+    assert_equal fifth_post, posts[3]
+    assert_equal fourth_post, posts[4]
+  end
 end
