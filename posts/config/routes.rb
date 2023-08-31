@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   get '/users', to: 'users#index',:defaults => { :format => 'json' }
   post '/users', to: 'users#create',:defaults => { :format => 'json' }
+  get '/posts', to: 'posts#index', :defaults => { :format => 'json' }
 end
