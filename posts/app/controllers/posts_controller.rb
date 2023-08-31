@@ -9,11 +9,24 @@ class PostsController < ApplicationController
       render nothing: true, status: 400
     end
   end
+
   def index
     @posts = Post.sorted
     respond_to do |format|
       format.json { render json: @posts }
     end
+  end
+
+  def upvote
+    @post = Post.find(params[:id])
+    @post.upvotes += 1
+    render nothing: true, status: 200
+  end
+
+  def downvote
+    @post = Post.find(params[:id])
+    @post.downvotes += 1
+    render nothing: true, status: 200
   end
 
   private
