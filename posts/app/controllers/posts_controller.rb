@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
-  protect_from_forgery unless: -> { request.format.json? }
-
   def create
-    user = User.find(username: params[:username])
-    @post = Post.new(title: params[:title], content: params[:content], user: user)
+    user = User.where(username: params[:username])
+    @post = Post.new(title: params[:title], content: params[:content], user: user.first)
     if @post.save!
-      format.json {render json: @post}
+      respond_to do |format|
+        format.json { render json: @post }
+      end
     else
       render nothing: true, status: 400
     end

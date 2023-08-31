@@ -4,6 +4,16 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
+  test "should create posts" do
+    user = User.create(username: "alice")
+    data = {username: "alice", title: "controller test", content: "content"}
+    post "/posts", params: data
+    assert_response :success
+
+    post = Post.first
+    assert_equal "controller test", post.title
+  end
+
   test "index should return all posts sorted by ratio/upvotes" do
     user = User.create(username:"rms")
     ten = 10

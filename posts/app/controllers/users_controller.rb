@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  protect_from_forgery unless: -> { request.format.json? }
   def create
     User.create(username: params[:username])
   end
