@@ -1,24 +1,73 @@
-# README
+# List Posts by Rating
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is a response to the [List Posts by Rating](https://github.com/paultergust/posts-by-rating/blob/master/1-development/list_posts_by_rating.md) challenge. 
+The idea is to have an API which stores users, who create posts, which are ranked according to a "upvotes"/"total votes" ratio, with an upvotes count tie breaker.
 
-Things you may want to cover:
+## Dependencies
 
-* Ruby version
+* Ruby On Rails
+* PostgreSQL or SQLite
+* Docker
+* Docker Compose
 
-* System dependencies
+## How to run
 
-* Configuration
+### If you want to run it in a Docker container
 
-* Database creation
+This will spin up two containers. One with a PostgreSQL db, and one with the API itself.
 
-* Database initialization
+``` shell
+sudo docker-compose up
+```
 
-* How to run the test suite
+### If you want to run it locally
 
-* Services (job queues, cache servers, search engines, etc.)
+You can either have PostgreSQL running on your machine and change the `host` variable in `config/database.yml`:
+```yml
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost # <<- this one
+  username: postgres
+  password: password
+  pool: 5
 
-* Deployment instructions
+development:
+  <<: *default
+  database: myapp_development
 
-* ...
+
+test:
+  <<: *default
+  adapter: sqlite3
+  database: db/test.sqlite3
+
+local:
+  <<: *default
+  adapter: sqlite3
+  database: db/local.sqlite3
+
+```
+
+Or you can set this environment variable: 
+
+``` shell
+export RAILS_ENV=local
+```
+
+Then, for convenience, the database is gonna be a SQLite instance stored in `db/local.sqlite3`
+
+And you can run the project with:
+
+``` shell
+rails server
+```
+
+## Running tests
+
+We have unit test coverage for Users and Posts, both on their models and controllers. To run all tests just run
+
+``` shell
+rails test
+```
+
