@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'posts#index'
+
   resources :votes
-  resources :posts, path: '/'
+  resources :posts
 end
