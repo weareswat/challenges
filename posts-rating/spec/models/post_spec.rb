@@ -66,9 +66,31 @@ RSpec.describe Post, type: :model do
       end
     end
 
-    context 'when post has votes' do
-      it 'must have a score greater than zero' do
-        expect(subject.score).to be > 0
+    context 'when post has only negative votes' do
+      before { subject.increase_vote(build(:vote, post: subject, vote_type: :down)) }
+
+      it 'must have a score lower than zero' do
+        expect(subject.score).to be < 0
+      end
+    end
+
+    context 'when two posts have the same ratio' do
+      context 'and posts have up and down votes' do
+        let(:post_hundred_votes) { create(:post, :with_votes, up: 60, down: 40) }
+        let(:post_ten_votes) { create(:post, :with_votes, up: 6, down: 4) }
+
+        it 'must have a better score than the second' do
+          expect(post_hundred_votes.score).to be > post_ten_votes.score
+        end
+      end
+
+      context 'and one of them have no up or down votes' do
+        let(:post_one_vote) { create(:post, :with_votes, up: 1, down: 0) }
+        let(:post_seven_votes) { create(:post, :with_votes, up: 4, down: 3) }
+
+        it 'must have a better score than the second' do
+          expect(post_one_vote.score).to be > post_seven_votes.score
+        end
       end
     end
   end
