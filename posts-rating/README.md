@@ -26,5 +26,8 @@ API to create posts and allow users rate them.
 ## Setup
 `bin/setup`.
 
+## Database
+Some seeds are available running: `bin/rails db:seed`
+
 ## Tests
 `./bin/rspec --format d`.

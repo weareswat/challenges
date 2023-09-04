@@ -8,11 +8,11 @@ end
 post_one = Post.create(generate_data_for_post)
 post_two = Post.create(generate_data_for_post)
 
-60.times do
+600.times do
   post_one.rate(Vote.new(username: 'guilherme', vote_type: :up))
 end
 
-40.times do
+400.times do
   post_one.rate(Vote.new(username: 'guilherme', vote_type: :down))
 end
 
