@@ -23,11 +23,17 @@ API to create posts and allow users rate them.
   POST /upvote/:post_id  
   POST /downvote/:post_id  
 
-## Setup
-`bin/setup`.
+## Running application
+Build development image  
+`docker build -t post-api -f Dockerfile.dev .`
+
+Starting application  
+`docker run -p 3000:3000 post-api`
 
 ## Database
-Some seeds are available running: `bin/rails db:seed`
+Some seeds are available by running  
+`docker exec -it <container-name> ./bin/rails db:seed`
 
 ## Tests
-`./bin/rspec --format d`.
+Running tests  
+`docker exec -it <container-name> ./bin/rspec --format d`.
