@@ -113,6 +113,7 @@ GEM
     mini_mime (1.1.5)
     minitest (5.19.0)
     msgpack (1.7.2)
+    mysql2 (0.5.5)
     net-imap (0.3.7)
       date
       net-protocol
@@ -206,6 +207,7 @@ DEPENDENCIES
   debug
   factory_bot_rails
   faker
+  mysql2 (~> 0.5)
   puma (~> 5.0)
   rails (~> 7.0.7, >= 7.0.7.2)
   rspec-rails
