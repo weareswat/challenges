@@ -74,6 +74,30 @@ RSpec.describe Post, type: :model do
       end
     end
 
+    context 'when votes are added' do
+      let(:post) { create(:post, :with_votes, up: 10, down: 5) }
+
+      it 'score must be increased after up vote' do
+        score_before_vote = post.score
+
+        post.increase_vote(build(:vote, post: post, vote_type: :up))
+
+        score_after_vote = post.score
+
+        expect(score_after_vote).to be > score_before_vote
+      end
+
+      it 'score must be decreased after down vote' do
+        score_before_vote = post.score
+
+        post.increase_vote(build(:vote, post: post, vote_type: :down))
+
+        score_after_vote = post.score
+
+        expect(score_after_vote).to be < score_before_vote
+      end
+    end
+
     context 'when two posts have the same ratio' do
       context 'and posts have up and down votes' do
         let(:post_hundred_votes) { create(:post, :with_votes, up: 60, down: 40) }
