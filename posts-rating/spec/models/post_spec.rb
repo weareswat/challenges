@@ -74,7 +74,7 @@ RSpec.describe Post, type: :model do
       end
     end
 
-    context 'when votes are added' do
+    context 'when user rate posts' do
       let(:post) { create(:post, :with_votes, up: 10, down: 5) }
 
       it 'score must be increased after up vote' do
@@ -98,21 +98,21 @@ RSpec.describe Post, type: :model do
       end
     end
 
-    context 'when two posts have the same ratio' do
-      context 'and posts have up and down votes' do
+    context 'when two posts have the same ratio between up and down votes' do
+      context 'and posts have more than one up and down votes' do
         let(:post_hundred_votes) { create(:post, :with_votes, up: 60, down: 40) }
         let(:post_ten_votes) { create(:post, :with_votes, up: 6, down: 4) }
 
-        it 'must have a better score than the second' do
+        it 'must have different score' do
           expect(post_hundred_votes.score).to be > post_ten_votes.score
         end
       end
 
-      context 'and one of them have no up or down votes' do
+      context 'and one of them has zero up or down vote' do
         let(:post_one_vote) { create(:post, :with_votes, up: 1, down: 0) }
         let(:post_seven_votes) { create(:post, :with_votes, up: 4, down: 3) }
 
-        it 'must have a better score than the second' do
+        it 'must have different score' do
           expect(post_one_vote.score).to be > post_seven_votes.score
         end
       end
