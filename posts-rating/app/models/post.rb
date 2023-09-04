@@ -30,7 +30,10 @@ class Post < ApplicationRecord
 
     return 0 if total_votes.zero?
 
-    (up_votes.to_f / down_votes.to_f) * total_votes
+    return (down_votes.to_f / -0.1) * total_votes if up_votes.zero?
+    return ((up_votes.to_f / 0.1) * total_votes).abs if down_votes.zero?
+
+    return (up_votes.to_f / down_votes.to_f) * total_votes
   end
 
   private
