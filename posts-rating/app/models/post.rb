@@ -12,27 +12,30 @@ class Post < ApplicationRecord
   end
 
   def up_votes_count
-    count_votes(vote_type: :up)
+    count_votes_by_type(:up)
   end
 
   def down_votes_count
-    count_votes(vote_type: :down)
+    count_votes_by_type(:down)
   end
 
   def total_votes_count
-    up_votes_count + down_votes_count
+    self.votes.count
   end
 
   def score
-    up_votes   = self.up_votes_count
-    down_votes = self.down_votes_count
+    up_votes    = up_votes_count
+    down_votes  = down_votes_count
+    total_votes = up_votes + down_votes
 
-    (up_votes.to_f / down_votes.to_f) * (up_votes + down_votes)
+    return 0 if total_votes.zero?
+
+    (up_votes.to_f / down_votes.to_f) * total_votes
   end
 
   private
 
-  def count_votes(vote_type:)
+  def count_votes_by_type(vote_type)
     self.votes.where(vote_type: vote_type).count
   end
 end
