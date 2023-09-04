@@ -3,12 +3,12 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
+    @posts = Post.ordered_by_score
 
     render json: @posts
   end
 
-  # GET /posts/1
+  # GET /posts/:id
   def show
     render json: @post
   end
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /posts/1
+  # PATCH/PUT /posts/:id
   def update
     if @post.update(post_params)
       render json: @post
@@ -33,18 +33,16 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1
+  # DELETE /posts/:id
   def destroy
     @post.destroy
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit(:title, :content)
     end
