@@ -40,7 +40,7 @@ RSpec.describe Post, type: :model do
       it 'has one vote' do
         expect(subject.votes).to be_empty
 
-        subject.increase_vote(vote)
+        subject.rate(vote)
 
         expect(subject.votes.count).to eq 1
       end
@@ -67,7 +67,7 @@ RSpec.describe Post, type: :model do
     end
 
     context 'when post has only negative votes' do
-      before { subject.increase_vote(build(:vote, post: subject, vote_type: :down)) }
+      before { subject.rate(build(:vote, post: subject, vote_type: :down)) }
 
       it 'must have a score lower than zero' do
         expect(subject.score).to be < 0
@@ -80,7 +80,7 @@ RSpec.describe Post, type: :model do
       it 'score must be increased after up vote' do
         score_before_vote = post.score
 
-        post.increase_vote(build(:vote, post: post, vote_type: :up))
+        post.rate(build(:vote, post: post, vote_type: :up))
 
         score_after_vote = post.score
 
@@ -90,7 +90,7 @@ RSpec.describe Post, type: :model do
       it 'score must be decreased after down vote' do
         score_before_vote = post.score
 
-        post.increase_vote(build(:vote, post: post, vote_type: :down))
+        post.rate(build(:vote, post: post, vote_type: :down))
 
         score_after_vote = post.score
 

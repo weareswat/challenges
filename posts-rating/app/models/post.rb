@@ -5,7 +5,7 @@ class Post < ApplicationRecord
 
   scope :ordered_by_score, -> { sort_by { |p| -p.score } }
 
-  def increase_vote(vote)
+  def rate(vote)
     self.votes << vote
 
     save!
