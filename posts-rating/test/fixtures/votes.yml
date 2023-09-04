@@ -1,9 +1,0 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  vote_type: 1
-  username: MyString
-
-two:
-  vote_type: 1
-  username: MyString
