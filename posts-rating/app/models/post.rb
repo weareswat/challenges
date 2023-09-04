@@ -6,7 +6,7 @@ class Post < ApplicationRecord
   scope :ordered_by_score, -> { sort_by { |p| -p.score } }
 
   def rate(vote)
-    self.votes << vote
+    votes << vote
 
     save!
   end
@@ -20,7 +20,7 @@ class Post < ApplicationRecord
   end
 
   def total_votes_count
-    self.votes.count
+    votes.count
   end
 
   def score
@@ -39,6 +39,6 @@ class Post < ApplicationRecord
   private
 
   def count_votes_by_type(vote_type)
-    self.votes.where(vote_type: vote_type).count
+    votes.where(vote_type: vote_type).count
   end
 end
