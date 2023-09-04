@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  has_many :votes, foreign_key: 'post_id', class_name: 'Vote'
+  has_many :votes, foreign_key: 'post_id', class_name: 'Vote', dependent: :delete_all
 
   validates :title, :content, presence: true
 
