@@ -9,17 +9,17 @@ post_one = Post.create(generate_data_for_post)
 post_two = Post.create(generate_data_for_post)
 
 60.times do
-  post_one.increase_vote(Vote.new(username: 'guilherme', vote_type: :up))
+  post_one.rate(Vote.new(username: 'guilherme', vote_type: :up))
 end
 
 40.times do
-  post_one.increase_vote(Vote.new(username: 'guilherme', vote_type: :down))
+  post_one.rate(Vote.new(username: 'guilherme', vote_type: :down))
 end
 
 6.times do
-  post_two.increase_vote(Vote.new(username: 'guilherme', vote_type: :up))
+  post_two.rate(Vote.new(username: 'guilherme', vote_type: :up))
 end
 
 4.times do
-  post_two.increase_vote(Vote.new(username: 'guilherme', vote_type: :down))
+  post_two.rate(Vote.new(username: 'guilherme', vote_type: :down))
 end
