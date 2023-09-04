@@ -2,10 +2,10 @@ class PostSerializer < ActiveModel::Serializer
   attributes :id, :title, :content, :up_votes, :down_votes, :score
 
   def up_votes
-    object.up_votes_total
+    object.up_votes_count
   end
 
   def down_votes
-    object.down_votes_total
+    object.down_votes_count
   end
 end

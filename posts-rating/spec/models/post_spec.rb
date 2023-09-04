@@ -46,21 +46,22 @@ RSpec.describe Post, type: :model do
       end
 
       it 'has many votes' do
-        up_votes_total   = 8
-        down_votes_total = 2
+        up_votes   = 8
+        down_votes = 2
 
-        post = create(:post, :with_votes, up: up_votes_total, down: down_votes_total)
+        post = create(:post, :with_votes, up: up_votes, down: down_votes)
 
         expect(post.votes).to_not be_empty
-        expect(post.up_votes_total).to eq up_votes_total
-        expect(post.down_votes_total).to eq down_votes_total
+        expect(post.up_votes_count).to eq up_votes
+        expect(post.down_votes_count).to eq down_votes
+        expect(post.total_votes_count).to eq up_votes + down_votes
       end
     end
   end
 
   describe 'scoring' do
     context 'when post has no votes' do
-      it 'score must equal to zero' do
+      it 'score must be equal to zero' do
         expect(subject.score).to eq 0
       end
     end

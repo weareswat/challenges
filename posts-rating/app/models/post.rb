@@ -11,17 +11,21 @@ class Post < ApplicationRecord
     save!
   end
 
-  def up_votes_total
+  def up_votes_count
     count_votes(vote_type: :up)
   end
 
-  def down_votes_total
+  def down_votes_count
     count_votes(vote_type: :down)
   end
 
+  def total_votes_count
+    up_votes_count + down_votes_count
+  end
+
   def score
-    up_votes   = self.up_votes_total
-    down_votes = self.down_votes_total
+    up_votes   = self.up_votes_count
+    down_votes = self.down_votes_count
 
     (up_votes.to_f / down_votes.to_f) * (up_votes + down_votes)
   end
