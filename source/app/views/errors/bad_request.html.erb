@@ -1,0 +1,69 @@
+<div class="error-container">
+  <div class="error-content">
+    <h1>400 - Bad Request</h1>
+    <p>The request could not be processed. Please check your input and try again.</p>
+    <div class="error-actions">
+      <%= link_to "Go Home", root_path, class: "btn btn-primary" %>
+      <%= link_to "Go Back", :back, class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>
+
+<style>
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.error-content {
+  max-width: 500px;
+  padding: 2rem;
+}
+
+.error-content h1 {
+  color: #dc3545;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+.error-content p {
+  color: #6c757d;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.error-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #545b62;
+}
+</style>

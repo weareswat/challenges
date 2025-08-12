@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Source</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <% if flash.any? %>
+      <div class="flash-messages">
+        <% flash.each do |type, message| %>
+          <div class="flash-message <%= type %>">
+            <%= message %>
+            <button type="button" class="flash-close" onclick="this.parentElement.remove()">&times;</button>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    
+    <%= yield %>
+  </body>
+</html>

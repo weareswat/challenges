@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - source-postgres:/var/lib/postgresql/data
+
+  source:
+    build:
+      context: .
+      args:
+        UID: "${UID}"
+        GID: "${GID}"
+    volumes:
+      - ./source:/opt/app
+    links:
+      - postgres
+    ports:
+      - '8010:8010'
+    env_file:
+      - .env
+    user: "${UID}:${GID}"
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.nginx
+    links:
+      - source
+    ports:
+      - '3000:3000'
+
+volumes:
+  source-postgres:
