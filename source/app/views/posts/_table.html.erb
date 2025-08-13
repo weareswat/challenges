@@ -1,0 +1,33 @@
+<div id="posts-container" data-controller="posts">
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Upvotes</th>
+        <th>Downvotes</th>
+        <th>Total</th>
+        <th>Score</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% posts.each do |post| %>
+      <tr data-post-id="<%= post.id %>">
+        <td><%= post.title %></td>
+        <td class="upvotes"><%= post.upvotes %></td>
+        <td class="downvotes"><%= post.downvotes %></td>
+        <td class="total-votes"><%= post.total_votes %></td>
+        <td class="score"><%= format('%.6f', post.score) %></td>
+        <td>
+          <button data-action="click->posts#upvote" 
+                  data-post-id="<%= post.id %>" 
+                  class="btn btn-success">👍 Upvote</button>
+          <button data-action="click->posts#downvote" 
+                  data-post-id="<%= post.id %>" 
+                  class="btn btn-danger">👎 Downvote</button>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

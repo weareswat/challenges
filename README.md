@@ -1,53 +1,199 @@
+# List Posts by Rating Challenge 
 
-# Challenges
-Code challenges for developers and designers.
+![Ruby](https://img.shields.io/badge/ruby-%23CC342D.svg?style=for-the-badge&logo=ruby&logoColor=white)
+![Rails](https://img.shields.io/badge/rails-%23CC0000.svg?style=for-the-badge&logo=ruby-on-rails&logoColor=white)
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 
-We believe recruitment is the most critical part of an organization. People should experience some time working together before deciding on making it permanent.
-This repo contains code challenges we'd like to see solved by people interested in working with us.
+A Rails application that implements a Reddit-style post scoring system with logarithmic ranking algorithms and time decay factors.
 
-We tend not to place job ads, as we prefer references and proactive candidates. With this in mind, feel free to take a challenge and let us know you're working on it.
-Mostly, we work with Ruby and java, but also have some stuff in javascript. Even if you don't have experience in these technologies, as long as you are willing to learn them and want to build great stuff for the web, we can probably be a good fit.
+## Technology Stack
+
+- **Ruby**: 3.4.5
+- **Rails**: 8.0.2
+- **PostgreSQL**: Latest (Docker)
+- **Docker**: Containerized development environment (Initial docker from https://github.com/muromeo1/rails-docker-boilerplate)
+
+## Challenge
+
+### List Posts by Rating
+
+You are a web programmer. You have users. Your users rate posts on your site. You want to put the highest-rated posts at the top and lowest-rated at the bottom. You need some sort of "score" to sort by.
+
+### Objectives
+
+We'd like to see a working web service with the following endpoints:
+
+```
+/upvote/:post_id
+/downvote/:post_id
+/posts/
+```
+
+No UI is required. You can use a database of your choice.
+
+Tech stack: Feel free to use the stack that you feel more comfortable.This means you can choose any language you need to get the job done.
+
+Your solution should consider that if you have a first post with 600 up votes and 400 down votes means that you have 60% of up votes and 40% of down votes, and if you have another post with 6 up votes and 4 down votes you have the same % of the previous post, 60% of up votes and 40% of down votes.
+
+Hint: Note that the score in % of the two posts are equal, but the real "values" are significantly differents
+
+You should be doing the solution on a specific branch. Once you have something to delivery, you can open a Pull Request. You can use the Pull Request if you'd like some feedback on your code or to discuss something with us.
+
+### Things We value
+
+- Clean code, we want you to show us the best code you can do
+- If you are familiar with TDD, BDD or any testing process, please show us your skills
+
+Tech stack: please use preferably Ruby / Rails or JAVA, but if you are more versatile in a different tech stack, you may use one of your choice.
 
 
-### Available challenges
+## Features
 
-#### Backend Development
-* [User Changes](/1-development/user-changes.md)
-* [Client from the Bahamas](/1-development/client-from-the-bahamas.md)
-* [List Posts by Ratings](/1-development/list_posts_by_rating.md)
+- **Post Scoring System**: Implements a logarithmic scoring algorithm similar to Reddit's ranking system
+- **Vote Management**: Supports upvotes and downvotes with proper score calculations
 
-#### Frontend Development
-* [React Challenge](/2-frontend/react-challenge.md)
-* [Design Implementation Challenge](/3-design-frontend/design-frontend-challenge.md)
+## Scoring Algorithm
+I decided to use Logarithmic Score (Reddit-style) because: 
+- Balances popularity and recency (old content naturally decays in ranking even if it has many votes)
+- New content with even moderate upvotes can rise quickly
+- Simple and fast to compute
+- No confidence intervals or priors (just basic math and log)
+- Directional control with sign
+- Separates positive vs. negative reactions (posts with more downvotes than upvotes sink faster)
+- Encourages early engagement (the time boost helps early upvoting significantly, rewarding viral momentum)
 
+## Getting Started
 
-### How we work ##
+### Prerequisites
 
-* **People** - you know, the guys in the team(s). We're not afraid to ask for help and we're not afraid to express our opinions. We're here to help.eachother.
+- Docker
+- Docker Compose
 
-* **Culture** - We follow RUPEAL's guiding principles:
+### Installation
 
-  * Give your best
-  * Show That You Care
-  * Build an environment of strong, open and honest relationships
-  * Deliver WOW through your service
-  * Stay humble
-  * Do What's Right
-  * Be coachable and don’t take it personally
-  * Do more with less
-  * Pursue growth and personal development
-  * Have fun
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd list_posts_by_rating_challenge
+```
 
-* **You** - by joining our team, feel free to question all the items below and propose new ideas on how we work. This is definitely not a static thing.
+2. Start the application:
+```bash
+docker compose build
+docker compose up
+```
 
-* **GitHub** - all our code is hosted here. We use Pull Requests and do code reviews for those. Everyone on the team reviews PRs. It's expected that you write quality code with automated tests. Once a PR is reviewed and accepted, the person who opened the PR should merge it and delete the branch.
+4. Access the application at `http://localhost:3000`
 
-* **Continuous Integration** - we use Semaphore and CircleCI for our CI needs. Everytime we push to a branch, our test suite runs on Semaphore on some projects, CircleCI on others.
+## Usage
 
-* **Slack** - we mostly communicate asynchronously between the development team and with other teams. This is our chat tool. Abuse it.
+### Running Commands
 
-* **Jira** - our products' backlog is managed in Jira. Once we estimate all known user-stories, the sprint backlog is automatically built. Each team member will select a user-story to work from that sprint backlog and will update the needed tasks' status. This way we keep focused until the end of the sprint.
+Use the `bin/run` script to execute commands within the Docker container:
 
-* **AWS** - our products are mainly hosted on AWS, so a basic knowledge of it is appreciated.
+```bash
+# Rails commands
+bin/run rails console
+bin/run rails routes
+bin/run rails db:migrate
+bin/run rails db:seed
 
-* **Support tasks** - We are paranoid about providing top notch support to our customers. We have a dedicated customer support team working full-time communicating with clients. Our development team works very closely with the customer support team delivering happiness to our clients.
+# Ruby commands
+bin/run ruby -v
+bin/run bundle install
+```
+
+### API Endpoints
+
+- `GET /posts` - List all posts with scores
+- `POST /posts/:id/upvote` - Upvote a post
+- `POST /posts/:id/downvote` - Downvote a post
+
+### Interface
+Access the application at `http://localhost:3000` and interact with the visual interface, it will show you the upvote and downvote endpoints working plus the score system working.
+
+## Development
+
+### Project Structure
+
+```
+source/
+├── app/
+│   ├── controllers/
+│   │   ├── application_controller.rb
+│   │   ├── posts_controller.rb                    # Web interface controller
+│   │   └── api/
+│   │       └── v1/
+│   │           └── posts_controller.rb            # API endpoints for posts
+│   ├── models/
+│   │   ├── application_record.rb
+│   │   └── post.rb                               # Post model with scoring logic
+│   ├── services/
+│   │   └── post_scoring_service.rb               # Core scoring algorithm
+│   ├── views/
+│   │   ├── layouts/
+│   │   │   └── application.html.erb
+│   │   └── posts/
+│   │       ├── index.html.erb                    # Main posts listing page
+│   │       └── _table.html.erb                   # Posts table partial
+│   └── assets/
+│       ├── stylesheets/
+│       └── javascript/
+├── config/
+├── db/
+│   ├── migrate/
+│   │   └── 20250811120000_create_posts.rb       # Posts table migration
+
+│   └── seeds.rb                                  # Sample data
+├── spec/
+│   ├── models/
+│   │   └── post_spec.rb                          # Post model tests
+│   ├── controllers/
+│   │   ├── posts_controller_spec.rb              # Web controller tests
+│   │   └── api/
+│   │       └── v1/
+│   │           └── posts_controller_spec.rb      # API controller tests
+│   ├── services/
+│   │   └── post_scoring_service_spec.rb          # Scoring service tests
+│   ├── requests/
+│   │   └── api/
+│   │       └── v1/
+│   │           └── posts_spec.rb                 # API request tests
+│   ├── factories/
+│   │   └── posts.rb                              # Test data factories
+│   └── features/
+│       └── posts_spec.rb                         # Integration tests
+
+```
+
+### Key Files
+
+- `app/services/post_scoring_service.rb` - Main scoring algorithm implementation
+- `app/models/post.rb` - Post model with vote tracking
+- `app/controllers/api/v1/posts_controller.rb` - API endpoints for posts
+
+### Testing
+
+Run the test suite:
+
+```bash
+bin/run rspec
+```
+
+## Configuration
+
+### Time Decay Factor
+
+The time decay factor is configurable in `PostScoringService`:
+
+```ruby
+TIME_DECAY_FACTOR = 45_000  # 12.5 hours in seconds, used by reddit
+```
+
+### Database
+
+The application uses PostgreSQL for data persistence and efficient scoring queries.
+
+## Notes
+- The scoring system was translated to ruby with the help of AI
+- The tests where created with the help of AI

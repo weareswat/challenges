@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo == Stopping containers ==
+# docker stop $(docker ps -aqf "name=rails-docker-boilerplate")
+docker stop $(docker ps -q)
+
+echo == Delete containers ==
+docker system prune -a -f --volumes
