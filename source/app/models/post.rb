@@ -15,7 +15,7 @@ class Post < ApplicationRecord
   # Orders posts by Reddit-style logarithmic score (descending)
   scope :ordered_by_score, lambda {
     # Use a simpler approach that can be reversed
-    order(Arel.sql("CASE WHEN (upvotes + downvotes) = 0 THEN 0 ELSE 1 END DESC, #{PostScoringService.logarithmic_score_sql} DESC"))
+    order(Arel.sql("#{PostScoringService.logarithmic_score_sql} DESC"))
   }
 
   # Alternative method for ordering that can be reversed

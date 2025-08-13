@@ -1,7 +1,5 @@
 class PostScoringService
   #This service is used to calculate the score of a post. It reflects the Reddit-style logarithmic score.
-  # Time decay factor in seconds (45000 seconds = 12.5 hours)
-  TIME_DECAY_FACTOR = 45_000
 
   class << self
     # SQL version for database ordering
@@ -9,9 +7,8 @@ class PostScoringService
       <<~SQL.squish
         CASE 
           WHEN (upvotes + downvotes) = 0 THEN 0
-          ELSE SIGN(upvotes - downvotes) * 
-               LN(GREATEST(ABS(upvotes - downvotes), 1)) * 
-               LN(2 - LEAST(EXTRACT(EPOCH FROM (NOW() - created_at)) / 45000, 1))
+          ELSE LOG10(GREATEST(ABS(upvotes - downvotes), 1)) + 
+               SIGN(upvotes - downvotes) * (EXTRACT(EPOCH FROM created_at) - 1134028003) / 45000.0
         END
       SQL
     end
@@ -34,23 +31,21 @@ class PostScoringService
 
   # Instance method for calculating score
   def calculate_score(post)
-    return 0.0 if post.total_votes.zero?
-
-    vote_difference = post.upvotes - post.downvotes
-    
-    # Calculate sign exactly like SQL: 1 for positive, -1 for negative, 0 for zero
-    sign = vote_difference > 0 ? 1 : vote_difference < 0 ? -1 : 0
-    
-    # Logarithm of absolute vote difference, using GREATEST logic like SQL
-    log_vote_diff = Math.log([vote_difference.abs, 1].max)
-    
-    # Time decay factor (posts get older and lose ranking power)
-    # Newer posts should have higher scores, so we invert the time factor
-    created_time = post.created_at || Time.current
-    time_diff_seconds = (Time.current - created_time).to_f
-    time_factor = Math.log(2 - (time_diff_seconds / TIME_DECAY_FACTOR).clamp(0, 1))
-    
-    sign * log_vote_diff * time_factor
+    vote_diff = post.upvotes - post.downvotes
+    sign = vote_diff <=> 0  # -1, 0, or 1
+  
+    # Log component (always positive or zero)
+    log_vote_diff = Math.log10([vote_diff.abs, 1].max)
+  
+    # Reddit epoch: Dec 8, 2005
+    reddit_epoch = Time.at(1134028003)
+    time_since_reddit_epoch = (post.created_at || Time.current) - reddit_epoch
+  
+    # Time component, affected by vote direction
+    time_score = sign * (time_since_reddit_epoch.to_f / 45000.0)
+  
+    # Final Reddit-style score
+    log_vote_diff + time_score
   end
 
   # Calculate total votes for a post

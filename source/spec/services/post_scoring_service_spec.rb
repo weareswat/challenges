@@ -37,7 +37,7 @@ RSpec.describe PostScoringService, type: :service do
       sql = PostScoringService.logarithmic_score_sql
       expect(sql).to include('CASE')
       expect(sql).to include('SIGN')
-      expect(sql).to include('LN')
+      expect(sql).to include('LOG10')
     end
   end
 end
